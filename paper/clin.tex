@@ -20,6 +20,10 @@
 %%% own packages
 \usepackage{booktabs}
 \usepackage{chngcntr}
+\usepackage{rotating}
+\usepackage[section]{placeins}
+\usepackage[super]{nth}
+
 %%% commands
 \newcommand{\overbar}[1]{\mkern 2.0mu\overline{\mkern-2.0mu#1\mkern-2.0mu}\mkern 2.0mu}
 
@@ -56,7 +60,7 @@ measure of Representativeness \& Distinctiveness \cite{prokic2012detecting} that
 seeks to identify those elements that are both representative for an author
 over a given set of his texts, as well distinctive with respect to an opposing
 author’s sample. The method thus bears similarities with both Burrow’s
-Delta \cite{Burrows2002delta} and Zeta \cite{Burrows2007all} in favouring consistent
+Delta  and Zeta in favouring consistent
 terms that are irregular in the opposing author’s set.
 Using the proposed method, we examine different types of features,
 both lexical and syntactic ones, such as simple word uni-grams, but also
@@ -84,7 +88,7 @@ therefore hint at a clear preference.
 
 
 
-\subsection{The Data Sets}
+\section{The Data Sets}
 
 Investigating two different comparisons of authors, the first set comprising Charles Dickens and 
 contemporary author Wilkie Collins. 
@@ -93,6 +97,132 @@ two pieces, where Dickens was main author and Dickens was among a group of collo
 In terms of stylistic properties it will be illuminating to see how these behave 
 with respect to similarity to the other pieces. 
 
+\subsubsection{Dickens vs. Collins}
+Table~\ref{table:DC} shows 
+
+
+
+
+\subsubsection{James vs. Twain}
+
+
+% Dickens vs. Collins
+\begin{sidewaystable}[!htb]
+    \caption{Dickens' and Collins' data set as part of the Dickens vs. Collins comparison.}
+    %\label{table:DC}
+    \begin{minipage}{.62\linewidth}
+      \caption{Dickens' data set.} %necessary???
+      \centering
+      \label{table:Dickens-data}
+\begin{tabular}{c l l l} \\\hline \hline
+\textbf{No.} 	& \textbf{Author} 	& \textbf{Texts} 			& \textbf{Abbr.} \\ \hline
+1   		& Dickens 		& Bleak House 				& D1023     \\
+2   		& Dickens		& Great Expectations			& D1400      \\
+3		& Dickens      		& Little Dorrit     			& D963       \\
+4		& Dickens      		& David Copperfield     		& D766        \\
+5		& Dickens      		& A Christmas Carol     		& D19337       \\
+6   		& Dickens		& Life And Adventures Of Martin Chuzzlewit	& D968        \\
+7		& Dickens		& The Mystery of Edwin Drood		& D564   \\
+8		& Dickens      		& A Tale of Two Cities                  & D98      \\
+9		& Dickens		& Master Humphrey's Clock		& D588           \\
+10		& Dickens		& The Battle of Life: A Love Story      & D40723              \\
+11		& Dickens		&Life And Adventures Of Nicholas Nickleby	& D967          \\  
+12		& Dickens		&Barnaby Rudge      			& D917             \\
+13		& Dickens		& Sketches of Young Couples		& D916        \\
+14		& Dickens		& The Uncommercial Traveller            & D914           \\
+15		& Dickens		& Our Mutual Friend			& D883           \\
+16		& Dickens		& Pictures From Italy			& D650    \\
+17		& Dickens		& Sketches by Boz			& D882      \\
+18		& Dickens		& A Child's History of England       	& D699  \\
+19		& Dickens		& Reprinted Pieces			& D872   \\
+20		& Dickens		& Dombey and Son			& D821     \\
+21		& Dickens		& Oliver Twist				& D730        \\
+22		& Dickens		&The Old Curiosity Shop			& D700         \\
+23		& Dickens		& American Notes			& D675         \\
+24		& Dickens		&The Pickwick Papers			& D580           \\
+25		& Dickens     (et al.)  & A Budget of Christmas Tales		& Dal28198         \\
+26		& Dickens (et al.)	& A House to Let			& Dal2324     \\
+27		& Dickens (/Collins)     & No Thoroughfare			& DC1423       \\ \bottomrule
+\end{tabular}
+\end{minipage}%
+\hfill
+    \begin{minipage}{.62\linewidth}
+      \centering
+      \caption{Collins' data set.} %necessary???
+\label{table:Collins-data}
+\begin{tabular}{c l l l } \\\hline \hline
+\textbf{No.}	& \textbf{Author} 		& \textbf{Texts} 		& \textbf{Abbr.} \\ \hline
+1		& Collins       		& After Dark			& C1626    \\
+2		& Collins			& Antonina			& C3606        \\
+3		& Collins			& Armadale			& C1895  \\
+4		& Collins			& Man and Wife			& C1586      \\
+5		& Collins			& Little Novels			& C1630    \\
+6		& Collins			& Jezebel's Daughter		& C3633    \\
+7		& Collins			& I Say No			& C1629       \\
+8		& Collins			& Hide and Seek			& C7893  \\
+9		& Collins			& Basil				& C4605 \\
+10		& Collins			& A Rogue's Life		& C1588     \\
+11		& Collins			& The Woman in White		& C583         \\
+12		& Collins			& The Two Destinies		& C1624    \\
+13		& Collins			& The Queen of Hearts		& C1917        \\
+14		& Collins			& The New Magdalen		& C1623     \\
+15		& Collins			& The Moonstone			& C155         \\
+16		& Collins			& The Legacy of Cain		& C1975       \\
+17		& Collins			& The Law and the Lady		& C1622         \\
+18		& Collins			& The Haunted Hotel: A Mystery of Modern Venice	&    C170              \\
+19		& Collins			& The Fallen Leaves		& C7894           \\
+20		& Collins			& The Evil Genius		& C1627           \\
+21		& Collins			& No Name			& C1438        \\
+22		& Collins			& Poor Miss Finch		& C3632           \\
+23		& Collins			& Rambles Beyond Railways	& C28367         \\
+24		& Collins			& The Black Robe		& C1587      \\
+25		& Collins			& Miss or Mrs.?			& C1621          \\
+26		& Collins			& My Lady's Money		& C1628         \\
+27		& Collins			& The Dead Alive		& C7891        \\
+\bottomrule
+\end{tabular}
+
+    \end{minipage} 
+\end{sidewaystable}
+
+
+
+
+
+
+James vs. Twain
+\begin{sidewaystable}[!htb]
+    \caption{Twain' and James' data set as part of the Twain vs. James' comparison.}
+    \label{table:TJ}
+    \begin{minipage}{.62\linewidth}
+      \caption{Twain's data set.} %necessary???
+      \centering
+      \label{table:Twain-data}
+\begin{tabular}{c l l l} \\\hline \hline
+\textbf{No.} 	& \textbf{Author} 	& \textbf{Texts} 			& \textbf{Abbr.} \\ \hline
+
+
+
+
+\bottomrule
+\end{tabular}
+\end{minipage}%
+\hfill
+    \begin{minipage}{.62\linewidth}
+      \centering
+      \caption{James' data set.} %necessary???
+\label{table:Collins-data}
+\begin{tabular}{c l l l } \\\hline \hline
+\textbf{No.}	& \textbf{Author} 		& \textbf{Texts} 		& \textbf{Abbr.} \\ \hline
+
+
+
+
+\bottomrule
+\end{tabular}
+
+    \end{minipage} 
+\end{sidewaystable}
 
 
 
@@ -100,92 +230,140 @@ with respect to similarity to the other pieces.
 
 
 
-\subsection{Representativeness and Distinctiveness}
 
-
-
-
-Representativeness \& Distinctiveness was originally conceived in the realm of dialectometry, where it has been
-shown to detect lexical items distinguishing different dialectal areas. In the context of stylometry, the method
-detects elements for which an author is consistent throughout his own works while also separating him from
-others. Considering, for instance, a comparison between Dickens and fellow writer Collins on word features using a
-couple of novels of each writer, one first determines Dickens' representative terms, i.e. those words which he
-uses consistently either frequently or infrequently over his works. In order to arrive at a combined measure, one
-then favours those representative terms of Dickens that Collins uses either inconsistently or consistently but with a
-different frequency over his novels. The remaining group of words are considered to be Dickens' representative
-and distinctive terms when compared with Collins. Since the analysis is directional, the degree of
-Representativeness of individual features being different with respect to each author, comparisons are made twice
-- once from Dickens' to Collins' set and once from Collins' to Dickens' set. This returns two individual author
-profiles, where features occurring in both profiles are also consistent for both writers.
-Thus, Representativeness \& Distinctiveness bears similarities with both Burrow's Delta [4] and Zeta [5] in so far as
-favouring consistent terms that are irregular in the opposing author's set. Additionally, it is also similar to Zeta in
-being dependent on the other set for the selection of distinctive terms out of the representative ones. However,
-rather than preselecting words according to different frequency strata, it is used here on the first 5000 most
-frequent ones.
-
-
-
-
-
-The technique presented here was originally applied in the domain of 
-
-\emph{Representativeness \& Distinctiveness} \cite{prokic2012detecting} was originally applied in the realm of dialectrometry, 
-a study of dialect differences 
-between different sites within a language area with respect to
-a choice of lexical items. The degree of difference between two sites is characterised by the aggregate differences of comparisons 
-of all lexical items collected at 
-each site. In the context of dialectrometry, \emph{Representativeness \& Distinctiveness} is a measure to detect characteristic 
+\section{Representativeness and Distinctiveness for Stylometry}
+The statistical technique of Representativeness and Distinctiveness was 
+originally conceived in the realm of dialectometry, where it has been
+shown to detect lexical items able to distinguish different dialectical 
+areas \cite{prokic2012detecting}.
+This study dealt with dialect differences between different sites within 
+a language area with respect to a choice of lexical items. 
+The degree of difference between two sites is characterised by the aggregate 
+differences of comparisons of all lexical items collected at 
+each site. Thus, in the context of dialectrometry, 
+\emph{Representativeness and Distinctiveness} is a measure to detect characteristic 
 features (lexical items), that differ little within a group of sites 
 and considerably more outside that group.
-Characteristic features are chosen with respect to one group $g$ of sites $|g|$ within a larger group of interest $G$, where $|G|$ 
-includes the sites $s$ both within and 
-outside $g$ \cite{prokic2012detecting}.
-
-The distance function in this case is the absolute difference between the logarithm of the relative 
-frequencies of $f$ with respect to two documents $d$ and $d'$.
-The usual input are relative frequencies of the original term frequency weighting, which provide a 
-better picture between the ratio of term frequency and document size. 
-The logarithm lessens the effect of rather high frequencies. % this should be better
+Characteristic features are chosen with respect to one group $g$ of sites 
+$|g|$ within a larger group of interest $G$, where $|G|$ includes the sites 
+$s$ both within and outside $g$.
 
 
+In the context of stylometry, the method can be employed to detect elements for 
+which an author is consistent throughout his own works while also separating him 
+from others. Considering, for instance, a comparison between Dickens and fellow 
+writer Collins on word features using a couple of novels of each writer, 
+one first determines Dickens' representative terms, i.e. those words which he
+uses consistently either frequently or infrequently over his works. 
+In order to arrive at a combined measure, one then favours those representative 
+terms of Dickens that Collins uses either inconsistently or consistently but with a
+different frequency over his novels. The remaining group of words are considered 
+to be Dickens' representative and distinctive terms when compared with Collins. 
+% Since the analysis is directional, the degree of Representativeness of individual 
+% features being different with respect to each author, comparisons are made twice
+% - once from Dickens' to Collins' set and once from Collins' to Dickens' set. 
+% This returns two individual author profiles, where features occurring in both 
+% profiles are also consistent for both writers.
+Thus, Representativeness and Distinctiveness bears similarities with both 
+Burrow's Delta \cite{Burrows2002delta} and Zeta  \cite{Burrows2007all} in so far as
+favouring consistent terms that are irregular in the opposing author's set. 
+Additionally, it is also similar to Zeta in being dependent on the other set 
+for the selection of distinctive terms out of the representative ones. 
+Thus, formally the method of Representativeness and Distinctiveness is defined 
+as follows: \\
 
-Thus, the distance $d_f$ between document $d$ and $d'$ with respect to feature $f$, is set as the 
-absolute difference between
-the logarithm of the relative frequency of their respective
-input values (eq.~\ref{eq:RDinput})
+\textsc{Representativeness} of a feature $f$ for document set $D$ is defined 
+in eq.~\ref{eq.Rep}.
 
 
-
-\begin{equation} \label{eq:RDinput}
- d_f(d,d') = |log(relFreq(f) - log(relFreq(f')|
-\end{equation}
-
-
- 
-$Representativeness$ of a feature $f$ for document set $D$ is then defined in eq.~\ref{eq.RDA1}
-
-
-\begin{equation}\label{eq.RDA1}
+\begin{equation}\label{eq.Rep}
  \overbar{d_f^{D}} = \frac{2}{|D|^2 -|D|} \sum\limits_{d,d' \in D,d \neq d'} d_f(d,d')
 \end{equation}
 
 
-The $Distinctiveness$ measure for comparing to outside documents corresponds to eq.~\ref{eq.RDA2}
+
+The \textsc{Distinctiveness} measure for comparing to outside documents corresponds 
+to eq.~\ref{eq.Dis}.
 
 
-\begin{equation}\label{eq.RDA2}
+\begin{equation}\label{eq.Dis}
  \overbar{d_f^{D'}} = \frac{1}{|D|(|DS| -|D|)} \sum\limits_{d \in D, d'\notin D} d_f(d,d')
 \end{equation}
 
 
- 
-$\overbar{d_f^{D'}}$  and $\overbar{d_f^{D}}$ are standardized by using all distance values calculated for feature $f$ to yield the 
-degree of representativeness and distinctiveness for
-term $dt$ in $D$ with respect to $DS$ as defined in eq.~\ref{eq.RDA3}.
- 
+The distance $d_f$ between document $d$ and $d'$ with respect to feature $f$, is set as the 
+absolute difference between the logarithm of the relative frequency of their respective
+input values (eq.~\ref{eq.dist}).
+The usual input are relative frequencies of the original term frequency weighting, which provide a 
+better picture between the ratio of term frequency and document size. 
+The logarithm lessens the effect of rather high frequencies. % this should be better
 
+\begin{equation} \label{eq.dist}
+ d_f(d,d') = |log(relFreq(f) - log(relFreq(f')|
+\end{equation}
+
+
+$\overbar{d_f^{D'}}$  and $\overbar{d_f^{D}}$ are standardized by using all 
+distance values calculated for feature $f$ to yield the 
+degree of representativeness and distinctiveness for
+term $dt$ in $D$ with respect to $DS$ as defined in eq.~\ref{eq.comb}.
  
-\subsection{Evaluation through Clustering}
+ \begin{equation}\label{eq.comb}
+ dt = \frac{\overbar{d^{D'}_f} - \overbar{d_f} }{sd(d_f)} - \frac{\overbar{d^{D}_f} - \overbar{d_f}}{sd(d_f)}
+\end{equation}
+
+
+\paragraph{Comparing Authors on the basis of Representative Features}
+% explain about different lists, how relevant for comparison 
+% take intersection of Rep and dist. terms - yields true discriminatory terms for set for comparison - put emphasis on /extenuate differences 
+% problem when take only one set, these terms will do nothing for similarity of other set among them 
+
+In order to evaluate how well the chosen terms do separate the two authors, we motivate the choice of only selecting representative features from both author profiles. 
+The issue in connection with using all discriminatory terms lies at the calculation of the $Distinctiveness$ measure. 
+If we calculate representative and distinctive features for an author, we can be sure that the values for those 
+terms are consistently similar for that author, while being different for the outside set. 
+There are consequently two different scenarios with respect to a term \emph{being different} in the other author's set. 
+
+1. The term $t_i$ is consistent in set $D$ with a high frequency. The same term $t_i$ is consistent in set the opposing author's set $nD$ with a low frequency. 
+Thus, the term is representative and distinctive for both sets, even though we did not consider the $Representativeness$ for set $nD$. 
+Obviously, the converse could also be true: a consistently low frequency for set $D$ and a consistently high frequency for the set $nD$.
+This first case does not produce any issues for measuring similarity, since on the basis of these features there is is reliable similarity within sets and
+accentuated differences between the sets. 
+
+%% TOTD check references to DS because this is the whole set
+%all the way trhough
+2. The second possibility is the one that may cause problems. Assuming a representative and distinctive term for set $D$, with a frequency either high or low. 
+However, the same term is not representative for set $nD$ and values may fluctuate from high to low. Although this term is not representative for $nD$, it
+is distinctive from $D$ to $nD$, because it is constant in $D$ while not being so in $nD$. 
+Clustering the dataset on the basis of these terms may create noise, since it will not show similarities for documents within $nD$ and 
+may have occasional rather similar values to the ones in $D$ that rate it closer to documents in $D$.
+
+\begin{figure}[!htb]
+\minipage{0.3\textwidth}
+\sf \textsc{Representativeness}
+%\vspace{0.3cm}
+  \includegraphics[scale=0.2,width=\linewidth]{figures/repres1-fin.png}
+  \endminipage\hfill
+\minipage{0.3\textwidth}
+\sf \textsc{Distinctiveness} \\
+{\scriptsize \textsc{Case 1}}\\
+  \includegraphics[scale=0.2,width=\linewidth]{figures/distinc1-fin.png}
+\endminipage\hfill
+\minipage{0.3\textwidth}%
+\sf \textsc{Distinctiveness} \\
+{\scriptsize \textsc{Case 2}}\\
+  \includegraphics[scale=0.2,width=\linewidth]{figures/distinc2-fin.png}
+ \endminipage
+\end{figure}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+\section{Evaluation through Clustering}
 
 Given a list of discriminatory terms for two different author sets, we would like to ascertain to what extent the collection of terms is able to 
 highlight differences between the sets and identify distinct clusters grouping the documents of different authors. 
@@ -296,87 +474,87 @@ misclassifications (3 for Dickens and 1 for Collins).
 \bibliographystyle{clin} 
 \bibliography{biblio}  
 
-\appendix
+%\appendix
 
 
 
-
-\section*{Dickens vs. Collins}
-\begin{table}[h!] % Dickens 
-\caption{Dickens' data set as part of the Dickens vs. Collins comparison.}
-\label{table:Dickens-data}
-\scalebox{0.8}{
-\begin{tabular}{c l l l} \\\hline \hline
-\textbf{No.} 	& \textbf{Author} 	& \textbf{Texts} 			& \textbf{Abbr.} \\ \hline
-1   		& Dickens 		& Bleak House 				& D1023     \\
-2   		& Dickens		& Great Expectations			& D1400      \\
-3		& Dickens      		& Little Dorrit     			& D963       \\
-4		& Dickens      		& David Copperfield     		& D766        \\
-5		& Dickens      		& A Christmas Carol     		& D19337       \\
-6   		& Dickens		& Life And Adventures Of Martin Chuzzlewit	& D968        \\
-7		& Dickens		& The Mystery of Edwin Drood		& D564   \\
-8		& Dickens      		& A Tale of Two Cities                  & D98      \\
-9		& Dickens		& Master Humphrey's Clock		& D588           \\
-10		& Dickens		& The Battle of Life: A Love Story      & D40723              \\
-11		& Dickens		&Life And Adventures Of Nicholas Nickleby	& D967          \\  
-12		& Dickens		&Barnaby Rudge      			& D917             \\
-13		& Dickens		& Sketches of Young Couples		& D916        \\
-14		& Dickens		& The Uncommercial Traveller            & D914           \\
-15		& Dickens		& Our Mutual Friend			& D883           \\
-16		& Dickens		& Pictures From Italy			& D650    \\
-17		& Dickens		& Sketches by Boz			& D882      \\
-18		& Dickens		& A Child's History of England       	& D699  \\
-19		& Dickens		& Reprinted Pieces			& D872   \\
-20		& Dickens		& Dombey and Son			& D821     \\
-21		& Dickens		& Oliver Twist				& D730        \\
-22		& Dickens		&The Old Curiosity Shop			& D700         \\
-23		& Dickens		& American Notes			& D675         \\
-24		& Dickens		&The Pickwick Papers			& D580           \\
-25		& Dickens     (et al.)  & A Budget of Christmas Tales		& Dal28198         \\
-26		& Dickens (et al.)	& A House to Let			& Dal2324     \\
-27		& Dickens (/Collins)     & No Thoroughfare			& DC1423       \\ \bottomrule
-\end{tabular}
-}
-\end{table}
-
-\begin{table}[h!]% Collins 
-\caption{Collins' data set as part of the Dickens vs. Collins comparison.}
-\label{table:Collins-data}
-\scalebox{0.8}{
-\begin{tabular}{c l l l } \\\hline \hline
-\textbf{No.}	& \textbf{Author} 		& \textbf{Texts} 		& \textbf{Abbr.} \\ \hline
-1		& Collins       		& After Dark			& C1626    \\
-2		& Collins			& Antonina			& C3606        \\
-3		& Collins			& Armadale			& C1895  \\
-4		& Collins			& Man and Wife			& C1586      \\
-5		& Collins			& Little Novels			& C1630    \\
-6		& Collins			& Jezebel's Daughter		& C3633    \\
-7		& Collins			& I Say No			& C1629       \\
-8		& Collins			& Hide and Seek			& C7893  \\
-9		& Collins			& Basil				& C4605 \\
-10		& Collins			& A Rogue's Life		& C1588     \\
-11		& Collins			& The Woman in White		& C583         \\
-12		& Collins			& The Two Destinies		& C1624    \\
-13		& Collins			& The Queen of Hearts		& C1917        \\
-14		& Collins			& The New Magdalen		& C1623     \\
-15		& Collins			& The Moonstone			& C155         \\
-16		& Collins			& The Legacy of Cain		& C1975       \\
-17		& Collins			& The Law and the Lady		& C1622         \\
-18		& Collins			& The Haunted Hotel: A Mystery of Modern Venice	&    C170              \\
-19		& Collins			& The Fallen Leaves		& C7894           \\
-20		& Collins			& The Evil Genius		& C1627           \\
-21		& Collins			& No Name			& C1438        \\
-22		& Collins			& Poor Miss Finch		& C3632           \\
-23		& Collins			& Rambles Beyond Railways	& C28367         \\
-24		& Collins			& The Black Robe		& C1587      \\
-25		& Collins			& Miss or Mrs.?			& C1621          \\
-26		& Collins			& My Lady's Money		& C1628         \\
-27		& Collins			& The Dead Alive		& C7891        \\
-\bottomrule
-\end{tabular}
-}
- \end{table}
-
+% 
+% \section*{Dickens vs. Collins}
+% \begin{table}[h!] % Dickens 
+% \caption{Dickens' data set as part of the Dickens vs. Collins comparison.}
+% \label{table:Dickens-data}
+% \scalebox{0.8}{
+% \begin{tabular}{c l l l} \\\hline \hline
+% \textbf{No.} 	& \textbf{Author} 	& \textbf{Texts} 			& \textbf{Abbr.} \\ \hline
+% 1   		& Dickens 		& Bleak House 				& D1023     \\
+% 2   		& Dickens		& Great Expectations			& D1400      \\
+% 3		& Dickens      		& Little Dorrit     			& D963       \\
+% 4		& Dickens      		& David Copperfield     		& D766        \\
+% 5		& Dickens      		& A Christmas Carol     		& D19337       \\
+% 6   		& Dickens		& Life And Adventures Of Martin Chuzzlewit	& D968        \\
+% 7		& Dickens		& The Mystery of Edwin Drood		& D564   \\
+% 8		& Dickens      		& A Tale of Two Cities                  & D98      \\
+% 9		& Dickens		& Master Humphrey's Clock		& D588           \\
+% 10		& Dickens		& The Battle of Life: A Love Story      & D40723              \\
+% 11		& Dickens		&Life And Adventures Of Nicholas Nickleby	& D967          \\  
+% 12		& Dickens		&Barnaby Rudge      			& D917             \\
+% 13		& Dickens		& Sketches of Young Couples		& D916        \\
+% 14		& Dickens		& The Uncommercial Traveller            & D914           \\
+% 15		& Dickens		& Our Mutual Friend			& D883           \\
+% 16		& Dickens		& Pictures From Italy			& D650    \\
+% 17		& Dickens		& Sketches by Boz			& D882      \\
+% 18		& Dickens		& A Child's History of England       	& D699  \\
+% 19		& Dickens		& Reprinted Pieces			& D872   \\
+% 20		& Dickens		& Dombey and Son			& D821     \\
+% 21		& Dickens		& Oliver Twist				& D730        \\
+% 22		& Dickens		&The Old Curiosity Shop			& D700         \\
+% 23		& Dickens		& American Notes			& D675         \\
+% 24		& Dickens		&The Pickwick Papers			& D580           \\
+% 25		& Dickens     (et al.)  & A Budget of Christmas Tales		& Dal28198         \\
+% 26		& Dickens (et al.)	& A House to Let			& Dal2324     \\
+% 27		& Dickens (/Collins)     & No Thoroughfare			& DC1423       \\ \bottomrule
+% \end{tabular}
+% }
+% \end{table}
+% 
+% \begin{table}[h!]% Collins 
+% \caption{Collins' data set as part of the Dickens vs. Collins comparison.}
+% \label{table:Collins-data}
+% \scalebox{0.8}{
+% \begin{tabular}{c l l l } \\\hline \hline
+% \textbf{No.}	& \textbf{Author} 		& \textbf{Texts} 		& \textbf{Abbr.} \\ \hline
+% 1		& Collins       		& After Dark			& C1626    \\
+% 2		& Collins			& Antonina			& C3606        \\
+% 3		& Collins			& Armadale			& C1895  \\
+% 4		& Collins			& Man and Wife			& C1586      \\
+% 5		& Collins			& Little Novels			& C1630    \\
+% 6		& Collins			& Jezebel's Daughter		& C3633    \\
+% 7		& Collins			& I Say No			& C1629       \\
+% 8		& Collins			& Hide and Seek			& C7893  \\
+% 9		& Collins			& Basil				& C4605 \\
+% 10		& Collins			& A Rogue's Life		& C1588     \\
+% 11		& Collins			& The Woman in White		& C583         \\
+% 12		& Collins			& The Two Destinies		& C1624    \\
+% 13		& Collins			& The Queen of Hearts		& C1917        \\
+% 14		& Collins			& The New Magdalen		& C1623     \\
+% 15		& Collins			& The Moonstone			& C155         \\
+% 16		& Collins			& The Legacy of Cain		& C1975       \\
+% 17		& Collins			& The Law and the Lady		& C1622         \\
+% 18		& Collins			& The Haunted Hotel: A Mystery of Modern Venice	&    C170              \\
+% 19		& Collins			& The Fallen Leaves		& C7894           \\
+% 20		& Collins			& The Evil Genius		& C1627           \\
+% 21		& Collins			& No Name			& C1438        \\
+% 22		& Collins			& Poor Miss Finch		& C3632           \\
+% 23		& Collins			& Rambles Beyond Railways	& C28367         \\
+% 24		& Collins			& The Black Robe		& C1587      \\
+% 25		& Collins			& Miss or Mrs.?			& C1621          \\
+% 26		& Collins			& My Lady's Money		& C1628         \\
+% 27		& Collins			& The Dead Alive		& C7891        \\
+% \bottomrule
+% \end{tabular}
+% }
+%  \end{table}
+% 
 
 
 
