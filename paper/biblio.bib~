@@ -1,0 +1,44 @@
+@comment{x-kbibtex-personnameformatting=<%l><, %f>}
+
+@article{burrows2002delta,
+	author = "Burrows, John",
+	journal = "Literary and Linguistic Computing",
+	number = "3",
+	pages = "267--287",
+	publisher = "ALLC",
+	title = "{{\lq}Delta{\rq}: A measure of stylistic difference and a guide to likely authorship}",
+	volume = "17",
+	year = "2002"
+}
+
+@inproceedings{prokic2012detecting,
+	author = "Proki{\'c}, Jelena and \c{C}{\"o}ltekin, \c{C}a\u{g}ri and Nerbonne, John",
+	booktitle = "{Proceedings of the EACL 2012 Joint Workshop of LINGVIS \& UNCLH}",
+	organization = "Association for Computational Linguistics",
+	pages = "72--80",
+	title = "{Detecting shibboleths}",
+	year = "2012"
+}
+
+@article{burrows2007all,
+	author = "Burrows, John",
+	journal = "Literary and Linguistic Computing",
+	number = "1",
+	pages = "27--47",
+	publisher = "ALLC",
+	title = "{All the way through: testing for authorship in different frequency strata}",
+	volume = "22",
+	year = "2007"
+}
+
+@article{hubert1985comparing,
+	author = "Hubert, Lawrence and Arabie, Phipps",
+	journal = "Journal of classification",
+	number = "1",
+	pages = "193--218",
+	publisher = "Springer",
+	title = "{Comparing partitions}",
+	volume = "2",
+	year = "1985"
+}
+

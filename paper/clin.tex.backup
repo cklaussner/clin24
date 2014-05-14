@@ -216,18 +216,21 @@ with respect to similarity to the other pieces.
 7		&Twain			&The Prince and the Pauper		& T-tpatp\\ 
 8		&Twain			&Life on the Mississippi		& T-lotm\\ 
 9		&Twain			&The Adventures of Huckleberry Finn	& T-taohf\\ 
-10		&Twain			&A Connecticut Yankee in King Arthur's Court& T-acyikac\\  
-11		&Twain			&The American Claimant			& T-tac\\  
-12		&Twain			&The Tragedy of Pudd'nhead Wilson	&T-ttopw\\   
-13		&Twain			&Tom Sawyer Abroad			& T-tsa\\ 
-14		&Twain			&Tom Sawyer Detective			& T-tsd\\ 
-15		&Twain			&Personal Recollections of Joan Arc	& T-proja\\ 
-16		&Twain			&Following the Equator: A Journey Around the World	&T-fteajatw\\
-17		&Twain			&Those Extraordinary Twins 		&T-tet\\ 
-18		&Twain			&A Double Barrelled Detective Story	& T-adbds\\ 
-19		&Twain			&Christian Science			& T-cs\\
-20		&Twain			&Chapters from My Autobiography		& T-cfma \\ 
-21		&Twain			&The Mysterious Stranger		& T-tms\\ 
+A Connecticut Yankee in King Arthur's Court&1889&1889&628&CYatKA1889& novel\\  
+The American Claimant&1892&1892&354&AC1892 & novel\\  
+The Tragedy of Pudd'nhead Wilson&1894&1894&286 &TPW1894& novel\\   
+Tom Sawyer Abroad&1894&1894&182 &TSAb1894 & novel\\ 
+Tom Sawyer Detective&1896&1896&116 &TSDet1896 & novel\\ 
+Personal Recollections of Joan Arc&1896&1896&796 &PRJdArc1896-I-II& historical novel\\ 
+Following the Equator: A Journey Around the World&1897&1897&1000&FtE1897& travel novel\\
+Those Extraordinary Twins &1894&1899 &1200&ExTwins1899& short story\\ 
+A Double Barrelled Detective Story&1902&1902&103&DBDecSt1902 & short story\\ 
+Christian Science&1907&1907&338&CS1907& collected essays\\
+Chapters from My Autobiography&1907&1907&593&MTAutobio1907& extracts from autobiography \\ 
+The Mysterious Stranger&1908&1897--1908&192&MS1908 & novel\\ 
+
+
+
 \bottomrule
 \end{tabular}
 \end{minipage}%
