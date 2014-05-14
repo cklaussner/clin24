@@ -85,6 +85,11 @@ consistent features that accomodate and give preference to features that
 an author uses with a certain regularity over different works and which 
 therefore hint at a clear preference. 
 
+Consistency of selection
+Mosteller and Wallace - strength in numbers - reliability of larger number 
+of stylistic markers
+
+heuristic style of evaluation - looking for desirable characteristics of markers
 
 
 
@@ -108,11 +113,11 @@ with respect to similarity to the other pieces.
 
 % Dickens vs. Collins
 \begin{sidewaystable}[!htb]
+\label{table:DC}
     \caption{Dickens' and Collins' data set as part of the Dickens vs. Collins comparison.}
-    %\label{table:DC}
-    \begin{minipage}{.62\linewidth}
+     \begin{minipage}{.62\linewidth}
     \centering
-      \caption{Dickens' data set.} %necessary???
+      %\caption{Dickens' data set.} %necessary???
       
       \label{table:Dickens-data}
 \begin{tabular}{c l l l} \\\hline \hline
@@ -149,7 +154,7 @@ with respect to similarity to the other pieces.
 \hfill
     \begin{minipage}{.62\linewidth}
       \centering
-      \caption{Collins' data set.} %necessary???
+      %\caption{Collins' data set.} %necessary???
 \label{table:Collins-data}
 \begin{tabular}{c l l l } \\\hline \hline
 \textbf{No.}	& \textbf{Author} 		& \textbf{Texts} 		& \textbf{Abbr.} \\ \hline
@@ -202,10 +207,27 @@ with respect to similarity to the other pieces.
       \label{table:Twain-data}
 \begin{tabular}{c l l l} \\\hline \hline
 \textbf{No.} 	& \textbf{Author} 	& \textbf{Texts} 			& \textbf{Abbr.} \\ \hline
-
-
-
-
+1		&Twain			&Innocents Abroad			& T-ia\\ 
+2		&Twain			&The Gilded Age: A Tale of Today	& T-tgaatot\\ 
+3		&Twain			&Sketches New and Old			& T-snao\\
+4		&Twain			&The Adventures of Tom Sawyer		& T-taots\\ 
+5		&Twain			&A Tramp Abroad				& T-ata\\ 
+6		&Twain			&Roughing It				& T-ri \\ 
+7		&Twain			&The Prince and the Pauper		& T-tpatp\\ 
+8		&Twain			&Life on the Mississippi		& T-lotm\\ 
+9		&Twain			&The Adventures of Huckleberry Finn	& T-taohf\\ 
+10		&Twain			&A Connecticut Yankee in King Arthur's Court& T-acyikac\\  
+11		&Twain			&The American Claimant			& T-tac\\  
+12		&Twain			&The Tragedy of Pudd'nhead Wilson	&T-ttopw\\   
+13		&Twain			&Tom Sawyer Abroad			& T-tsa\\ 
+14		&Twain			&Tom Sawyer Detective			& T-tsd\\ 
+15		&Twain			&Personal Recollections of Joan Arc	& T-proja\\ 
+16		&Twain			&Following the Equator: A Journey Around the World	&T-fteajatw\\
+17		&Twain			&Those Extraordinary Twins 		&T-tet\\ 
+18		&Twain			&A Double Barrelled Detective Story	& T-adbds\\ 
+19		&Twain			&Christian Science			& T-cs\\
+20		&Twain			&Chapters from My Autobiography		& T-cfma \\ 
+21		&Twain			&The Mysterious Stranger		& T-tms\\ 
 \bottomrule
 \end{tabular}
 \end{minipage}%
@@ -216,31 +238,31 @@ with respect to similarity to the other pieces.
 \label{table:Collins-data}
 \begin{tabular}{c l l l } \\\hline \hline
 \textbf{No.}	& \textbf{Author} 		& \textbf{Texts} 		& \textbf{Abbr.} \\ \hline
-1		&James				&The American			&	\\
-2		&James				&Watch and Ward			&	\\
-3		&James				&The Europeans			&	\\ 
-4		&James				&Confidence 			&	\\
-5		&James				&Washington Square 		&	\\ 
-6		&James				&Portrait of a Lady 		&	\\ 
-7		&James				&Roderick Hudson		&	 \\
-8		&James				&The Bostonians 		&	\\
-9		&James				&Princess Casamassima 		&	\\
-10		&James				&The Reverberator 		&	\\ 
-11		&James				&The Aspern Papers		&	\\ %  novella
-12		&James				&The Tragic Muse 		&	\\ %
-13		&James				&The Other House 		&	\\ %
-14		&James				&What Maisie Knew        	&	\\ 
-15		&James				&The Spoils of Poynton  	&	\\ %
-16		&James				&Turn of the Screw		& 	\\ %novella
-17		&James				&The Awkward Age 		&	\\ %
-18		&James				&The Sacred Fount		&	\\ 
-19		&James				&The Wings of the Dove		&	\\  
-20		&James				&The Golden Bowl 		&	\\ %
-21		&James				&The Ambassadors		&	\\ 
-22		&James				&The Outcry			&	\\ %
-23		&James				&The Ivory Tower (unfinished)	&	\\ %
-24		&James				&The Sense of the Past (unfinished)&	\\%
-25		&James				&In the Cage 			&	\\ % novella
+1		&James				&The American			&J-ta	\\
+2		&James				&Watch and Ward			&J-waw	\\
+3		&James				&The Europeans			&J-te	\\ 
+4		&James				&Confidence 			&J-c	\\
+5		&James				&Washington Square 		&J-ws	\\ 
+6		&James				&Portrait of a Lady 		&J-poal	\\ 
+7		&James				&Roderick Hudson		&J-rh	 \\
+8		&James				&The Bostonians 		&J-tb	\\
+9		&James				&Princess Casamassima 		&J-pc	\\
+10		&James				&The Reverberator 		&J-tr	\\ 
+11		&James				&The Aspern Papers		&J-tap	\\ %  novella
+12		&James				&The Tragic Muse 		&J-ttm	\\ %
+13		&James				&The Other House 		&J-toh	\\ %
+14		&James				&What Maisie Knew        	&J-wmk	\\ 
+15		&James				&The Spoils of Poynton  	&J-tsop	\\ %
+16		&James				&Turn of the Screw		&J-tots	\\ %novella
+17		&James				&The Awkward Age 		&J-taa	\\ %
+18		&James				&The Sacred Fount		&J-tsf	\\ 
+19		&James				&The Wings of the Dove		&J-twotd	\\  
+20		&James				&The Golden Bowl 		&J-tgb	\\ %
+21		&James				&The Ambassadors		&J-tamb	\\ 
+22		&James				&The Outcry			&J-to	\\ %
+23		&James				&The Ivory Tower (unfinished)	&J-tit	\\ %
+24		&James				&The Sense of the Past (unfinished)&J-tsotp	\\%
+25		&James				&In the Cage 			&J-itc	\\ % novella
 \bottomrule
 \end{tabular}
 
