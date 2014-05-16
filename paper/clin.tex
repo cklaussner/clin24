@@ -48,63 +48,99 @@
 %\copyright
 
 \begin{abstract}
-Detection of stylistic elements in authorship studies is hampered by
-the lack of a gold standard that would otherwise enable us to clearly
-evaluate our findings. In absence thereof, one generally resorts to choos-
-ing items for which an author shows a characteristic usage compared
-with other writers. In this line of work, we present both a measure for
-determining characteristic elements of an author along with a method
-for evaluation of those elements.
-In order to select an author’s consistent features, we propose the
-measure of Representativeness \& Distinctiveness \cite{prokic2012detecting} that
-seeks to identify those elements that are both representative for an author
-over a given set of his texts, as well distinctive with respect to an opposing
-author’s sample. The method thus bears similarities with both Burrow’s
-Delta  and Zeta in favouring consistent
-terms that are irregular in the opposing author’s set.
-Using the proposed method, we examine different types of features,
-both lexical and syntactic ones, such as simple word uni-grams, but also
-Part-of-Speech (POS) bi-grams/tri-grams. For evaluation, we test the
-separation ability of the selected features by clustering the two authors’
-documents followed by computing the Adjusted Rand Index \cite{hubert1985comparing} 
-given the ideal clustering result.
+Detection of stylistic elements in authorship studies is hampered
+by the lack of a gold standard that would otherwise enable us to 
+clearly evaluate our findings. In absence thereof, one generally 
+resorts to choosing items for which an author shows a 
+characteristic usage compared with other writers. 
+In this line of work, we present both a measure for determining 
+characteristic elements of an author that he uses consistently
+over different works by examining different types of features, 
+both lexical and syntactic ones.
+For evaluation, we test the separation ability of the selected 
+features by clustering the data set on their basis.
+
 We apply both feature selection and evaluation in two different
-studies of authorship. In the first, we compare Charles Dickens and
-Wilkie Collins, while the second one is contrasting the styles of Henry
-James and Mark Twain. Testing separation ability in clustering on highly
-representative and distinctive features returns results very close to the
-ideal clustering result.
+studies of authorship. In the first, we compare Charles Dickens 
+and Wilkie Collins, while the second one is contrasting the 
+styles of Henry James and Mark Twain. Testing separation ability 
+in clustering on highly representative and distinctive features 
+returns results very close to the ideal clustering result.
 \end{abstract}
 
+
+
+
 \section{Introduction}
+% this needs to include more references
+The concept of \emph{style} in studies of authorship refers to the 
+something like the feel of a piece of text, which might be less
+tangible than style in other disciplines, such as art or music, 
+where we use \emph{language} to express aspects of a 
+painting or a piece of music, whereas for style in writing, 
+we have to use the same tools that were used to create it. 
 
-Detecting stylistic features in authorship is hampered by the lack of gold
-standard that would help us to evaluate our findings. 
-In absence thereof, one might resort to methods that are conceived to select 
-consistent features that accomodate and give preference to features that 
-an author uses with a certain regularity over different works and which 
-therefore hint at a clear preference. 
+While traditional studies of authorship involve individual persona
+judging upon what constitutes the style of an author, non-traditional
+studies employ statistical techniques to discover the style of
+an author. 
+In either scenario, the development and investigation of suitable
+methods of detection is hampered by the lack of a gold standard,
+that would be able to indicate the method's closeness to 
+returning true stylistic elements of an author. 
+In absence thereof, the weight lies primarily on the method's 
+theoretical appropriateness in the way it selects stylistic 
+markers, which results in the need to understand our methods 
+as well as their implications. 
 
-Consistency of selection
-Mosteller and Wallace - strength in numbers - reliability of larger number 
-of stylistic markers
+\emph{Consistency} of stylistic markers has been somewhat of 
+a central theme to studies of authorship, such as in early 
+studies \cite{Mosteller2008}, which also emphasised collecting
+larger number of markers to increase reliability of the result.
+This has been continues in more recent studies as in 
+the development of Burrow's Delta \cite{Burrows2002delta} 
+and Zeta \cite{Burrows2007all} measures that build on
+features representative for an author over a given number
+of his texts, while distinguishing him from another/other 
+author(s).
 
-heuristic style of evaluation - looking for desirable characteristics of markers
+In this work, we consider \emph{Representativeness \& Distinctiveness}
+\cite{prokic2012detecting}, a technique originating in dialectometry 
+to select an author’s consistent features that are at the same time
+also distinctive with respect to an opposing author’s sample.
+Further, we propose a heuristic method for evaluation of those
+selected features intended to measure how well they are able to
+separate the data set into the correct groupings. 
+As part of the analysis, we include both lexical and syntactic ones, 
+such as simple word uni-grams, but also Part-of-Speech (POS) 
+bi-grams/tri-grams.
+The data consists of two separate authorship sets, where the first
+consists of texts by two British authors, Charles Dickens and
+Wilkie Collins and the second comprises writings by the two
+American authors, Henry James and Mark Twain. 
+%references of studies on those authors
+
+Thus, in section~\ref{sec:data}, we describe the two data sets, while we 
+introduce \emph{Representativeness \& Distinctiveness} 
+in section~\ref{sec:method}. Further, section~\ref{sec:evaluation}
+introduces and illustrates our proposed method of evaluation. 
+Finally, in section~\ref{sec:experiments}, we describe our experiments
+and results with respect to the two data sets and section~\ref{sec:conclusion}
+closes the discussion. 
 
 
+\section{The Data Sets} \label{sec:data}
+For this study, we built two different author sets, one comparing Charles Dickens
+and contemporary writer Wilkie Collins and the other one opposing Henry James 
+to fellow American writer Mark Twain. 
 
-\section{The Data Sets}
+\subsection{Dickens vs. Collins}
+Table~\ref{table:Dickens-data} shows 
 
-Investigating two different comparisons of authors, the first set comprising Charles Dickens and 
-contemporary author Wilkie Collins. 
 Interesting, since Dickens' data set contains one collaboration between both authors and 
 two pieces, where Dickens was main author and Dickens was among a group of colloborators. 
 In terms of stylistic properties it will be illuminating to see how these behave 
 with respect to similarity to the other pieces. 
-
-\subsection{Dickens vs. Collins}
-%Table~\ref{table:DC} shows 
-
 
 
 
@@ -112,14 +148,14 @@ with respect to similarity to the other pieces.
 
 
 % Dickens vs. Collins
-\begin{sidewaystable}[!htb]
-\label{table:DC}
-    \caption{Dickens' and Collins' data set as part of the Dickens vs. Collins comparison.}
-     \begin{minipage}{.62\linewidth}
+\begin{table}[!htb]
+%\caption{Dickens' and Collins' data set as part of the Dickens vs. Collins comparison.}
+    \begin{minipage}{.6\linewidth}
     \centering
-      %\caption{Dickens' data set.} %necessary???
+      \caption{Dickens' data set.} %necessary???
       
       \label{table:Dickens-data}
+      \small
 \begin{tabular}{c l l l} \\\hline \hline
 \textbf{No.} 	& \textbf{Author} 	& \textbf{Texts} 			& \textbf{Abbr.} \\ \hline
 1   		& Dickens 		& Bleak House 				& D1023     \\
@@ -151,11 +187,12 @@ with respect to similarity to the other pieces.
 27		& Dickens (/Collins)     & No Thoroughfare			& DC1423       \\ \bottomrule
 \end{tabular}
 \end{minipage}%
-\hfill
-    \begin{minipage}{.62\linewidth}
+\vfill
+    \begin{minipage}{.55\linewidth}
       \centering
-      %\caption{Collins' data set.} %necessary???
+      \caption{Collins' data set.} %necessary???
 \label{table:Collins-data}
+\small
 \begin{tabular}{c l l l } \\\hline \hline
 \textbf{No.}	& \textbf{Author} 		& \textbf{Texts} 		& \textbf{Abbr.} \\ \hline
 1		& Collins       		& After Dark			& C1626    \\
@@ -189,7 +226,7 @@ with respect to similarity to the other pieces.
 \end{tabular}
 
     \end{minipage} 
-\end{sidewaystable}
+\end{table}
 
 
 
@@ -276,7 +313,7 @@ with respect to similarity to the other pieces.
 
 
 
-\section{Representativeness and Distinctiveness for Stylometry}
+\section{Representativeness and Distinctiveness for Stylometry} \label{sec:method}
 The statistical technique of Representativeness and Distinctiveness was 
 originally conceived in the realm of dialectometry, where it has been
 shown to detect lexical items able to distinguish different dialectical 
@@ -401,14 +438,8 @@ may have occasional rather similar values to the ones in $D$ that rate it closer
  \endminipage
 \end{figure}
  
- 
- 
- 
- 
- 
- 
- 
-\section{Evaluation through Clustering}
+
+\section{Evaluation through Clustering} \label{sec:evaluation}
 
 Given a list of discriminatory terms for two different author sets, we would like to ascertain to what extent the collection of terms is able to 
 highlight differences between the sets and identify distinct clusters grouping the documents of different authors. 
@@ -501,11 +532,11 @@ misclassifications (3 for Dickens and 1 for Collins).
  
 
 
-\section{Experiments}
+\section{Experiments}\label{sec:experiments}
 
 
 
-\section{Conclusion}
+\section{Conclusion}\label{sec:conclusion}
 
 
 
