@@ -133,27 +133,29 @@ closes the discussion.
 For this study, we built two different author sets, one comparing Charles Dickens
 and contemporary writer Wilkie Collins and the other one opposing Henry James 
 to fellow American writer Mark Twain. 
+All data was obtained from \emph{Project Gutenberg}\footnote{http://www.gutenberg.org/}
+and the \emph{Internet Archive}\footnote{https://archive.org/}.
 
 \subsection{Dickens vs. Collins}
-Table~\ref{table:Dickens-data} shows 
+% connection Dickens/Collins
+Table~\ref{table:Dickens-data} and table~\ref{table:Collins-data} show Dickens'
+and Collins' data set respectively, both comprising 27 documents.
+Dickens' data set does not only contain documents by himself, but three books, namely, 
+\emph{A Budget of Christmas Tales}, \emph{A House to Let} and \emph{No Thoroughfare}
+are collaborations, where Dickens seems to have been main author.
+In particular, the last two also include Wilkie Collins as author, where 
+\emph{No Thoroughfare} was written by only Dickens and Collins. 
+These were included, since they might be interesting with respect to stylistic properties.
+If both authors persist in terms of style, these should be somewhat more difficult 
+to classify than those written by only one of them.  
+% exclude these from selection set 
 
-Interesting, since Dickens' data set contains one collaboration between both authors and 
-two pieces, where Dickens was main author and Dickens was among a group of colloborators. 
-In terms of stylistic properties it will be illuminating to see how these behave 
-with respect to similarity to the other pieces. 
 
-
-
-\subsection{James vs. Twain}
 
 
 % Dickens vs. Collins
-\begin{table}[!htb]
-%\caption{Dickens' and Collins' data set as part of the Dickens vs. Collins comparison.}
-    \begin{minipage}{.6\linewidth}
-    \centering
-      \caption{Dickens' data set.} %necessary???
-      
+\begin{table}[!ht]
+%\caption{Dickens' data set.}
       \label{table:Dickens-data}
       \small
 \begin{tabular}{c l l l} \\\hline \hline
@@ -168,8 +170,8 @@ with respect to similarity to the other pieces.
 8		& Dickens      		& A Tale of Two Cities                  & D98      \\
 9		& Dickens		& Master Humphrey's Clock		& D588           \\
 10		& Dickens		& The Battle of Life: A Love Story      & D40723              \\
-11		& Dickens		&Life And Adventures Of Nicholas Nickleby	& D967          \\  
-12		& Dickens		&Barnaby Rudge      			& D917             \\
+11		& Dickens		& Life And Adventures Of Nicholas Nickleby	& D967          \\  
+12		& Dickens		& Barnaby Rudge      			& D917             \\
 13		& Dickens		& Sketches of Young Couples		& D916        \\
 14		& Dickens		& The Uncommercial Traveller            & D914           \\
 15		& Dickens		& Our Mutual Friend			& D883           \\
@@ -182,15 +184,15 @@ with respect to similarity to the other pieces.
 22		& Dickens		&The Old Curiosity Shop			& D700         \\
 23		& Dickens		& American Notes			& D675         \\
 24		& Dickens		&The Pickwick Papers			& D580           \\
-25		& Dickens     (et al.)  & A Budget of Christmas Tales		& Dal28198         \\
+25		& Dickens    (et al.)   & A Budget of Christmas Tales		& Dal28198         \\
 26		& Dickens (et al.)	& A House to Let			& Dal2324     \\
 27		& Dickens (/Collins)     & No Thoroughfare			& DC1423       \\ \bottomrule
 \end{tabular}
-\end{minipage}%
-\vfill
-    \begin{minipage}{.55\linewidth}
-      \centering
-      \caption{Collins' data set.} %necessary???
+\end{table}
+
+
+\begin{table}[!ht]
+\caption{Collins' data set.}
 \label{table:Collins-data}
 \small
 \begin{tabular}{c l l l } \\\hline \hline
@@ -223,20 +225,27 @@ with respect to similarity to the other pieces.
 26		& Collins			& My Lady's Money		& C1628         \\
 27		& Collins			& The Dead Alive		& C7891        \\
 \bottomrule
-\end{tabular}
-
-    \end{minipage} 
+\end{tabular}  
 \end{table}
 
 
-
-
+\subsection{James vs. Twain}
+While Dickens and Collins seemed to have been close enough to collaborate on work,
+this is a highly unlikely scenario for Henry James and Mark Twain. 
+Although both being American writers close in age, they did not seemed to have
+approved of each other as artists \cite{canby1951turn}. 
+It is interesting to investigate to what extent this mutual dislike and 
+disapprobation of each other 's work manifests itself in their writings
+and what elements separate them. 
+Table~\ref{table:Twain-data} and table~\ref{table:Twain-data} show 
+James' and Twain's data sets, where James is represented with 25 and Twain
+with 21 works. 
 
 
 %James vs. Twain
-\begin{sidewaystable}[!htb]
-    \caption{Twain' and James' data set as part of the Twain vs. James' comparison.}
-    \label{table:TJ}
+\begin{table}[!htb]
+    %\caption{Twain' and James' data set as part of the Twain vs. James' comparison.}
+   % \label{table:TJ}
     \begin{minipage}{.62\linewidth}
     \centering
       \caption{Twain's data set.} %necessary???
@@ -268,11 +277,11 @@ with respect to similarity to the other pieces.
 \bottomrule
 \end{tabular}
 \end{minipage}%
-\hfill
+\vfill
     \begin{minipage}{.62\linewidth}
       \centering
       \caption{James' data set.} %necessary???
-\label{table:Collins-data}
+\label{table:James-data}
 \begin{tabular}{c l l l } \\\hline \hline
 \textbf{No.}	& \textbf{Author} 		& \textbf{Texts} 		& \textbf{Abbr.} \\ \hline
 1		&James				&The American			&J-ta	\\
@@ -304,12 +313,7 @@ with respect to similarity to the other pieces.
 \end{tabular}
 
     \end{minipage} 
-\end{sidewaystable}
-
-
-
-
-
+\end{table}
 
 
 
@@ -482,6 +486,9 @@ the complete training set.
 %  D(X,Y)= \max_{x\in X, y\in Y} d(x,y) 
 % \end{equation}
 %  
+
+
+
 \subsubsection{Adjusted Rand Index for Evaluation of Clustering} 
 In addition to visual clustering that gives more of an intuition of separation between two sets, a clustering result can be evaluated by 
 comparing two different partitions of a finite set of objects, namely the clustering obtained and the ideal clustering. 
@@ -526,7 +533,8 @@ For illustration of using the two methods presented above, we consider an exampl
 of a dataset of  $Dickens\cup Collins$, with 55 documents belonging to Dickens and 31 to Collins. 
 This yields a 86 x 86 dissimilarity matrix containing all pairwise comparisons of documents in the set.  
 Figure~\ref{den:dissimM} depicts an example dendrogram showing clustering based on a dissimilarity matrix with distances computed using the  \emph{complete link} measure. 
-The \emph{adjusted Rand Index} corresponding to the clustering in figure~\ref{den:dissimM} is 0.82, so very close to the ideal separation, which is also confirmed, when we consider the small number of
+The \emph{adjusted Rand Index} corresponding to the clustering in figure~\ref{den:dissimM} is 0.82, so very close to the ideal separation, 
+which is also confirmed, when we consider the small number of
 misclassifications (3 for Dickens and 1 for Collins).  
 
  
