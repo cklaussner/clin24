@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.14)  14 MAY 2014 12:35
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.14)  24 MAY 2014 16:08
 entering extended mode
  %&-line parsing enabled.
 **clin.tex
@@ -335,144 +335,132 @@ Package: placeins 2005/04/18  v 2.2
 )
 (/usr/share/texmf-texlive/tex/generic/genmisc/nth.sty
 Package: nth 2002/02/27
-) (./clin.aux
-
-LaTeX Warning: Label `table:Collins-data' multiply defined.
-
 )
+(/usr/share/texmf-texlive/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen121
+\WF@size=\dimen122
+\c@WF@wrappedlines=\count95
+\WF@box=\box27
+\WF@everypar=\toks19
+Package: wrapfig 2003/01/31  v 3.6
+) (./clin.aux)
 \openout1 = `clin.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
- (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+
+(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count95
-\scratchdimen=\dimen121
-\scratchbox=\box27
-\nofMPsegments=\count96
-\nofMParguments=\count97
-\everyMPshowfont=\toks19
-\MPscratchCnt=\count98
-\MPscratchDim=\dimen122
-\MPnumerator=\count99
-\everyMPtoPDFconversion=\toks20
+\scratchcounter=\count96
+\scratchdimen=\dimen123
+\scratchbox=\box28
+\nofMPsegments=\count97
+\nofMParguments=\count98
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count99
+\MPscratchDim=\dimen124
+\MPnumerator=\count100
+\everyMPtoPDFconversion=\toks21
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 43.
+LaTeX Font Info:    Try loading font information for U+msa on input line 44.
  (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 43.
+LaTeX Font Info:    Try loading font information for U+msb on input line 44.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-Overfull \hbox (147.42479pt too wide) in paragraph at lines 118--192
-[]$[]$ $[]$ 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [1
+) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (2.0432pt too wide) in paragraph at lines 208--233
+Overfull \hbox (114.06082pt too wide) in paragraph at lines 255--280
  [][] 
  []
 
 
-Overfull \hbox (147.42479pt too wide) in paragraph at lines 203--270
-[]$[]$ $[]$ 
+Overfull \hbox (18.42169pt too wide) in paragraph at lines 286--315
+ [][] 
  []
 
-[2] [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 297--319
+
+LaTeX Warning: Float too large for page by 33.23827pt on input line 317.
+
+[2] [3] [4] [5]
+Overfull \hbox (5.38066pt too wide) in paragraph at lines 339--346
+[]\OT1/cmr/m/n/10 Thus, Rep-re-sen-ta-tive-ness and Dis-tinc-tive-ness bears si
+m-i-lar-i-ties with both Bur-row's Delta ([]Burrows[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 339--346
 
  []
 
-[5
 
-]
+Underfull \hbox (badness 10000) in paragraph at lines 347--349
 
-LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <10> not available
-(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 388.
+ []
 
-<figures/repres1-fin.png, id=32, 1156.32pt x 867.24pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 355--357
+
+ []
+
+<figures/repres1-fin.png, id=29, 1156.32pt x 867.24pt>
 File: figures/repres1-fin.png Graphic file (type png)
 
-<use figures/repres1-fin.png>
-Underfull \hbox (badness 10000) in paragraph at lines 388--391
-[]\OT1/cmr/m/sc/10 Representativeness
- []
+<use figures/repres1-fin.png> [6
 
-
-LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <7> not available
-(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 394.
-
-<figures/distinc1-fin.png, id=33, 1156.32pt x 867.24pt>
+]
+<figures/distinc1-fin.png, id=38, 1156.32pt x 867.24pt>
 File: figures/distinc1-fin.png Graphic file (type png)
 
 <use figures/distinc1-fin.png>
-<figures/distinc2-fin.png, id=34, 1156.32pt x 867.24pt>
+<figures/distinc2-fin.png, id=39, 1156.32pt x 867.24pt>
 File: figures/distinc2-fin.png Graphic file (type png)
 
-<use figures/distinc2-fin.png>
+<use figures/distinc2-fin.png> [7 <./figures/repres1-fin.png (PNG copy)> <./fig
+ures/distinc1-fin.png (PNG copy)> <./figures/distinc2-fin.png (PNG copy)>]
 
-LaTeX Warning: Citation 'Hubert1985' on page 6 undefined on input line 457.
+LaTeX Warning: Float too large for page by 21.73546pt on input line 537.
 
-[6 <./figures/repres1-fin.png (PNG copy)> <./figures/distinc1-fin.png (PNG copy
-)> <./figures/distinc2-fin.png (PNG copy)>]
-
-LaTeX Warning: Reference `eq:ARI' on page 7 undefined on input line 474.
-
-
-LaTeX Warning: Reference `den:dissimM' on page 7 undefined on input line 497.
-
-
-LaTeX Warning: Reference `den:dissimM' on page 7 undefined on input line 498.
-
-(./clin.bbl) [7] (./clin.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+[8] [9] (./clin.bbl) [10] (./clin.aux) ) 
 Here is how much of TeX's memory you used:
- 1907 strings out of 495061
- 22904 string characters out of 1182621
- 91747 words of memory out of 3000000
- 5050 multiletter control sequences out of 15000+50000
- 12466 words of font info for 47 fonts, out of 3000000 for 9000
+ 1974 strings out of 495061
+ 23819 string characters out of 1182621
+ 95039 words of memory out of 3000000
+ 5114 multiletter control sequences out of 15000+50000
+ 12160 words of font info for 46 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 39i,12n,26p,270b,320s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
-re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
-xlive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-texlive/font
-s/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/pub
-lic/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfont
-s/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.p
-fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/shar
-e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-texli
-ve/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-texlive/fonts/type1/public/a
-msfonts/cm/cmsy6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
-msy7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></
-usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on clin.pdf (7 pages, 531772 bytes).
+ 39i,10n,26p,270b,257s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type1/p
+ublic/amsfonts/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
+nts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx
+9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></us
+r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
+mf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/
+fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/
+public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
+nts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.p
+fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/shar
+e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-tex
+live/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-texlive/fonts/t
+ype1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-texlive/fonts/type1/public/
+amsfonts/cm/cmsy7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
+cmti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti9.pfb>
+Output written on clin.pdf (10 pages, 552545 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
+ 106 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

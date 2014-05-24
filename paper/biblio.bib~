@@ -42,3 +42,32 @@
 	year = "1985"
 }
 
+
+
+@book{Mosteller2008,
+	abstract = "{The 1964 publication of \_Inference and Disputed Authorship\_ made the cover of\_Time \_magazine and the attention of academics and the public alike for itsuse of statistical methodology to solve one of American history's mostnotorious questions: the disputed authorship of the Federalist Papers.Back in print for a new generation of readers, this classic volume appliesmathematics, including the once-controversial Bayesian analysis, into theheart of a literary and historical problem by studying frequently used wordsin the texts. The reissue of this landmark book will be welcomed by anyoneinterested in the juncture of history, political science, and authorship.}",
+	author = "Mosteller, Frederick and Wallace, David L.",
+	day = "15",
+	edition = "New Ed",
+	howpublished = "Paperback",
+	isbn = "1575865521",
+	keywords = "2008; bayesian; statistics; text",
+	month = dec,
+	posted-at = "2008-05-20 12:12:43",
+	priority = "2",
+	publisher = "Center for the Study of Language and Information",
+	series = "{The David Hume Series of Philosophy and Cognitive Science Reissues}",
+	title = "{Inference and Disputed Authorship: The Federalist}",
+	url = "http://www.worldcat.org/isbn/1575865521",
+	year = "2008"
+}
+
+
+@inproceedings{Tabata2012,
+	author = "Tabata, Tomoji",
+	booktitle = "{Proceedings of the Digital Humanities 2012}",
+	series = "{DH2012}",
+	title = "{Approaching Dickens{\rq} Style through Random Forests}",
+	year = "2012"
+}
+
