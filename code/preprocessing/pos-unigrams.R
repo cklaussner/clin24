@@ -12,7 +12,7 @@ library(tm)
 
 #R CMD javareconf -e # run before starting R 
 
-set.kRp.env(TT.cmd="/home/carmen/git/clin24/code/preprocessing/tagger/cmd/tree-tagger-english", lang="en") # hard-coded for English
+set.kRp.env(TT.cmd="/home/carmen/tcd/CarmenDropFiles/clin24/code/preprocessing/tagger/cmd/tree-tagger-english", lang="en") # hard-coded for English
 
 
 
@@ -78,7 +78,7 @@ processPOStri <- function(tagged.text){
 
 processPOSbi <- function(tagged.text){
   
-  posbi.freq <- as.matrix(table(make.ngrams(tagged.text,ngram.size=2)))
+  posbi.freq <- as.matrix(table(make.ngrams(tagged.text,ngram.size=3)))
   
   return(posbi.freq)
 }

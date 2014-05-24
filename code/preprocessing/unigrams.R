@@ -24,7 +24,7 @@ createDTM <- function(location){
   docCorpus <- tm_map(docCorpus,removeNumbers)
   docCorpus  <- tm_map(docCorpus,tolower)
   dtm <- DocumentTermMatrix(docCorpus)
-  dtm <- as.matrix(removeSparseTerms(dtm, 0.5))
+  dtm <- as.matrix(removeSparseTerms(dtm, 0.7))
   dtm <- dtm[,order(colSums(dtm),decreasing = TRUE)]
   
   
