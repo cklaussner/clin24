@@ -470,11 +470,111 @@ expected value and 1 the highest positive correlation
 between two different clustering versions. 
 
 \section{Experiments}\label{sec:experiments}
+As part of the experiments, we are looking at both data sets
+for different feature types, in this case simple word uni-grams,
+POS bi-grams and tri-grams. 
+The best features for each individual author are selected by 
+computing a threshold based on the representative and distinctive
+scores of all features within. 
+Thus, for an authors full list of features, one first computes 
+the mean $\mu_f$ over all representative and distinctive values 
+for all features and multiplies this by a fixed value, e.g. 1.8
+that is dependent on the feature input size and individual
+requirements. In this case, only features with a score over
+$\mu_f \times 1.8$ would be kept. 
+
+\subsection{Dickens vs. Collins}
+The Dickens and Collins data set individually both contained 27 novels,
+where three in Dickens' set were collaborations with other author and 
+one only with Collins. The uni-gram input matrix was a 
+54-documents x 5000 features matrix, where the features were 
+the 5000 most frequent features. 
+Simlarly, for POS tri-grams, there was a 54 x 5000 input matrix and
+for POS bi-grams, it was 54 x 1100. 
+The author profiles for word uni-grams and POS tri-grams were chosen
+by using a threshold of $\mu_f \times 1.9$ and for
+POS bi-grams by $\mu_f \times 1.7$. 
+
+Table~\ref{tab:results-features-dc} shows the highest rated features 
+according to Representativeness and Distinctiveness that are best 
+in discrimination between the two authors. The vaues for Dickens' features 
+were calculated by comparing to Collins and vice versa. 
+Column two and three show the top 20 uni-gram features for the two authors
+separately, while column four and five show POS bi-grams. 
+For the word uni-grams, 8 of the 20 terms appear in both lists, so this corresponds
+to Case 1 of Distinctiveness, where they are consistent for both authors, but
+have very different frequency distributions, here \textsc{upon, many, left, discovered}
+appear among the top 6 in both lists. 
+For the POS bi-grams, one can observe that  6 features, namely
+\textsc{NN.TO, RB.TO, RP.CC, CC.WRB, CC.VBG, VBG.RP} 
+are shared by both authors over the first 20 highest items. 
+Noticable is the frequent appearance of the CC and VBG tag, 
+corresponding to `coordinating conjunction' and `Verb in gerund or
+past particle' respectively. 
+For the POS tri-grams, the list of shared items decreases and only three remain 
+common to both authors for the first 20: \textsc{DT.NN.TO,  DT.NN.PP, RB.TO.PP}.
+Notable here are sequences involving possessive pronoun (PP) and TO (to) after 
+a noun phrase. 
+%%% Natural language example!!!
+
+The fact that more items are shared for word unigrams is reflected in the evaluation using 
+clustering, shown in table~\ref{tab:results-clust}.
+For clustering we use the features shared by both authors by intersecting both profiles. 
+The validation method used to create individual subsets of the total data set 
+is \emph{Leave-one-out} cross-validation. 
+The results for the Adjusted Rand Index for word uni-grams are consistenly high with 
+almost all values being around 93\%. In comparison, POS bi-grams fare less well
+%%% TODO : mean /std error
+
+
+\begin{table}[h!]
+\small
+\label{tab:results-features-dc}
+\caption{Dickens' and Collins' highest rated features }
+\begin{tabular}{lllllll}\toprule[1.2pt]
+ \multicolumn{1}{c}{\textbf{No}} & \multicolumn{2}{c}{\textbf{Word unigrams}}&  
+ \multicolumn{2}{c}{\textbf{POS bigrams}} & \multicolumn{2}{c}{\textbf{POS trigrams}}\\
+ \cmidrule(r){1-1} 
+ \cmidrule(r){2-3} 
+\cmidrule(r){4-5} 
+ \cmidrule(r){6-7}
+    & Dickens	  &  Collins    & Dickens&  Collins& Dickens	  &  Collins   \\\midrule
+1   &       upon  &       upon  &  RP.CC  &   NN.TO  &  CC.NN.CC   & IN.VBG.PP. \\
+2   &   scarcely  & discovered  &  IN.IN  &   RB.TO  &  NN.CC.RB   &   TO.DT.NN  \\
+3   & discovered  &   produced  &  NN.TO  &   RP.CC  &  RB.IN.IN   &  IN.VBG.DT \\
+4   &       many  &  interests  & VBG.RP  &  TO.PP.  & CC.VBG.RP   &  PP..JJ.JJ \\
+5   &        and  &       left  &  CC.RB  & VBP.VBD  & VBN.RP.CC   &   DT.NN.TO \\
+6   &       left  &       many  & CC.VBG  &   NN.NN  &  RB.MD.VB   & VBD.IN.VBG \\
+7   &       very  &    useless  &  JJ.CC  &  NNS.NN  & RB.TO.PP.   & VBN.IN.VBG \\
+8   &        but  &    attempt  &  NN.CC  &   RB.NN  & CC.VBG.IN   &  DT.NN.PP. \\
+9   &       much  &     motive  &  CC.IN  &   NP.NN  & DT.NN.PP.   &   NN.NN.NN \\
+10  &     beside  &       only  &  DT.CC  &   RB.JJ  &  RB.JJ.CC   & NN.WDT.PP. \\
+11  &     though  &       risk  &  RB.CC  & VBZ.VBD  &  JJ.NN.CC   &  TO.PP..NN \\
+12  &       down  & resolution  &  RB.TO  &  CC.WRB  &  IN.IN.DT   &  TO.VB.PP. \\
+13  &   produced  &      words  & VBG.JJ  &  CC.VBG  & CC.VBG.CC   & VBD.TO.PP. \\
+14  &    several  &  hesitated  &  IN.CC  &  VBG.RP  &  RB.RB.CC   &  RB.TO.PP. \\
+15  &       lest  &       very  &  CC.NN  & VBN.PP.  & VBG.RP.CC   & PP..NNS.PP \\
+16  &     failed  &   scarcely  & CC.WRB  & NNS.VBP  & NNS.CC.RB   & VBD.NP.NNS \\
+17  &    control  &     future  & VBG.CC  &  VBN.TO  &  DT.NN.TO   & PP..NN.POS \\
+18  &      great  &     return  & RP.NNS  &   RB.MD  &  CC.JJ.CC   &   PP.DT.NN \\
+19  &       such  &      first  & PDT.DT  &  NP.NNS  & RB.CC.VBG   &   DT.NN.PP \\
+20  &     indeed  &     failed  &  CC.JJ  &  VB.PP.  &  CC.RB.RB   &  VBD.TO.DT \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+
 
 
 
 \begin{table}
 \small 
+\label{tab:results-clust}
 \caption{Results of Adjusted Rand Index for feature types of word unigrams and POS bigrams.}
  \begin{tabular}{lrrr} \toprule
 Test Doc       & word unigrams & POS bigrams & POS trigrams\\ \midrule
@@ -536,40 +636,6 @@ C7894     & 0.93  & 0.79  & 0.85 \\
 \end{tabular}
 \end{table}
 
-
-
-\begin{table}
-\caption{Dickens' and Collins' highest rated features.}
-\begin{tabular}{lllllrr}\toprule[1.2pt]
- \multicolumn{1}{c}{\textbf{No}} & \multicolumn{2}{c}{\textbf{Word unigrams}}&  \multicolumn{2}{c}{\textbf{POS bigrams}} & \multicolumn{2}{c}{\textbf{POS trigrams}}\\
- \cmidrule(r){1-1} 
- \cmidrule(r){2-3} 
-\cmidrule(r){4-5} 
- \cmidrule(r){6-7}
-    & Dickens	  &  Collins    & Dickens&  Collins& Dickens	  &  Collins   \\\midrule
-1   &       upon  &       upon  &  RP.CC  &   NN.TO  &  CC.NN.CC   & IN.VBG.PP. \\
-2   &   scarcely  & discovered  &  IN.IN  &   RB.TO  &  NN.CC.RB   &   TO.DT.NN  \\
-3   & discovered  &   produced  &  NN.TO  &   RP.CC  &  RB.IN.IN   &  IN.VBG.DT \\
-4   &       many  &  interests  & VBG.RP  &  TO.PP.  & CC.VBG.RP   &  PP..JJ.JJ \\
-5   &        and  &       left  &  CC.RB  & VBP.VBD  & VBN.RP.CC   &   DT.NN.TO \\
-6   &       left  &       many  & CC.VBG  &   NN.NN  &  RB.MD.VB   & VBD.IN.VBG \\
-7   &       very  &    useless  &  JJ.CC  &  NNS.NN  & RB.TO.PP.   & VBN.IN.VBG \\
-8   &        but  &    attempt  &  NN.CC  &   RB.NN  & CC.VBG.IN   &  DT.NN.PP. \\
-9   &       much  &     motive  &  CC.IN  &   NP.NN  & DT.NN.PP.   &   NN.NN.NN \\
-10  &     beside  &       only  &  DT.CC  &   RB.JJ  &  RB.JJ.CC   & NN.WDT.PP. \\
-11  &     though  &       risk  &  RB.CC  & VBZ.VBD  &  JJ.NN.CC   &  TO.PP..NN \\
-12  &       down  & resolution  &  RB.TO  &  CC.WRB  &  IN.IN.DT   &  TO.VB.PP. \\
-13  &   produced  &      words  & VBG.JJ  &  CC.VBG  & CC.VBG.CC   & VBD.TO.PP. \\
-14  &    several  &  hesitated  &  IN.CC  &  VBG.RP  &  RB.RB.CC   &  RB.TO.PP. \\
-15  &       lest  &       very  &  CC.NN  & VBN.PP.  & VBG.RP.CC   & PP..NNS.PP \\
-16  &     failed  &   scarcely  & CC.WRB  & NNS.VBP  & NNS.CC.RB   & VBD.NP.NNS \\
-17  &    control  &     future  & VBG.CC  &  VBN.TO  &  DT.NN.TO   & PP..NN.POS \\
-18  &      great  &     return  & RP.NNS  &   RB.MD  &  CC.JJ.CC   &   PP.DT.NN \\
-19  &       such  &      first  & PDT.DT  &  NP.NNS  & RB.CC.VBG   &   DT.NN.PP \\
-20  &     indeed  &     failed  &  CC.JJ  &  VB.PP.  &  CC.RB.RB   &  VBD.TO.DT \\
-\bottomrule
-\end{tabular}
-\end{table}
 
 
 
