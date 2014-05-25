@@ -476,90 +476,97 @@ between two different clustering versions.
 \begin{table}
 \small 
 \caption{Results of Adjusted Rand Index for feature types of word unigrams and POS bigrams.}
- \begin{tabular}{lrr} \toprule
-Test Doc       & word unigrams & POS bigrams \\ \midrule
-D1023     & 0.926  & 0.786 \\
-D1400     & 0.926  & 0.657 \\
-D19337    & 0.926  & 0.786 \\
-D40723    & 0.926  & 0.786 \\
-D564      & 0.926  & 0.786 \\
-D580      & 0.926  & 0.786 \\
-D588      & 0.926  & 0.786 \\
-D650      & 0.926  & 0.855 \\
-D675      & 0.926  & 0.658 \\
-D699      & 0.926  & 0.855 \\
-D700      & 0.926  & 0.786 \\
-D730      & 0.926  & 0.786 \\
-D766      & 0.926  & 0.786 \\
-D821      & 0.926  & 0.855 \\
-D872      & 0.926  & 0.786 \\
-D882      & 0.926  & 0.855 \\
-D883      & 0.926  & 0.786 \\
-D914      & 0.926  & 0.855 \\
-D916      & 0.926  & 0.786 \\
-D917      & 0.926  & 0.786 \\
-D963      & 0.926  & 0.786 \\
-D967      & 0.926  & 0.786 \\
-D968      & 0.926  & 0.786 \\
-D98       & 0.926  & 0.658 \\
-Dal2324   & 0.926  & 0.786 \\
-Dal28198  & 0.926  & 0.855 \\
-DC1423    & 0.926  & 0.786 \\
-C1438     & 0.855  & 0.855 \\
-C155      & 0.926  & 0.786 \\
-C1586     & 0.926  & 0.786 \\
-C1587     & 0.926  & 0.658 \\
-C1588     & 0.926  & 0.855 \\
-C1621     & 0.926  & 0.926 \\
-C1622     & 0.926  & 0.786 \\
-C1623     & 0.926  & 0.855 \\
-C1624     & 0.855  & 0.855 \\
-C1626     & 0.926  & 0.786 \\
-C1627     & 0.926  & 0.786 \\
-C1628     & 0.926  & 0.786 \\
-C1629     & 0.926  & 0.855 \\
-C1630     & 0.926  & 0.786 \\
-C170      & 0.926  & 0.855 \\
-C1895     & 0.926  & 0.855 \\
-C1917     & 0.926  & 0.855 \\
-C1975     & 0.926  & 0.786 \\
-C28367    & 0.926  & 0.855 \\
-C3606     & 0.926  & 0.786 \\
-C3632     & 0.926  & 0.786 \\
-C3633     & 0.926  & 0.786 \\
-C4605     & 0.926  & 0.855 \\
-C583      & 0.926  & 0.658 \\
-C7891     & 0.855  & 0.855 \\
-C7893     & 0.926  & 0.786 \\
-C7894     & 0.926  & 0.786 \\
- \bottomrule
+ \begin{tabular}{lrrr} \toprule
+Test Doc       & word unigrams & POS bigrams & POS trigrams\\ \midrule
+D1023     & 0.93  & 0.79  & 0.85 \\
+D1400     & 0.93  & 0.66  & 0.93 \\
+D19337    & 0.93  & 0.79  & 0.85 \\
+D40723    & 0.93  & 0.79  & 0.85 \\
+D564      & 0.93  & 0.79  & 0.93 \\
+D580      & 0.93  & 0.79  & 0.85 \\
+D588      & 0.93  & 0.79  & 0.85 \\
+D650      & 0.93  & 0.85  & 0.93 \\
+D675      & 0.93  & 0.66  & 0.79 \\
+D699      & 0.93  & 0.85  & 0.85 \\
+D700      & 0.93  & 0.79  & 0.85 \\
+D730      & 0.93  & 0.79  & 0.85 \\
+D766      & 0.93  & 0.79  & 0.85 \\
+D821      & 0.93  & 0.85  & 0.85 \\
+D872      & 0.93  & 0.79  & 0.79 \\
+D882      & 0.93  & 0.85  & 0.85 \\
+D883      & 0.93  & 0.79  & 0.85 \\
+D914      & 0.93  & 0.85  & 0.93 \\
+D916      & 0.93  & 0.79  & 0.79 \\
+D917      & 0.93  & 0.79  & 0.85 \\
+D963      & 0.93  & 0.79  & 0.85 \\
+D967      & 0.93  & 0.79  & 0.85 \\
+D968      & 0.93  & 0.79  & 0.85 \\
+D98       & 0.93  & 0.66  & 0.85 \\
+Dal2324   & 0.93  & 0.79  & 0.85 \\
+Dal28198  & 0.93  & 0.85  & 0.85 \\
+DC1423    & 0.93  & 0.79  & 0.79 \\
+C1438     & 0.85  & 0.85  & 0.85 \\
+C155      & 0.93  & 0.79  & 0.93 \\
+C1586     & 0.93  & 0.79  & 0.85 \\
+C1587     & 0.93  & 0.66  & 0.85 \\
+C1588     & 0.93  & 0.85  & 0.85 \\
+C1621     & 0.93  & 0.93  & 0.85 \\
+C1622     & 0.93  & 0.79  & 0.85 \\
+C1623     & 0.93  & 0.85  & 0.93 \\
+C1624     & 0.85  & 0.85  & 0.85 \\
+C1626     & 0.93  & 0.79  & 0.72 \\
+C1627     & 0.93  & 0.79  & 0.85 \\
+C1628     & 0.93  & 0.79  & 0.85 \\
+C1629     & 0.93  & 0.85  & 0.85 \\
+C1630     & 0.93  & 0.79  & 0.85 \\
+C170      & 0.93  & 0.85  & 0.85 \\
+C1895     & 0.93  & 0.85  & 0.85 \\
+C1917     & 0.93  & 0.85  & 0.79 \\
+C1975     & 0.93  & 0.79  & 0.79 \\
+C28367    & 0.93  & 0.85  & 0.93 \\
+C3606     & 0.93  & 0.79  & 0.79 \\
+C3632     & 0.93  & 0.79  & 0.85 \\
+C3633     & 0.93  & 0.79  & 0.79 \\
+C4605     & 0.93  & 0.85  & 0.85 \\
+C583      & 0.93  & 0.66  & 0.79 \\
+C7891     & 0.85  & 0.85  & 0.79 \\
+C7893     & 0.93  & 0.79  & 0.79 \\
+C7894     & 0.93  & 0.79  & 0.85 \\
+\bottomrule
 \end{tabular}
 \end{table}
 
 
+
 \begin{table}
 \caption{Dickens' and Collins' highest rated features.}
-\begin{tabular}{lll}\toprule
-1   &       upon  &       upon \\
-2   &   scarcely  & discovered \\
-3   &       many  &  interests \\
-4   &       left  &   produced \\
-5   &        and  &       left \\
-6   &       much  &       many \\
-7   &        but  &    attempt \\
-8   &     though  &    useless \\
-9   & discovered  &       only \\
-10  &     beside  &       risk \\
-11  &       lest  &     motive \\
-12  &       down  &   scarcely \\
-13  &    several  & resolution \\
-14  &       very  &  narrative \\
-15  &   produced  &  hesitated \\
-16  &  interests  &     return \\
-17  &     length  &      first \\
-18  &      forth  &      words \\
-19  &      often  &     future \\
-20  &      great  &       very \\
+\begin{tabular}{lllllrr}\toprule[1.2pt]
+ \multicolumn{1}{c}{\textbf{No}} & \multicolumn{2}{c}{\textbf{Word unigrams}}&  \multicolumn{2}{c}{\textbf{POS bigrams}} & \multicolumn{2}{c}{\textbf{POS trigrams}}\\
+ \cmidrule(r){1-1} 
+ \cmidrule(r){2-3} 
+\cmidrule(r){4-5} 
+ \cmidrule(r){6-7}
+    & Dickens	  &  Collins    & Dickens&  Collins& Dickens	  &  Collins   \\\midrule
+1   &       upon  &       upon  &  RP.CC  &   NN.TO  &  CC.NN.CC   & IN.VBG.PP. \\
+2   &   scarcely  & discovered  &  IN.IN  &   RB.TO  &  NN.CC.RB   &   TO.DT.NN  \\
+3   & discovered  &   produced  &  NN.TO  &   RP.CC  &  RB.IN.IN   &  IN.VBG.DT \\
+4   &       many  &  interests  & VBG.RP  &  TO.PP.  & CC.VBG.RP   &  PP..JJ.JJ \\
+5   &        and  &       left  &  CC.RB  & VBP.VBD  & VBN.RP.CC   &   DT.NN.TO \\
+6   &       left  &       many  & CC.VBG  &   NN.NN  &  RB.MD.VB   & VBD.IN.VBG \\
+7   &       very  &    useless  &  JJ.CC  &  NNS.NN  & RB.TO.PP.   & VBN.IN.VBG \\
+8   &        but  &    attempt  &  NN.CC  &   RB.NN  & CC.VBG.IN   &  DT.NN.PP. \\
+9   &       much  &     motive  &  CC.IN  &   NP.NN  & DT.NN.PP.   &   NN.NN.NN \\
+10  &     beside  &       only  &  DT.CC  &   RB.JJ  &  RB.JJ.CC   & NN.WDT.PP. \\
+11  &     though  &       risk  &  RB.CC  & VBZ.VBD  &  JJ.NN.CC   &  TO.PP..NN \\
+12  &       down  & resolution  &  RB.TO  &  CC.WRB  &  IN.IN.DT   &  TO.VB.PP. \\
+13  &   produced  &      words  & VBG.JJ  &  CC.VBG  & CC.VBG.CC   & VBD.TO.PP. \\
+14  &    several  &  hesitated  &  IN.CC  &  VBG.RP  &  RB.RB.CC   &  RB.TO.PP. \\
+15  &       lest  &       very  &  CC.NN  & VBN.PP.  & VBG.RP.CC   & PP..NNS.PP \\
+16  &     failed  &   scarcely  & CC.WRB  & NNS.VBP  & NNS.CC.RB   & VBD.NP.NNS \\
+17  &    control  &     future  & VBG.CC  &  VBN.TO  &  DT.NN.TO   & PP..NN.POS \\
+18  &      great  &     return  & RP.NNS  &   RB.MD  &  CC.JJ.CC   &   PP.DT.NN \\
+19  &       such  &      first  & PDT.DT  &  NP.NNS  & RB.CC.VBG   &   DT.NN.PP \\
+20  &     indeed  &     failed  &  CC.JJ  &  VB.PP.  &  CC.RB.RB   &  VBD.TO.DT \\
 \bottomrule
 \end{tabular}
 \end{table}
