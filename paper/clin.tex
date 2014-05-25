@@ -121,6 +121,11 @@ consists of texts by two British authors, Charles Dickens and
 Wilkie Collins and the second comprises writings by the two
 American authors, Henry James and Mark Twain. 
 %references of studies on those authors
+Related work in stylometry includes a study of Dickens' style
+compared to both Collins and a larger reference set comprising
+texts from the \nth{18}  and \nth{19} century \cite{Tabata2012}.
+Further, there has been a corpus stylistic \cite{mahlberg2007clusters}, 
+
 
 Thus, in section~\ref{sec:data}, we describe the two data sets, while we 
 introduce \emph{Representativeness \& Distinctiveness} 
@@ -469,6 +474,7 @@ result by pairwise comparison of the groups.
 The returned index is bounded by [-1,1], with 0 being the 
 expected value and 1 the highest positive correlation 
 between two different clustering versions. 
+%%%TODO complete Link
 
 \section{Experiments}\label{sec:experiments}
 As part of the experiments, we are looking at both data sets
@@ -484,7 +490,11 @@ that is dependent on the feature input size and individual
 requirements. In this case, only features with a score over
 $\mu_f \times 1.8$ would be kept. 
 
-\subsection{Dickens vs. Collins}
+In section~\ref{sec:dickens-collins}, we look at distinctive
+features of Dickens compared to Collins and section~\ref{sec:twain-james}
+opposes contemporaries James and Twain. 
+
+\subsection{Dickens vs. Collins} \label{sec:dickens-collins}
 The Dickens and Collins data set individually both contained 27 novels,
 where three in Dickens' set were collaborations with other author and 
 one only with Collins. The uni-gram input matrix was a 
@@ -571,30 +581,49 @@ be worse in discriminating between authors of similar backgrounds
 than tri-grams or even word uni-grams. 
 
 
+Figure~\ref{fig:dc-unigram-mdsplot} and figure~\ref{fig:dc-unigram-dendo} 
+show the mds plot and dendrogram corresponding to the shared features of 
+iteration 27. The dendrogram is computed using the complete link similarity 
+measure. The two author groups seem to form roughly to clusters. 
+Interestingly, the combined Dickens-Collins piece, \emph{DC1423} is 
+(mis)classified as one of Collins' set. One of the other collaborations 
+\emph{Dal2324} is also approaching the border, although from the correct
+side. The other collaboration, \emph{Dal28198} lies at the centre of
+Dickens' cluster. 
+Another Collins' piece, \emph{C28367} corresponding to 
+\emph{Rambles Beyond Railways} has been noted as suspicious in the 
+previous study of Dickens/Collins \cite{Tabata2012}.
+The dendrogram confirms this analysis, showing two distinct 
+clusters, with \emph{Dal28198} and \emph{DC1423} being allocated
+to Collins' cluster. 
 
 
 
 \begin{figure}
 \centering
 \parbox{8cm}{
-\includegraphics[width=8cm]{mdsplot/dc-wuni-DC1423.pdf}
-\caption{First.}
-\label{fig:2figsA}}
+\includegraphics[width=8cm,height=4.5cm]{mdsplot/dc-wuni-DC1423.pdf}
+\caption{MDS plot on Dickens and Collins highest shared word uni-grams 
+corresponding to iteration 27.}
+\label{fig:dc-unigram-mdsplot}}
 \qquad
 \begin{minipage}{6cm}
 \includegraphics[width=6cm]{dend/dc-wuni-cl-DC1423.pdf}
-\caption{Second.}
-\label{fig:2figsB}
+\caption{Dendogram on Dickens and Collins highest shared word uni-grams 
+corresponding to iteration 27}
+\label{fig:dc-unigram-dendo}
 \end{minipage}
 \end{figure}
 
 
+\subsection{James vs. Twain} \label{sec:twain-james}
 
 
 \begin{table}
 \small 
+
+\caption{Results of Adjusted Rand Index for feature types of word uni-grams, POS bi-grams and POS tri-grams.}
 \label{tab:results-clust}
-\caption{Results of Adjusted Rand Index for feature types of word unigrams and POS bigrams.}
  \begin{tabular}{lrrr} \toprule
 Test Doc       & word unigrams & POS bigrams & POS trigrams\\ \midrule
 D1023     & 0.93  & 0.79  & 0.85 \\
