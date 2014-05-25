@@ -23,6 +23,7 @@
 \usepackage{rotating}
 \usepackage[section]{placeins}
 \usepackage[super]{nth}
+\usepackage{wrapfig}
 
 %%% commands
 \newcommand{\overbar}[1]{\mkern 2.0mu\overline{\mkern-2.0mu#1\mkern-2.0mu}\mkern 2.0mu}
@@ -48,78 +49,116 @@
 %\copyright
 
 \begin{abstract}
-Detection of stylistic elements in authorship studies is hampered by
-the lack of a gold standard that would otherwise enable us to clearly
-evaluate our findings. In absence thereof, one generally resorts to choos-
-ing items for which an author shows a characteristic usage compared
-with other writers. In this line of work, we present both a measure for
-determining characteristic elements of an author along with a method
-for evaluation of those elements.
-In order to select an author’s consistent features, we propose the
-measure of Representativeness \& Distinctiveness \cite{prokic2012detecting} that
-seeks to identify those elements that are both representative for an author
-over a given set of his texts, as well distinctive with respect to an opposing
-author’s sample. The method thus bears similarities with both Burrow’s
-Delta  and Zeta in favouring consistent
-terms that are irregular in the opposing author’s set.
-Using the proposed method, we examine different types of features,
-both lexical and syntactic ones, such as simple word uni-grams, but also
-Part-of-Speech (POS) bi-grams/tri-grams. For evaluation, we test the
-separation ability of the selected features by clustering the two authors’
-documents followed by computing the Adjusted Rand Index \cite{hubert1985comparing} 
-given the ideal clustering result.
+Detection of stylistic elements in authorship studies is hampered
+by the lack of a gold standard that would otherwise enable us to 
+clearly evaluate our findings. In absence thereof, one generally 
+resorts to choosing items for which an author shows a 
+characteristic usage compared with other writers. 
+In this line of work, we present both a measure for determining 
+characteristic elements of an author that he uses consistently
+over different works by examining different types of features, 
+both lexical and syntactic ones.
+For evaluation, we test the separation ability of the selected 
+features by clustering the data set on their basis.
+
 We apply both feature selection and evaluation in two different
-studies of authorship. In the first, we compare Charles Dickens and
-Wilkie Collins, while the second one is contrasting the styles of Henry
-James and Mark Twain. Testing separation ability in clustering on highly
-representative and distinctive features returns results very close to the
-ideal clustering result.
+studies of authorship. In the first, we compare Charles Dickens 
+and Wilkie Collins, while the second one is contrasting the 
+styles of Henry James and Mark Twain. Testing separation ability 
+in clustering on highly representative and distinctive features 
+returns results very close to the ideal clustering result.
 \end{abstract}
 
+
+
+
 \section{Introduction}
+% this needs to include more references
+The concept of \emph{style} in studies of authorship refers to the 
+something like the feel of a piece of text, which might be less
+tangible than style in other disciplines, such as art or music, 
+where we use \emph{language} to express aspects of a 
+painting or a piece of music, whereas for style in writing, 
+we have to use the same tools that were used to create it. 
 
-Detecting stylistic features in authorship is hampered by the lack of gold
-standard that would help us to evaluate our findings. 
-In absence thereof, one might resort to methods that are conceived to select 
-consistent features that accomodate and give preference to features that 
-an author uses with a certain regularity over different works and which 
-therefore hint at a clear preference. 
+While traditional studies of authorship involve individual persona
+judging upon what constitutes the style of an author, non-traditional
+studies employ statistical techniques to discover the style of
+an author. 
+In either scenario, the development and investigation of suitable
+methods of detection is hampered by the lack of a gold standard,
+that would be able to indicate the method's closeness to 
+returning true stylistic elements of an author. 
+In absence thereof, the weight lies primarily on the method's 
+theoretical appropriateness in the way it selects stylistic 
+markers, which results in the need to understand our methods 
+as well as their implications. 
 
-Consistency of selection
-Mosteller and Wallace - strength in numbers - reliability of larger number 
-of stylistic markers
+\emph{Consistency} of stylistic markers has been somewhat of 
+a central theme to studies of authorship, such as in early 
+studies \cite{Mosteller2008}, which also emphasised collecting
+larger number of markers to increase reliability of the result.
+This has been continues in more recent studies as in 
+the development of Burrow's Delta \cite{Burrows2002delta} 
+and Zeta \cite{Burrows2007all} measures that build on
+features representative for an author over a given number
+of his texts, while distinguishing him from another/other 
+author(s).
 
-heuristic style of evaluation - looking for desirable characteristics of markers
+In this work, we consider \emph{Representativeness \& Distinctiveness}
+\cite{prokic2012detecting}, a technique originating in dialectometry 
+to select an author’s consistent features that are at the same time
+also distinctive with respect to an opposing author’s sample.
+Further, we propose a heuristic method for evaluation of those
+selected features intended to measure how well they are able to
+separate the data set into the correct groupings. 
+As part of the analysis, we include both lexical and syntactic ones, 
+such as simple word uni-grams, but also Part-of-Speech (POS) 
+bi-grams/tri-grams.
+The data consists of two separate authorship sets, where the first
+consists of texts by two British authors, Charles Dickens and
+Wilkie Collins and the second comprises writings by the two
+American authors, Henry James and Mark Twain. 
+%references of studies on those authors
+
+Thus, in section~\ref{sec:data}, we describe the two data sets, while we 
+introduce \emph{Representativeness \& Distinctiveness} 
+in section~\ref{sec:method}. Further, section~\ref{sec:evaluation}
+introduces and illustrates our proposed method of evaluation. 
+Finally, in section~\ref{sec:experiments}, we describe our experiments
+and results with respect to the two data sets and section~\ref{sec:conclusion}
+closes the discussion. 
 
 
-
-\section{The Data Sets}
-
-Investigating two different comparisons of authors, the first set comprising Charles Dickens and 
-contemporary author Wilkie Collins. 
-Interesting, since Dickens' data set contains one collaboration between both authors and 
-two pieces, where Dickens was main author and Dickens was among a group of colloborators. 
-In terms of stylistic properties it will be illuminating to see how these behave 
-with respect to similarity to the other pieces. 
+\section{The Data Sets} \label{sec:data}
+For this study, we built two different author sets, one comparing Charles Dickens
+and contemporary writer Wilkie Collins and the other one opposing Henry James 
+to fellow American writer Mark Twain. 
+All data was obtained from \emph{Project Gutenberg}\footnote{http://www.gutenberg.org/}
+and the \emph{Internet Archive}\footnote{https://archive.org/}.
 
 \subsection{Dickens vs. Collins}
-%Table~\ref{table:DC} shows 
+% connection Dickens/Collins
+Table~\ref{table:Dickens-data} and table~\ref{table:Collins-data} show Dickens'
+and Collins' data set respectively, both comprising 27 documents.
+Dickens' data set does not only contain documents by himself, but three books, namely, 
+\emph{A Budget of Christmas Tales}, \emph{A House to Let} and \emph{No Thoroughfare}
+are collaborations, where Dickens seems to have been main author.
+In particular, the last two also include Wilkie Collins as author, where 
+\emph{No Thoroughfare} was written by only Dickens and Collins. 
+These were included, since they might be interesting with respect to stylistic properties.
+If both authors persist in terms of style, these should be somewhat more difficult 
+to classify than those written by only one of them.  
+% exclude these from selection set 
 
 
-
-
-\subsection{James vs. Twain}
 
 
 % Dickens vs. Collins
-\begin{sidewaystable}[!htb]
-\label{table:DC}
-    \caption{Dickens' and Collins' data set as part of the Dickens vs. Collins comparison.}
-     \begin{minipage}{.62\linewidth}
-    \centering
-      %\caption{Dickens' data set.} %necessary???
-      
+\begin{table}[!ht]
+%\caption{Dickens' data set.}
       \label{table:Dickens-data}
+      \small
 \begin{tabular}{c l l l} \\\hline \hline
 \textbf{No.} 	& \textbf{Author} 	& \textbf{Texts} 			& \textbf{Abbr.} \\ \hline
 1   		& Dickens 		& Bleak House 				& D1023     \\
@@ -132,8 +171,8 @@ with respect to similarity to the other pieces.
 8		& Dickens      		& A Tale of Two Cities                  & D98      \\
 9		& Dickens		& Master Humphrey's Clock		& D588           \\
 10		& Dickens		& The Battle of Life: A Love Story      & D40723              \\
-11		& Dickens		&Life And Adventures Of Nicholas Nickleby	& D967          \\  
-12		& Dickens		&Barnaby Rudge      			& D917             \\
+11		& Dickens		& Life And Adventures Of Nicholas Nickleby	& D967          \\  
+12		& Dickens		& Barnaby Rudge      			& D917             \\
 13		& Dickens		& Sketches of Young Couples		& D916        \\
 14		& Dickens		& The Uncommercial Traveller            & D914           \\
 15		& Dickens		& Our Mutual Friend			& D883           \\
@@ -146,16 +185,17 @@ with respect to similarity to the other pieces.
 22		& Dickens		&The Old Curiosity Shop			& D700         \\
 23		& Dickens		& American Notes			& D675         \\
 24		& Dickens		&The Pickwick Papers			& D580           \\
-25		& Dickens     (et al.)  & A Budget of Christmas Tales		& Dal28198         \\
+25		& Dickens    (et al.)   & A Budget of Christmas Tales		& Dal28198         \\
 26		& Dickens (et al.)	& A House to Let			& Dal2324     \\
 27		& Dickens (/Collins)     & No Thoroughfare			& DC1423       \\ \bottomrule
 \end{tabular}
-\end{minipage}%
-\hfill
-    \begin{minipage}{.62\linewidth}
-      \centering
-      %\caption{Collins' data set.} %necessary???
+\end{table}
+
+
+\begin{table}[!ht]
+\caption{Collins' data set.}
 \label{table:Collins-data}
+\small
 \begin{tabular}{c l l l } \\\hline \hline
 \textbf{No.}	& \textbf{Author} 		& \textbf{Texts} 		& \textbf{Abbr.} \\ \hline
 1		& Collins       		& After Dark			& C1626    \\
@@ -186,20 +226,27 @@ with respect to similarity to the other pieces.
 26		& Collins			& My Lady's Money		& C1628         \\
 27		& Collins			& The Dead Alive		& C7891        \\
 \bottomrule
-\end{tabular}
-
-    \end{minipage} 
-\end{sidewaystable}
+\end{tabular}  
+\end{table}
 
 
-
-
+\subsection{James vs. Twain}
+While Dickens and Collins seemed to have been close enough to collaborate on work,
+this is a highly unlikely scenario for Henry James and Mark Twain. 
+Although both being American writers close in age, they did not seemed to have
+approved of each other as artists \cite{canby1951turn}. 
+It is interesting to investigate to what extent this mutual dislike and 
+disapprobation of each other 's work manifests itself in their writings
+and what elements separate them. 
+Table~\ref{table:Twain-data} and table~\ref{table:Twain-data} show 
+James' and Twain's data sets, where James is represented with 25 and Twain
+with 21 works. 
 
 
 %James vs. Twain
-\begin{sidewaystable}[!htb]
-    \caption{Twain' and James' data set as part of the Twain vs. James' comparison.}
-    \label{table:TJ}
+\begin{table}[!htb]
+    %\caption{Twain' and James' data set as part of the Twain vs. James' comparison.}
+   % \label{table:TJ}
     \begin{minipage}{.62\linewidth}
     \centering
       \caption{Twain's data set.} %necessary???
@@ -228,17 +275,14 @@ with respect to similarity to the other pieces.
 19		&Twain			&Christian Science			& T-cs\\
 20		&Twain			&Chapters from My Autobiography		& T-cfma \\ 
 21		&Twain			&The Mysterious Stranger		& T-tms\\ 
-
-
-
 \bottomrule
 \end{tabular}
 \end{minipage}%
-\hfill
+\vfill
     \begin{minipage}{.62\linewidth}
       \centering
       \caption{James' data set.} %necessary???
-\label{table:Collins-data}
+\label{table:James-data}
 \begin{tabular}{c l l l } \\\hline \hline
 \textbf{No.}	& \textbf{Author} 		& \textbf{Texts} 		& \textbf{Abbr.} \\ \hline
 1		&James				&The American			&J-ta	\\
@@ -270,36 +314,20 @@ with respect to similarity to the other pieces.
 \end{tabular}
 
     \end{minipage} 
-\end{sidewaystable}
+\end{table}
 
 
 
-
-
-
-
-
-\section{Representativeness and Distinctiveness for Stylometry}
+\section{Representativeness and Distinctiveness for Stylometry} \label{sec:method}
 The statistical technique of Representativeness and Distinctiveness was 
-originally conceived in the realm of dialectometry, where it has been
+originated in the realm of dialectometry, where it has been
 shown to detect lexical items able to distinguish different dialectical 
 areas \cite{prokic2012detecting}.
-This study dealt with dialect differences between different sites within 
-a language area with respect to a choice of lexical items. 
-The degree of difference between two sites is characterised by the aggregate 
-differences of comparisons of all lexical items collected at 
-each site. Thus, in the context of dialectrometry, 
-\emph{Representativeness and Distinctiveness} is a measure to detect characteristic 
-features (lexical items), that differ little within a group of sites 
-and considerably more outside that group.
-Characteristic features are chosen with respect to one group $g$ of sites 
-$|g|$ within a larger group of interest $G$, where $|G|$ includes the sites 
-$s$ both within and outside $g$.
-
-
+% more elaborate for comparison ???
 In the context of stylometry, the method can be employed to detect elements for 
 which an author is consistent throughout his own works while also separating him 
-from others. Considering, for instance, a comparison between Dickens and fellow 
+from others. 
+Considering, for instance, a comparison between Dickens and fellow 
 writer Collins on word features using a couple of novels of each writer, 
 one first determines Dickens' representative terms, i.e. those words which he
 uses consistently either frequently or infrequently over his works. 
@@ -307,208 +335,239 @@ In order to arrive at a combined measure, one then favours those representative
 terms of Dickens that Collins uses either inconsistently or consistently but with a
 different frequency over his novels. The remaining group of words are considered 
 to be Dickens' representative and distinctive terms when compared with Collins. 
-% Since the analysis is directional, the degree of Representativeness of individual 
-% features being different with respect to each author, comparisons are made twice
-% - once from Dickens' to Collins' set and once from Collins' to Dickens' set. 
-% This returns two individual author profiles, where features occurring in both 
-% profiles are also consistent for both writers.
+
 Thus, Representativeness and Distinctiveness bears similarities with both 
-Burrow's Delta \cite{Burrows2002delta} and Zeta  \cite{Burrows2007all} in so far as
-favouring consistent terms that are irregular in the opposing author's set. 
+Burrow's Delta \cite{Burrows2002delta} and Zeta  \cite{Burrows2007all} in so 
+far as favouring consistent terms that are irregular in the opposing author's set. 
 Additionally, it is also similar to Zeta in being dependent on the other set 
 for the selection of distinctive terms out of the representative ones. 
-Thus, formally the method of Representativeness and Distinctiveness is defined 
+Formally the method of Representativeness and Distinctiveness is defined 
 as follows: \\
 
 \textsc{Representativeness} of a feature $f$ for document set $D$ is defined 
-in eq.~\ref{eq.Rep}.
+in eq.~\ref{eq.Rep}. \\
 
 
-\begin{equation}\label{eq.Rep}
+ \begin{equation}\label{eq.Rep}
  \overbar{d_f^{D}} = \frac{2}{|D|^2 -|D|} \sum\limits_{d,d' \in D,d \neq d'} d_f(d,d')
-\end{equation}
-
-
-
+ \end{equation}
+ 
 The \textsc{Distinctiveness} measure for comparing to outside documents corresponds 
-to eq.~\ref{eq.Dis}.
+to eq.~\ref{eq.Dis}.\\
 
 
 \begin{equation}\label{eq.Dis}
  \overbar{d_f^{D'}} = \frac{1}{|D|(|DS| -|D|)} \sum\limits_{d \in D, d'\notin D} d_f(d,d')
 \end{equation}
-
-
 The distance $d_f$ between document $d$ and $d'$ with respect to feature $f$, is set as the 
 absolute difference between the logarithm of the relative frequency of their respective
-input values (eq.~\ref{eq.dist}).
-The usual input are relative frequencies of the original term frequency weighting, which provide a 
-better picture between the ratio of term frequency and document size. 
-The logarithm lessens the effect of rather high frequencies. % this should be better
+original term frequencies (eq.~\ref{eq.dist}).
+Relative frequency is given preference here to normalise over document size, while 
+taking the logarithm lessens the effect of rather high frequencies.
 
 \begin{equation} \label{eq.dist}
  d_f(d,d') = |log(relFreq(f) - log(relFreq(f')|
 \end{equation}
-
-
 $\overbar{d_f^{D'}}$  and $\overbar{d_f^{D}}$ are standardized by using all 
 distance values calculated for feature $f$ to yield the 
 degree of representativeness and distinctiveness for
-term $dt$ in $D$ with respect to $DS$ as defined in eq.~\ref{eq.comb}.
+feature $f$ in $D$ with respect to $DS$ as defined in eq.~\ref{eq.comb}.
  
  \begin{equation}\label{eq.comb}
- dt = \frac{\overbar{d^{D'}_f} - \overbar{d_f} }{sd(d_f)} - \frac{\overbar{d^{D}_f} - \overbar{d_f}}{sd(d_f)}
+\frac{\overbar{d^{D'}_f} - \overbar{d_f} }{sd(d_f)} - \frac{\overbar{d^{D}_f} - \overbar{d_f}}{sd(d_f)}
 \end{equation}
 
 
-\paragraph{Comparing Authors on the basis of Representative Features}
-% explain about different lists, how relevant for comparison 
-% take intersection of Rep and dist. terms - yields true discriminatory terms for set for comparison - put emphasis on /extenuate differences 
-% problem when take only one set, these terms will do nothing for similarity of other set among them 
+\subsection{Determining Stylistic Author Profiles}
 
-In order to evaluate how well the chosen terms do separate the two authors, we motivate the choice of only selecting representative features from both author profiles. 
-The issue in connection with using all discriminatory terms lies at the calculation of the $Distinctiveness$ measure. 
-If we calculate representative and distinctive features for an author, we can be sure that the values for those 
-terms are consistently similar for that author, while being different for the outside set. 
-There are consequently two different scenarios with respect to a term \emph{being different} in the other author's set. 
+When applying Representativeness \& Distinctiveness for building author profiles, 
+one needs to consider that there is an ambiguity with respect to a term being 
+distinctive from one author to another. 
+We consider the previous case, where we are trying to find features that 
+separate Dickens and Collins. 
+Initially, we identify Collins' representative terms, which is only based on
+comparing his own documents for different features. Once, this is completed, 
+we identify those terms that separate Collins' set well from Dickens' set
+of documents. 
+Finally, we choose the highest representative ones that also succeed in
+being discriminative between Collins and Dickens. 
 
-1. The term $t_i$ is consistent in set $D$ with a high frequency. The same term $t_i$ is consistent in set the opposing author's set $nD$ with a low frequency. 
-Thus, the term is representative and distinctive for both sets, even though we did not consider the $Representativeness$ for set $nD$. 
-Obviously, the converse could also be true: a consistently low frequency for set $D$ and a consistently high frequency for the set $nD$.
-This first case does not produce any issues for measuring similarity, since on the basis of these features there is is reliable similarity within sets and
-accentuated differences between the sets. 
+\begin{wrapfigure}{r}{0.4\textwidth}
+  \caption{Representativeness}
+ \begin{center}
+  \includegraphics[width=0.4\textwidth]{figures/repres1-fin.png}
+  \end{center}
+ \end{wrapfigure}
+ 
+However, this analysis is directional in the sense that the degree
+of representativeness of a certain feature could be different 
+for the opposing set, i.e. there are two different scenarios
+for a feature being \emph{different} in the opposing set. 
 
-%% TOTD check references to DS because this is the whole set
-%all the way trhough
-2. The second possibility is the one that may cause problems. Assuming a representative and distinctive term for set $D$, with a frequency either high or low. 
-However, the same term is not representative for set $nD$ and values may fluctuate from high to low. Although this term is not representative for $nD$, it
-is distinctive from $D$ to $nD$, because it is constant in $D$ while not being so in $nD$. 
-Clustering the dataset on the basis of these terms may create noise, since it will not show similarities for documents within $nD$ and 
-may have occasional rather similar values to the ones in $D$ that rate it closer to documents in $D$.
+Case 1. The term $t_i$ is consistent in Collins' set $C$ with a low
+frequency, while the same term $t_i$ is consistent in Dickens' set $D$
+with a high frequency. 
+Thus, the term is representative and distinctive for both sets, 
+even though we did not consider the \emph{Representativeness} for set $D$. 
+Obviously, the converse could also be true: a consistently high frequency 
+for set $C$ and a consistently low frequency for the set $D$.
+This first case does not produce any issues for measuring similarity, 
+since on the basis of these features there is is reliable similarity 
+within sets and accentuated differences between the sets. 
 
-\begin{figure}[!htb]
-\minipage{0.3\textwidth}
-\sf \textsc{Representativeness}
-%\vspace{0.3cm}
-  \includegraphics[scale=0.2,width=\linewidth]{figures/repres1-fin.png}
-  \endminipage\hfill
-\minipage{0.3\textwidth}
-\sf \textsc{Distinctiveness} \\
+
+\begin{wrapfigure}{r}{0.4\textwidth}
+\caption{\textsc{Distinctiveness}}
 {\scriptsize \textsc{Case 1}}\\
   \includegraphics[scale=0.2,width=\linewidth]{figures/distinc1-fin.png}
-\endminipage\hfill
-\minipage{0.3\textwidth}%
-\sf \textsc{Distinctiveness} \\
 {\scriptsize \textsc{Case 2}}\\
   \includegraphics[scale=0.2,width=\linewidth]{figures/distinc2-fin.png}
- \endminipage
-\end{figure}
- 
- 
- 
- 
- 
- 
- 
- 
-\section{Evaluation through Clustering}
-
-Given a list of discriminatory terms for two different author sets, we would like to ascertain to what extent the collection of terms is able to 
-highlight differences between the sets and identify distinct clusters grouping the documents of different authors. 
-As has been shown before, the terms used for discrimination ability should be selected according to separation ability for both author sets. 
-Ideally, frequencies with respect to all terms should be consistent and fairly complementary between two author sets, e.g.~Dickens uses \emph{upon} 
-consistently and frequently and Collins uses the term consistently and infrequently. 
-In order to test discrimination ability of a discriminatory term list for two authors, we build a dissimilarity matrix comparing all documents in 
-the complete training set. 
-%dividing by the number of terms in the $dt$ list, obtaining a mean distance for all document pairs given the discriminatory terms for that iteration. 
-% The present solution emphasizes differences between the two sets, since we compare for the terms with
-% the highest differences between the two sets. However, comparing within sets should not be problematic, since we consider
-% terms both authors either employ frequently or avoid consistently, so within one author set, we expect values for either category to be closer, either low or high.
-
-% \subsubsection{Dissimilarity Matrix} %quote? %http://www.statistics.com/index.php?page=glossary&term_id=512
-% A dissimilarity matrix (or distance matrix) $D_M$ describes pairwise distances for $M$ objects, which results in a square symmetrical $M x M$ matrix, 
-% where the $ij_{th}$ entry is equal to the value of a chosen measure of distinction $d$ between the $i_{th}$ and the $j_{th}$ object.
-% The diagonal elements, comparing an object to itself are not considered or are usually equal to zero.
-% A sample dissimilarity matrix is shown in matrix~\ref{ex:dissimMatrix}.
-% Thus, in our case each document pair in $Dickens\cup nonDickens$ is compared based on the differences of $term_i$ in a given term list. 
-% A common measure of distinction $d$ would be \emph{Manhattan} or \emph{Euclidean} distance.
-% 
-% 
-% % \begin{equation}\label{ex:dissimMatrix}
-% %  D_M = \begin{pmatrix} 0           & d_{12}         & \dots                                     & d_{1j}       \cr
-% %                          d_{21} &   0           &       &        \vdots             \cr
-% %                            \vdots                &                 &   \ddots      &   \vdots                   \cr
-% %                          d_{j1}   &     \dots                           &        & 0                 \cr \end{pmatrix}
-% % \end{equation}
-% 
-% Clustering on the basis of dissimilarity between objects, in this case documents can be done via hierarchical clustering.
-% Agglomerative hierarchical clustering, for instance is an iterative clustering process, whereby cluster objects are joined together based on a distance measure between the 
-% elements within the clusters. All elements begin in their own clusters and and are joined until the desired number of output clusters has been reached. 
-% A common distance measure for joining clusters together is the \emph{complete link} method, which assesses closeness on the basis of the most distant elements 
-% in two clusters $X$ and $Y$, in order to avoid the merging of two clusters based on only two single elements from each set being close.
-% The distance $D(X,Y)$ between clusters $X$ and $Y$ is defined in eq.~\ref{eq:completeLink}, where $X$ and $Y$ are two sets of elements or clusters
-% and $d(x,y)$ is the distance between elements $x \in X$ and $y \in Y$. 
-% 
-% 
-% \begin{equation}\label{eq:completeLink}
-%  D(X,Y)= \max_{x\in X, y\in Y} d(x,y) 
-% \end{equation}
-%  
-\subsubsection{Adjusted Rand Index for Evaluation of Clustering} 
-In addition to visual clustering that gives more of an intuition of separation between two sets, a clustering result can be evaluated by 
-comparing two different partitions of a finite set of objects, namely the clustering obtained and the ideal clustering. 
-For this purpose, we can employ the \emph{adjusted Rand Index} \cite{Hubert1985}, which is the corrected-for-chance version of the \emph{Rand Index}. 
-Given a set $S$ of $n$ elements, and two clusterings of these points, $U$ and $V$, defined as   
-$U = \{ U_1, U_2, \ldots , U_r \}$ and $V = \{ V_1, V_2, \ldots , V_s \}$ with $a_i$ and $b_i$ as the number of objects in cluster $U_i$ and $V_i$ respectively.
-The overlap between U and V can be summarized in a contingency table~\ref{ex:continTable}. 
-where each entry $n_{ij}$ denotes the number of objects in common between $U_i\; and\; V_j: n_{ij}=|U_i \cap V_j|$.
-
-\begin{equation} \label{ex:continTable}
- \left[n_{ij}\right]= \bordermatrix{~
-U\ V &	V_1 &  V_2 &	\ldots &	V_s 	&Sums \cr
-U_1 &	n_{11} &	n_{12} &	\ldots 	&n_{1s} &	a_1 \cr
-U_2 &	n_{21} &	n_{22} &	\ldots &	n_{2s} &	a_2\cr
-\vdots &	\vdots &	\vdots &	\ddots &	\vdots &	\vdots\cr
-U_r &	n_{r1} &	n_{r2} &	\ldots &	n_{rs} &	a_r\cr
-Sums &	b_1 	&b_2 	&\ldots 	&b_s &    	\cr}
- \end{equation}
- 
-The adjusted form of the \emph{Rand Index} is defined in eq.~\ref{eq:ARI1} and more specifically given the contingency table~\ref{ex:continTable} 
-in eq.~\ref{eq:ARI}, where $n_{ij}$, $a_i$, $b_j$ are values from the contingency table. 
-
-\begin{equation}\label{eq:ARI1}
- AdjustedIndex = \frac{Index - ExpectedIndex}{MaxIndex - ExpectedIndex}
-\end{equation}
-
-% 
-% \begin{equation}\label{eq:ARI}
-%  ARI = \frac{ \sum_{ij} \binom{n_{ij}}{2} - [\sum_i \binom{a_i}{2} \sum_j \binom{b_j}{2}] / \binom{n}{2} }{ \frac{1}{2} 
-%  [\sum_i \binom{a_i}{2} + \sum_j \binom{b_j}{2}] - [\sum_i \binom{a_i}{2} \sum_j \binom{b_j}{2}] / \binom{n}{2}}
-% \end{equation}
-% 
-% 
-% \begin{figure}[h!]
-%  \caption{Dendrogram 'complete link' of dissimilarity Matrix on the basis of 300 input terms of Dickens and Collins.}
-% \label{den:dissimM}
-% \includegraphics[scale=0.6]{figure/dissimEx.pdf} %0.8200016
-% \end{figure}
-
-The index is bounded between [-1,1], with 0 being the expected value and 1 the highest positive correlation between two different clusterings. 
-For illustration of using the two methods presented above, we consider an example of pairwise comparison of documents 
-of a dataset of  $Dickens\cup Collins$, with 55 documents belonging to Dickens and 31 to Collins. 
-This yields a 86 x 86 dissimilarity matrix containing all pairwise comparisons of documents in the set.  
-Figure~\ref{den:dissimM} depicts an example dendrogram showing clustering based on a dissimilarity matrix with distances computed using the  \emph{complete link} measure. 
-The \emph{adjusted Rand Index} corresponding to the clustering in figure~\ref{den:dissimM} is 0.82, so very close to the ideal separation, which is also confirmed, when we consider the small number of
-misclassifications (3 for Dickens and 1 for Collins).  
-
- 
+\end{wrapfigure}
 
 
-\section{Experiments}
+Case 2. The second possibility is the one that may cause issues.
+Assuming a representative and distinctive term for set $C$, with a 
+frequency either high or low. 
+However, the same term is not representative for set $D$ and values 
+may fluctuate from high to low. Although this term is not representative 
+for $D$, it is distinctive from $C$ to $D$, because it is constant in $C$ 
+while not being so in $D$. 
+Clustering the data set on the basis of these terms may create noise, 
+since it will not show similarities for documents within $D$ and 
+may have occasional rather similar values to the ones in $C$ that 
+rate it closer to documents in $C$.
+
+In order to identify elements representative and distinctive for both sets,
+first, the analysis has to be carried out for both sets and having identified
+two separate author profiles, we select those features that are shared
+by both.
+
+\subsection{Evaluation of Distinctive Markers} \label{sec:evaluation}
+Evaluation in studies of authorship can only be done heuristically
+by identifying desirable properties of stylistic markers and
+determining means of measuring this property. 
+One of these desirable characteristics could be considered 
+as stylistic marker's ability to separate the author's set in 
+question. 
+For instance, having identified a set of discriminatory markers
+for Dickens and Collins using a particular method, we evaluate 
+that method by testing whether those markers are indeed able to 
+cluster the document space appropriately into the two groups of
+documents. 
+Thus, discrimination ability of a set of distinctive markers
+is determined by the overall similarity grouping of documents 
+according to those markers. 
+Poor discriminators will result in poor clustering, where
+authors are not separated well into two groups, while 
+good discriminators should be able to divide documents of 
+different origin clearly into two different groups. 
+This can be quantified by evaluating the clustering result
+using the \emph{Adjusted Rand Index} \cite{hubert1985comparing},
+which compares the current clustering result to the ideal 
+result by pairwise comparison of the groups. 
+The returned index is bounded by [-1,1], with 0 being the 
+expected value and 1 the highest positive correlation 
+between two different clustering versions. 
+
+\section{Experiments}\label{sec:experiments}
 
 
 
-\section{Conclusion}
+\begin{table}
+\small 
+\caption{Results of Adjusted Rand Index for feature types of word unigrams and POS bigrams.}
+ \begin{tabular}{lrr} \toprule
+Test Doc       & word unigrams & POS bigrams \\ \midrule
+D1023     & 0.926  & 0.786 \\
+D1400     & 0.926  & 0.657 \\
+D19337    & 0.926  & 0.786 \\
+D40723    & 0.926  & 0.786 \\
+D564      & 0.926  & 0.786 \\
+D580      & 0.926  & 0.786 \\
+D588      & 0.926  & 0.786 \\
+D650      & 0.926  & 0.855 \\
+D675      & 0.926  & 0.658 \\
+D699      & 0.926  & 0.855 \\
+D700      & 0.926  & 0.786 \\
+D730      & 0.926  & 0.786 \\
+D766      & 0.926  & 0.786 \\
+D821      & 0.926  & 0.855 \\
+D872      & 0.926  & 0.786 \\
+D882      & 0.926  & 0.855 \\
+D883      & 0.926  & 0.786 \\
+D914      & 0.926  & 0.855 \\
+D916      & 0.926  & 0.786 \\
+D917      & 0.926  & 0.786 \\
+D963      & 0.926  & 0.786 \\
+D967      & 0.926  & 0.786 \\
+D968      & 0.926  & 0.786 \\
+D98       & 0.926  & 0.658 \\
+Dal2324   & 0.926  & 0.786 \\
+Dal28198  & 0.926  & 0.855 \\
+DC1423    & 0.926  & 0.786 \\
+C1438     & 0.855  & 0.855 \\
+C155      & 0.926  & 0.786 \\
+C1586     & 0.926  & 0.786 \\
+C1587     & 0.926  & 0.658 \\
+C1588     & 0.926  & 0.855 \\
+C1621     & 0.926  & 0.926 \\
+C1622     & 0.926  & 0.786 \\
+C1623     & 0.926  & 0.855 \\
+C1624     & 0.855  & 0.855 \\
+C1626     & 0.926  & 0.786 \\
+C1627     & 0.926  & 0.786 \\
+C1628     & 0.926  & 0.786 \\
+C1629     & 0.926  & 0.855 \\
+C1630     & 0.926  & 0.786 \\
+C170      & 0.926  & 0.855 \\
+C1895     & 0.926  & 0.855 \\
+C1917     & 0.926  & 0.855 \\
+C1975     & 0.926  & 0.786 \\
+C28367    & 0.926  & 0.855 \\
+C3606     & 0.926  & 0.786 \\
+C3632     & 0.926  & 0.786 \\
+C3633     & 0.926  & 0.786 \\
+C4605     & 0.926  & 0.855 \\
+C583      & 0.926  & 0.658 \\
+C7891     & 0.855  & 0.855 \\
+C7893     & 0.926  & 0.786 \\
+C7894     & 0.926  & 0.786 \\
+ \bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}
+\label{Dickens' and Collins' highest rated features.}
+\begin{tabular}{lll}\toprule
+1   &       upon  &       upon \\
+2   &   scarcely  & discovered \\
+3   &       many  &  interests \\
+4   &       left  &   produced \\
+5   &        and  &       left \\
+6   &       much  &       many \\
+7   &        but  &    attempt \\
+8   &     though  &    useless \\
+9   & discovered  &       only \\
+10  &     beside  &       risk \\
+11  &       lest  &     motive \\
+12  &       down  &   scarcely \\
+13  &    several  & resolution \\
+14  &       very  &  narrative \\
+15  &   produced  &  hesitated \\
+16  &  interests  &     return \\
+17  &     length  &      first \\
+18  &      forth  &      words \\
+19  &      often  &     future \\
+20  &      great  &       very \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+
+\section{Conclusion}\label{sec:conclusion}
 
 
 
