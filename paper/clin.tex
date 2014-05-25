@@ -24,6 +24,7 @@
 \usepackage[section]{placeins}
 \usepackage[super]{nth}
 \usepackage{wrapfig}
+\usepackage{subfig}
 
 %%% commands
 \newcommand{\overbar}[1]{\mkern 2.0mu\overline{\mkern-2.0mu#1\mkern-2.0mu}\mkern 2.0mu}
@@ -495,36 +496,6 @@ The author profiles for word uni-grams and POS tri-grams were chosen
 by using a threshold of $\mu_f \times 1.9$ and for
 POS bi-grams by $\mu_f \times 1.7$. 
 
-Table~\ref{tab:results-features-dc} shows the highest rated features 
-according to Representativeness and Distinctiveness that are best 
-in discrimination between the two authors. The vaues for Dickens' features 
-were calculated by comparing to Collins and vice versa. 
-Column two and three show the top 20 uni-gram features for the two authors
-separately, while column four and five show POS bi-grams. 
-For the word uni-grams, 8 of the 20 terms appear in both lists, so this corresponds
-to Case 1 of Distinctiveness, where they are consistent for both authors, but
-have very different frequency distributions, here \textsc{upon, many, left, discovered}
-appear among the top 6 in both lists. 
-For the POS bi-grams, one can observe that  6 features, namely
-\textsc{NN.TO, RB.TO, RP.CC, CC.WRB, CC.VBG, VBG.RP} 
-are shared by both authors over the first 20 highest items. 
-Noticable is the frequent appearance of the CC and VBG tag, 
-corresponding to `coordinating conjunction' and `Verb in gerund or
-past particle' respectively. 
-For the POS tri-grams, the list of shared items decreases and only three remain 
-common to both authors for the first 20: \textsc{DT.NN.TO,  DT.NN.PP, RB.TO.PP}.
-Notable here are sequences involving possessive pronoun (PP) and TO (to) after 
-a noun phrase. 
-%%% Natural language example!!!
-
-The fact that more items are shared for word unigrams is reflected in the evaluation using 
-clustering, shown in table~\ref{tab:results-clust}.
-For clustering we use the features shared by both authors by intersecting both profiles. 
-The validation method used to create individual subsets of the total data set 
-is \emph{Leave-one-out} cross-validation. 
-The results for the Adjusted Rand Index for word uni-grams are consistenly high with 
-almost all values being around 93\%. In comparison, POS bi-grams fare less well
-%%% TODO : mean /std error
 
 
 \begin{table}[h!]
@@ -562,12 +533,60 @@ almost all values being around 93\%. In comparison, POS bi-grams fare less well
 \bottomrule
 \end{tabular}
 \end{table}
+Table~\ref{tab:results-features-dc} shows the highest rated features 
+according to Representativeness and Distinctiveness that are best 
+in discrimination between the two authors. The vaues for Dickens' features 
+were calculated by comparing to Collins and vice versa. 
+Column two and three show the top 20 uni-gram features for the two authors
+separately, while column four and five show POS bi-grams. 
+For the word uni-grams, 8 of the 20 terms appear in both lists, so this corresponds
+to Case 1 of Distinctiveness, where they are consistent for both authors, but
+have very different frequency distributions, here \textsc{upon, many, left, discovered}
+appear among the top 6 in both lists. 
+For the POS bi-grams, one can observe that  6 features, namely
+\textsc{NN.TO, RB.TO, RP.CC, CC.WRB, CC.VBG, VBG.RP} 
+are shared by both authors over the first 20 highest items. 
+Noticable is the frequent appearance of the CC and VBG tag, 
+corresponding to `coordinating conjunction' and `Verb in gerund or
+past particle' respectively. 
+For the POS tri-grams, the list of shared items decreases and only three remain 
+common to both authors for the first 20: \textsc{DT.NN.TO,  DT.NN.PP, RB.TO.PP}.
+Notable here are sequences involving possessive pronoun (PP) and TO (to) after 
+a noun phrase. 
+%%% Natural language example!!!
+
+The fact that more items are shared for word unigrams is reflected in the evaluation using 
+clustering, shown in table~\ref{tab:results-clust}.
+For clustering we use the features shared by both authors by intersecting both profiles. 
+The validation method used to create individual subsets of the total data set 
+is \emph{Leave-one-out} cross-validation. 
+The results for the Adjusted Rand Index for word uni-grams are consistenly high with 
+almost all values being around 93\%. In comparison, POS bi-grams fare less well
+with an average of ...
+%%% TODO : mean /std error
+POS tri-grams are slightly better, with an average of ...
+This might be explained by considering that POS bi-grams are a more general 
+construction than POS tri-grams (there are also less of them) and they might
+be worse in discriminating between authors of similar backgrounds 
+than tri-grams or even word uni-grams. 
 
 
 
 
 
-
+\begin{figure}
+\centering
+\parbox{8cm}{
+\includegraphics[width=8cm]{mdsplot/dc-wuni-DC1423.pdf}
+\caption{First.}
+\label{fig:2figsA}}
+\qquad
+\begin{minipage}{6cm}
+\includegraphics[width=6cm]{dend/dc-wuni-cl-DC1423.pdf}
+\caption{Second.}
+\label{fig:2figsB}
+\end{minipage}
+\end{figure}
 
 
 
