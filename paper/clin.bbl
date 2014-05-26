@@ -13,16 +13,27 @@
   Arabie}{1985}{hubert1985comparing}Hubert, Lawrence and Phipps Arabie (1985),
   {Comparing partitions}, {\em Journal of classification} {\bf 2}
   (1),~pp.~193--218, Springer.
+\harvarditem[Mahlberg]{Mahlberg}{2007}{mahlberg2007clusters}Mahlberg, Michaela
+  (2007), Clusters, key clusters and local textual functions in dickens., {\em
+  Corpora}.
 \harvarditem[Mosteller and Wallace]{Mosteller and
   Wallace}{2008}{Mosteller2008}Mosteller, Frederick and David~L. Wallace
   (2008), {\em {Inference and Disputed Authorship: The Federalist}}, {The David
   Hume Series of Philosophy and Cognitive Science Reissues}, new ed ed., Center
   for the Study of Language and Information.
 \newblock http://www.worldcat.org/isbn/1575865521.
+\harvarditem[Nerbonne et~al.]{Nerbonne
+  et~al.}{2011}{nerbonne2011gabmap}Nerbonne, John, Rinke Colen, Charlotte
+  Gooskens, Peter Kleiweg, and Therese Leinonen (2011), Gabmap-a web
+  application for dialectology, {\em Dialectologia: revista electr{\`o}nica}
+  pp.~65--89.
 \harvarditem[Proki{\'c} et~al.]{Proki{\'c}
   et~al.}{2012}{prokic2012detecting}Proki{\'c}, Jelena, \c{C}a\u{g}ri
   \c{C}{\"o}ltekin, and John Nerbonne (2012), {Detecting shibboleths}, {\em
   {Proceedings of the EACL 2012 Joint Workshop of LINGVIS \& UNCLH}},
   Association for Computational Linguistics, pp.~72--80.
+\harvarditem[Tabata]{Tabata}{2012}{Tabata2012}Tabata, Tomoji (2012),
+  {Approaching Dickens{\rq} Style through Random Forests}, {\em {Proceedings of
+  the Digital Humanities 2012}}, {DH2012}.
 
 \end{thebibliography}

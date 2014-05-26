@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: clin.aux
+The style file: clin.bst
+Database file #1: biblio.bib
+Warning--empty publisher in mahlberg2007clusters
+Warning--empty publisher in nerbonne2011gabmap
+You've used 9 entries,
+            2946 wiz_defined-function locations,
+            683 strings with 6016 characters,
+and the built_in function-call counts, 4623 in all, are:
+= -- 376
+> -- 251
+< -- 7
++ -- 51
+- -- 51
+* -- 326
+:= -- 740
+add.period$ -- 10
+call.type$ -- 9
+change.case$ -- 71
+chr.to.int$ -- 9
+cite$ -- 11
+duplicate$ -- 343
+empty$ -- 328
+format.name$ -- 102
+if$ -- 954
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 62
+newline$ -- 13
+num.names$ -- 54
+pop$ -- 107
+preamble$ -- 1
+purify$ -- 72
+quote$ -- 0
+skip$ -- 107
+stack$ -- 0
+substring$ -- 216
+swap$ -- 140
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 32
+warning$ -- 2
+while$ -- 39
+width$ -- 0
+write$ -- 138
+(There were 2 warnings)

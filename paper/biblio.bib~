@@ -70,4 +70,19 @@
 	title = "{Approaching Dickens{\rq} Style through Random Forests}",
 	year = "2012"
 }
+@book{canby1951turn,
+  title={Turn West, Turn East: Mark Twain and Henry James},
+  author={Canby, Henry Seidel},
+  year={1951},
+  publisher={Biblo \& Tannen Publishers}
+}
+
+@article{mahlberg2007clusters,
+  title={Clusters, key clusters and local textual functions in Dickens.},
+  author={Mahlberg, Michaela},
+  journal={Corpora},
+  volume={2},
+  number={1},
+  year={2007}
+}
 
