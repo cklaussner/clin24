@@ -25,7 +25,7 @@
 \usepackage[super]{nth}
 \usepackage{wrapfig}
 \usepackage{subfig}
-
+\usepackage{chronology}
 %%% commands
 \newcommand{\overbar}[1]{\mkern 2.0mu\overline{\mkern-2.0mu#1\mkern-2.0mu}\mkern 2.0mu}
 
@@ -129,7 +129,7 @@ aiming to extract Dickens-specific key word clusters (sequences of words),
 that can be interpreted as pointers to more general functions, such
 as \emph{Body Part} clusters pertaining to Dickens' particular affinity for using 
 body parts for individualisation of characters, e.g. ``his hands in his pockets''. 
-Concentrating on Henry James, Hoover 
+%Concentrating on Henry James, Hoover 
 
 
 Thus, in section~\ref{sec:data}, we describe the two data sets, while we 
@@ -379,7 +379,7 @@ taking the logarithm lessens the effect of rather high frequencies.
 \begin{equation} \label{eq.dist}
  d_f(d,d') = |log(relFreq(f) - log(relFreq(f')|
 \end{equation}
-$\overbar{d_f^{D'}}$  and $\overbar{d_f^{D}}$ are standardized by using all 
+$\overbar{d_f^{D'}}$  and $\overbar{d_f^{D}}$ are standardised by using all 
 distance values calculated for feature $f$ to yield the 
 degree of representativeness and distinctiveness for
 feature $f$ in $D$ with respect to $DS$ as defined in eq.~\ref{eq.comb}.
@@ -515,11 +515,12 @@ POS bi-grams by $\mu_f \times 1.7$.
 
 \begin{table}[h!]
 \small
-\label{tab:results-features-dc}
+
 \caption{Dickens' and Collins' highest rated features }
+\label{tab:results-features-dc}
 \begin{tabular}{lllllll}\toprule[1.2pt]
- \multicolumn{1}{c}{\textbf{No}} & \multicolumn{2}{c}{\textbf{Word unigrams}}&  
- \multicolumn{2}{c}{\textbf{POS bigrams}} & \multicolumn{2}{c}{\textbf{POS trigrams}}\\
+ \multicolumn{1}{c}{\textbf{No}} & \multicolumn{2}{c}{\textbf{Word uni-grams}}&  
+ \multicolumn{2}{c}{\textbf{POS bi-grams}} & \multicolumn{2}{c}{\textbf{POS trigrams}}\\
  \cmidrule(r){1-1} 
  \cmidrule(r){2-3} 
 \cmidrule(r){4-5} 
@@ -550,7 +551,7 @@ POS bi-grams by $\mu_f \times 1.7$.
 \end{table}
 Table~\ref{tab:results-features-dc} shows the highest rated features 
 according to Representativeness and Distinctiveness that are best 
-in discrimination between the two authors. The vaues for Dickens' features 
+in discrimination between the two authors. The values for Dickens' features 
 were calculated by comparing to Collins and vice versa. 
 Column two and three show the top 20 uni-gram features for the two authors
 separately, while column four and five show POS bi-grams. 
@@ -561,7 +562,7 @@ appear among the top 6 in both lists.
 For the POS bi-grams, one can observe that  6 features, namely
 \textsc{NN.TO, RB.TO, RP.CC, CC.WRB, CC.VBG, VBG.RP} 
 are shared by both authors over the first 20 highest items. 
-Noticable is the frequent appearance of the CC and VBG tag, 
+Noticeable is the frequent appearance of the CC and VBG tag, 
 corresponding to `coordinating conjunction' and `Verb in gerund or
 past particle' respectively. 
 For the POS tri-grams, the list of shared items decreases and only three remain 
@@ -570,12 +571,12 @@ Notable here are sequences involving possessive pronoun (PP) and TO (to) after
 a noun phrase. 
 %%% Natural language example!!!
 
-The fact that more items are shared for word unigrams is reflected in the evaluation using 
+The fact that more items are shared for word uni-grams is reflected in the evaluation using 
 clustering, shown in table~\ref{tab:results-clust}.
 For clustering we use the features shared by both authors by intersecting both profiles. 
 The validation method used to create individual subsets of the total data set 
 is \emph{Leave-one-out} cross-validation. 
-The results for the Adjusted Rand Index for word uni-grams are consistenly high with 
+The results for the Adjusted Rand Index for word uni-grams are consistently high with 
 almost all values being around 93\%. In comparison, POS bi-grams fare less well
 with an average of ...
 %%% TODO : mean /std error
@@ -587,9 +588,12 @@ than tri-grams or even word uni-grams.
 
 
 Figure~\ref{fig:dc-unigram-mdsplot} and figure~\ref{fig:dc-unigram-dendo} 
-show the mds plot and dendrogram corresponding to the shared features of 
-iteration 27. The dendrogram is computed using the complete link similarity 
-measure. The two author groups seem to form roughly to clusters. 
+show the MDS plot and dendrogram corresponding to the shared features of 
+iteration 27.
+The dendrogram is computed using the complete link similarity 
+measure.\footnote{All MDS plots and dendrograms 
+were created using Gabmap \cite{nerbonne2011gabmap}: http://www.gabmap.nl/. }
+The two author groups seem to form roughly to clusters. 
 Interestingly, the combined Dickens-Collins piece, \emph{DC1423} is 
 (mis)classified as one of Collins' set. One of the other collaborations 
 \emph{Dal2324} is also approaching the border, although from the correct
@@ -622,43 +626,26 @@ corresponding to iteration 27}
 
 
 \subsection{James vs. Twain} \label{sec:twain-james}
-
-
-
-
-(dtm.wuni,25,21, 1.7)
-
-
-posbi 1100 1.7 
-evalRD(dtm.postri,25,21, 1.9)
-
-
-
-intersect(c,d)
- [1] "companion" "around"    "and"       "along"     "might"     "declared" 
- [7] "everybody" "spite"     "conscious" "least"     "two" 
-
-
-
- intersect(d2,c2)
- [1] "NN.CC"  "CC.VB"  "CC.DT"  "PP..RB" "CC.JJ"  "IN.WDT" "RB.CC"  "CC.CD" 
- [9] "TO.WDT" "CC.VBD" "DT.NNS" "NNS.CC" "RBR.RB"
-
- intersect(d3,c3)
- [1] "DT.NN.CC"  "NN.IN.WDT" "CC.VB.DT"  "IN.WDT.PP" "NNS.RB.CC" "TO.PP.IN" 
- [7] "NN.RB.CC"  "NN.CC.VB"  "NNS.CC.RB" "DT.NNS.CC" "RB.DT.NNS" "NNS.CC.VB"
-[13] "CC.DT.NNS"
-
-
-
- 
- 
- 
+The James vs. Twain comparison contained 46 documents, where 
+25 belong to Henry James and 21 to  Mark Twain. 
+As before, we test three different feature types, word uni-grams, 
+POS bi-grams and POS tri-grams. 
+For POS bi-grams, there was an 46 x 1100 input matrix and for 
+the two other feature types, POS tri-grams and word uni-grams, 
+it was an 46 x 5000 input matrix. 
+The author profiles for POS tri-grams were chosen
+by using a threshold of $\mu_f \times 1.9$ and for
+POS bi-grams and word uni-grams a threshold of $\mu_f \times 1.7$
+was used. 
+%(dtm.wuni,5000 1.7)
+%(posbi 1100 1.7) 
+%(dtm.postri,5000,1.9)
 
 \begin{table}[h!]
 \small
-\label{tab:results-features-tj}
+
 \caption{James' and Twain's highest rated features }
+\label{tab:results-features-tj}
 \begin{tabular}{lllllll}\toprule[1.2pt]
  \multicolumn{1}{c}{\textbf{No}} & \multicolumn{2}{c}{\textbf{Word unigrams}}&  
  \multicolumn{2}{c}{\textbf{POS bigrams}} & \multicolumn{2}{c}{\textbf{POS trigrams}}\\
@@ -692,6 +679,133 @@ intersect(c,d)
 \end{tabular}
 \end{table}
 
+Table~\ref{tab:results-features-tj} shows the  20 highest rated 
+(in terms of Representativeness/Distinctiveness) 
+features for all three feature types. Each list of top 
+author profile features is distinctive with respect to the
+other author in the comparison. 
+An closer look at common features of Twain and James shows that
+they share 11 out of 20 uni-grams: 
+\textsc{companion, around, and, along, might, declared,  
+ everybody, spite, conscious, least, two}. 
+Of POS bi-grams, 13 out of 20 are common to both authors:
+NN.CC,  CC.VB,  CC.DT, PP.RB, CC.JJ, IN.WDT, RB.CC, CC.CD,
+  TO.WDT, CC.VBD, DT.NNS, NNS.CC, RBR.RB and 
+ similarly, they share 13 of of the 20 highest rated POS
+ tri-grams:  DT.NN.CC, NN.IN.WDT, CC.VB.DT, IN.WDT.PP, NNS.RB.CC,TO.PP.IN,
+ NN.RB.CC, NN.CC.VB, NNS.CC.RB, DT.NNS.CC, RB.DT.NNS, NNS.CC.VB,
+ CC.DT.NNS. 
+ Moreover, for word uni-grams and POS bi-grams, the first three features 
+ are even in the same order. 
+ 
+ The high number of shared items for all three feature types means
+ that case 1 of Distinctiveness prevails, meaning that values for shared
+ features occur with a very different frequency for each author.
+ %case 1
+ This is consistent with the clustering results shown in table~\ref{tab:results-clust},
+ where for all iterations of cross-validation, the result corresponds to
+ the ideal clustering result. 
+ 
+ 
+Figure~\ref{fig:tj-unigram-mdsplot} and figure~\ref{fig:tj-unigram-dendo}
+show the MDS plot and dendrogram corresponding to the shared word uni-gram 
+features of the first iteration (\emph{J-c}). 
+In both one can observe the formation of distinct clusters for both authors 
+with no misclassified document. 
+ 
+\begin{figure}[h!]
+\centering
+\parbox{8cm}{
+\includegraphics[width=8cm,height=4cm]{mdsplot/tj-wuni-J-c.pdf}
+\caption{MDS plot on James and Twain highest shared word uni-grams 
+corresponding to iteration 1.}
+\label{fig:tj-unigram-mdsplot}}
+\qquad
+\begin{minipage}{6cm}
+\includegraphics[width=6cm]{dend/tj-wuni-cl-Jc.pdf}
+\caption{Dendrogram on James and Twain highest shared word uni-grams 
+corresponding to iteration 1}
+\label{fig:tj-unigram-dendo}
+\end{minipage}
+\end{figure}
+
+\subsection{Discussion}
+The comparison in both author sets yielded highly distinctive features
+that were well able to separate the two authors in each study. 
+The second experiment opposing Henry James and Mark Twain was 
+even more successful than the one aiming to find distinctive features 
+of Charles Dickens and Wilkie Collins.
+There might be various reasons for this difference in accuracy. 
+In terms of stylistics, James and Twain are likely to vary more
+in style (and topic) than Dickens and Collins. 
+They also wrote for different audiences, where James' books probably
+appealed mostly to the upper classes, Twain enjoyed general 
+popularity. They also did not approve of each other 's work, which
+is less likely in Dickens and Collins case, since they collaborated
+on at least one work. 
+Additionally, one might consider this supported by the fact that 
+while Dickens and Collins were best separated on word uni-grams, 
+with syntactic structures being less well in separation, which 
+might be interpreted as a more intrinsic similarity of building
+text than James and Twain, for which any of the three feature types
+returned very high separation results. 
+
+However, one has to consider possible outside influences 
+onto the two data sets, such as the prosaic factor of data set size
+and the time difference. 
+Representativeness and Distinctiveness normalises for the number of 
+comparisons and differences in set size between the compared authors.
+Yet, there will be a difference between small and bigger sets of an 
+author with respect to a particular feature. If the set is small, 
+it is more probable that values over different documents of 
+an author \emph{agree} for a particular feature, whereas the 
+larger a set becomes, the more different documents have to be 
+\emph{satisfied}. 
+Thus, the slight difference in data set size 54 compared to 46
+might have influenced the favourable result for the James/Twain
+comparison. 
+The other less tangible difference between the sets is time and
+cultural differences in terms of 'Britishness' vs 'Americanness'.
+
+
+% \begin{itemize}
+%  \item Dickens: 1812 -- 1870 
+%  \item Collins: 1824 -- 1889
+%  \item Twain: 1835 -- 1910
+%  \item James: 1843 -- 1916
+% \end{itemize}
+
+
+
+\begin{figure}
+\small
+ \begin{chronology}[10]{1812}{1920}{15cm}{10cm}
+
+% early works
+%\event[1812]{1870}{\color{blue} }
+\event{1812}{birth: Charles Dickens}
+\event{1870}{death: Charles Dickens}
+
+\event{1824}{birth: Wilkie Collins}
+\event{1889}{death: Wilkie Collins}
+
+\end{chronology}
+
+ 
+ 
+\begin{chronology}[10]{1812}{1920}{15cm}{10cm}
+
+% early works
+%\event[1812]{1870}{\color{blue} }
+\event{1835}{birth: Mark Twain}
+\event{1910}{d. Twain}
+
+\event{1843}{birth: James}
+\event{1916}{d: James}
+
+\end{chronology}
+
+ \end{figure}
 
 
 
@@ -701,12 +815,7 @@ intersect(c,d)
 
 
 
-
-
-
-
-
-\begin{table}
+\begin{table}[h!]
 \small 
 
 \caption{Results of Adjusted Rand Index for feature types of word uni-grams, POS bi-grams and POS tri-grams.}
