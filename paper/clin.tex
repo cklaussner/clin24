@@ -505,7 +505,7 @@ where three in Dickens' set were collaborations with other author and
 one only with Collins. The uni-gram input matrix was a 
 54-documents x 5000 features matrix, where the features were 
 the 5000 most frequent features. 
-Simlarly, for POS tri-grams, there was a 54 x 5000 input matrix and
+Similarly, for POS tri-grams, there was a 54 x 5000 input matrix and
 for POS bi-grams, it was 54 x 1100. 
 The author profiles for word uni-grams and POS tri-grams were chosen
 by using a threshold of $\mu_f \times 1.9$ and for
@@ -624,70 +624,160 @@ corresponding to iteration 27}
 \subsection{James vs. Twain} \label{sec:twain-james}
 
 
+
+
+(dtm.wuni,25,21, 1.7)
+
+
+posbi 1100 1.7 
+evalRD(dtm.postri,25,21, 1.9)
+
+
+
+intersect(c,d)
+ [1] "companion" "around"    "and"       "along"     "might"     "declared" 
+ [7] "everybody" "spite"     "conscious" "least"     "two" 
+
+
+
+ intersect(d2,c2)
+ [1] "NN.CC"  "CC.VB"  "CC.DT"  "PP..RB" "CC.JJ"  "IN.WDT" "RB.CC"  "CC.CD" 
+ [9] "TO.WDT" "CC.VBD" "DT.NNS" "NNS.CC" "RBR.RB"
+
+ intersect(d3,c3)
+ [1] "DT.NN.CC"  "NN.IN.WDT" "CC.VB.DT"  "IN.WDT.PP" "NNS.RB.CC" "TO.PP.IN" 
+ [7] "NN.RB.CC"  "NN.CC.VB"  "NNS.CC.RB" "DT.NNS.CC" "RB.DT.NNS" "NNS.CC.VB"
+[13] "CC.DT.NNS"
+
+
+
+ 
+ 
+ 
+
+\begin{table}[h!]
+\small
+\label{tab:results-features-tj}
+\caption{James' and Twain's highest rated features }
+\begin{tabular}{lllllll}\toprule[1.2pt]
+ \multicolumn{1}{c}{\textbf{No}} & \multicolumn{2}{c}{\textbf{Word unigrams}}&  
+ \multicolumn{2}{c}{\textbf{POS bigrams}} & \multicolumn{2}{c}{\textbf{POS trigrams}}\\
+ \cmidrule(r){1-1} 
+ \cmidrule(r){2-3} 
+\cmidrule(r){4-5} 
+ \cmidrule(r){6-7}
+    & James	  &  Twain    &   James&  Twain& James	  &  Twain  \\\midrule
+1   &  companion  &  companion  &   NN.CC  &  NN.CC  &   DT.NN.CC   &  CC.VB.DT\\
+2   &     around  &     around  &   CC.VB  &  CC.VB  &  NN.IN.WDT   &  DT.NN.CC\\
+3   &        and  &        and  &   CC.DT  &  CC.DT  &   CC.VB.DT   &  NN.CC.VB\\
+4   &  conscious  &      along  &  PP..RB  & IN.WDT  &  CC.VBD.RB   & NNS.CC.RB\\
+5   &    million  &       body  &   CC.JJ  & NNS.CC  &  IN.WDT.PP   & NNS.CC.VB\\
+6   &      spite  &      might  &  IN.WDT  &  RB.TO  &  NNS.RB.CC   & VB.DT.NNS\\
+7   &        two  &   declared  &   RB.CC  &  CC.NN  &   TO.PP.IN   & NNS.RB.CC\\
+8   &      might  &  everybody  &  NN.RBR  & CC.VBD  &   NN.RB.CC   &  NN.RB.CC\\
+9   &      maybe  &      spite  &   CC.CD  &  CC.JJ  &  VBN.TO.PP   &  CC.VB.IN\\
+10  &     rather  &    chapter  &  TO.WDT  & PP..RB  &  NN.TO.WDT   & CC.VBD.DT\\
+11  &    pretend  &  conscious  &   RP.DT  &  VB.DT  &   NN.CC.VB   & NN.CC.NNS\\
+12  &      least  &      least  &  CC.VBD  & DT.NNS  & IN.WDT.PP.   & CC.DT.NNS\\
+13  &  everybody  &   charming  &  DT.NNS  & CC.NNS  &  NNS.CC.RB   & IN.WDT.PP\\
+14  &      along  &        two  &  NNS.CC  & TO.WDT  &   TO.VB.PP   & DT.NNS.CC\\
+15  &      drunk  &     having  &  RBR.RB  &  CC.RB  &  PP..RB.JJ   & NN.IN.WDT\\
+16  &     simply  &   children  &  NPS.NP  & RBR.RB  &  DT.NNS.CC   &  RB.TO.VB\\
+17  & companions  &    thunder  & WDT.PP.  & CC.VBP  &  RB.VBN.PP   &  TO.PP.IN\\
+18  &        her  &     twelve  &   WP.PP  &  RB.CC  &  RB.DT.NNS   & RB.DT.NNS\\
+19  &      sense  &   crippled  &  VBN.PP  &  PP.IN  &  NNS.CC.VB   & RB.CC.VBD\\
+20  &   declared  & procession  &  RBR.JJ  &  CC.CD  &  CC.DT.NNS   &  CC.RB.DT\\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \begin{table}
 \small 
 
 \caption{Results of Adjusted Rand Index for feature types of word uni-grams, POS bi-grams and POS tri-grams.}
 \label{tab:results-clust}
- \begin{tabular}{lrrr} \toprule
-Test Doc       & word unigrams & POS bigrams & POS trigrams\\ \midrule
-D1023     & 0.93  & 0.79  & 0.85 \\
-D1400     & 0.93  & 0.66  & 0.93 \\
-D19337    & 0.93  & 0.79  & 0.85 \\
-D40723    & 0.93  & 0.79  & 0.85 \\
-D564      & 0.93  & 0.79  & 0.93 \\
-D580      & 0.93  & 0.79  & 0.85 \\
-D588      & 0.93  & 0.79  & 0.85 \\
-D650      & 0.93  & 0.85  & 0.93 \\
-D675      & 0.93  & 0.66  & 0.79 \\
-D699      & 0.93  & 0.85  & 0.85 \\
-D700      & 0.93  & 0.79  & 0.85 \\
-D730      & 0.93  & 0.79  & 0.85 \\
-D766      & 0.93  & 0.79  & 0.85 \\
-D821      & 0.93  & 0.85  & 0.85 \\
-D872      & 0.93  & 0.79  & 0.79 \\
-D882      & 0.93  & 0.85  & 0.85 \\
-D883      & 0.93  & 0.79  & 0.85 \\
-D914      & 0.93  & 0.85  & 0.93 \\
-D916      & 0.93  & 0.79  & 0.79 \\
-D917      & 0.93  & 0.79  & 0.85 \\
-D963      & 0.93  & 0.79  & 0.85 \\
-D967      & 0.93  & 0.79  & 0.85 \\
-D968      & 0.93  & 0.79  & 0.85 \\
-D98       & 0.93  & 0.66  & 0.85 \\
-Dal2324   & 0.93  & 0.79  & 0.85 \\
-Dal28198  & 0.93  & 0.85  & 0.85 \\
-DC1423    & 0.93  & 0.79  & 0.79 \\
-C1438     & 0.85  & 0.85  & 0.85 \\
-C155      & 0.93  & 0.79  & 0.93 \\
-C1586     & 0.93  & 0.79  & 0.85 \\
-C1587     & 0.93  & 0.66  & 0.85 \\
-C1588     & 0.93  & 0.85  & 0.85 \\
-C1621     & 0.93  & 0.93  & 0.85 \\
-C1622     & 0.93  & 0.79  & 0.85 \\
-C1623     & 0.93  & 0.85  & 0.93 \\
-C1624     & 0.85  & 0.85  & 0.85 \\
-C1626     & 0.93  & 0.79  & 0.72 \\
-C1627     & 0.93  & 0.79  & 0.85 \\
-C1628     & 0.93  & 0.79  & 0.85 \\
-C1629     & 0.93  & 0.85  & 0.85 \\
-C1630     & 0.93  & 0.79  & 0.85 \\
-C170      & 0.93  & 0.85  & 0.85 \\
-C1895     & 0.93  & 0.85  & 0.85 \\
-C1917     & 0.93  & 0.85  & 0.79 \\
-C1975     & 0.93  & 0.79  & 0.79 \\
-C28367    & 0.93  & 0.85  & 0.93 \\
-C3606     & 0.93  & 0.79  & 0.79 \\
-C3632     & 0.93  & 0.79  & 0.85 \\
-C3633     & 0.93  & 0.79  & 0.79 \\
-C4605     & 0.93  & 0.85  & 0.85 \\
-C583      & 0.93  & 0.66  & 0.79 \\
-C7891     & 0.85  & 0.85  & 0.79 \\
-C7893     & 0.93  & 0.79  & 0.79 \\
-C7894     & 0.93  & 0.79  & 0.85 \\
+ \begin{tabular}{lrrrlrrr} \toprule[1.2pt]
+  \multicolumn{4}{c}{\textbf{Dickens vs. Collins}} & \multicolumn{4}{c}{\textbf{James vs. Twain}} \\
+   \cmidrule(r){1-4} 
+    \cmidrule(r){5-8} 
+Test Doc (D./C.) & word unig. & POS bigr. & POS trigr. & Test Doc (J./T.) & word unig. & POS bigr. & POS trigr.\\ \midrule
+D1023    & 0.93 & 0.79 & 0.85 &        J-c    &    1    &    1    &    1   \\
+D1400    & 0.93 & 0.66 & 0.93 &      J-itc    &    1    &    1    &    1   \\
+D19337   & 0.93 & 0.79 & 0.85 &       J-pc    &    1    &    1    &    1   \\
+D40723   & 0.93 & 0.79 & 0.85 &     J-poal    &    1    &    1    &    1   \\
+D564     & 0.93 & 0.79 & 0.93 &       J-rh    &    1    &    1    &    1   \\
+D580     & 0.93 & 0.79 & 0.85 &       J-ta    &    1    &    1    &    1   \\
+D588     & 0.93 & 0.79 & 0.85 &      J-taa    &    1    &    1    &    1   \\
+D650     & 0.93 & 0.85 & 0.93 &     J-tamb    &    1    &    1    &    1   \\
+D675     & 0.93 & 0.66 & 0.79 &      J-tap    &    1    &    1    &    1   \\
+D699     & 0.93 & 0.85 & 0.85 &       J-tb    &    1    &    1    &    1   \\
+D700     & 0.93 & 0.79 & 0.85 &       J-te    &    1    &    1    &    1   \\
+D730     & 0.93 & 0.79 & 0.85 &      J-tgb    &    1    &    1    &    1   \\
+D766     & 0.93 & 0.79 & 0.85 &      J-tit    &    1    &    1    &    1   \\
+D821     & 0.93 & 0.85 & 0.85 &       J-to    &    1    &    1    &    1   \\
+D872     & 0.93 & 0.79 & 0.79 &      J-toh    &    1    &    1    &    1   \\
+D882     & 0.93 & 0.85 & 0.85 &     J-tots    &    1    &    1    &    1   \\
+D883     & 0.93 & 0.79 & 0.85 &       J-tr    &    1    &    1    &    1   \\
+D914     & 0.93 & 0.85 & 0.93 &      J-tsf    &    1    &    1    &    1   \\
+D916     & 0.93 & 0.79 & 0.79 &     J-tsop    &    1    &    1    &    1   \\
+D917     & 0.93 & 0.79 & 0.85 &    J-tsotp    &    1    &    1    &    1   \\
+D963     & 0.93 & 0.79 & 0.85 &      J-ttm    &    1    &    1    &    1   \\
+D967     & 0.93 & 0.79 & 0.85 &    J-twotd    &    1    &    1    &    1   \\
+D968     & 0.93 & 0.79 & 0.85 &      J-waw    &    1    &    1    &    1   \\
+D98      & 0.93 & 0.66 & 0.85 &      J-wmk    &    1    &    1    &    1   \\
+Dal2324  & 0.93 & 0.79 & 0.85 &       J-ws    &    1    &    1    &    1   \\
+Dal28198 & 0.93 & 0.85 & 0.85 &  T-acyikac    &    1    &    1    &    1   \\
+DC1423   & 0.93 & 0.79 & 0.79 &    T-adbds    &    1    &    1    &    1   \\
+C1438    & 0.85 & 0.85 & 0.85 &      T-ata    &    1    &    1    &    1   \\
+C155     & 0.93 & 0.79 & 0.93 &     T-cfma    &    1    &    1    &    1   \\
+C1586    & 0.93 & 0.79 & 0.85 &       T-cs    &    1    &    1    &    1   \\
+C1587    & 0.93 & 0.66 & 0.85 & T-fteajatw    &    1    &    1    &    1   \\
+C1588    & 0.93 & 0.85 & 0.85 &       T-ia    &    1    &    1    &    1   \\
+C1621    & 0.93 & 0.93 & 0.85 &     T-lotm    &    1    &    1    &    1   \\
+C1622    & 0.93 & 0.79 & 0.85 &    T-proja    &    1    &    1    &    1   \\
+C1623    & 0.93 & 0.85 & 0.93 &       T-ri    &    1    &    1    &    1   \\
+C1624    & 0.85 & 0.85 & 0.85 &     T-snao    &    1    &    1    &    1   \\
+C1626    & 0.93 & 0.79 & 0.72 &      T-tac    &    1    &    1    &    1   \\
+C1627    & 0.93 & 0.79 & 0.85 &    T-taohf    &    1    &    1    &    1   \\
+C1628    & 0.93 & 0.79 & 0.85 &    T-taots    &    1    &    1    &    1   \\
+C1629    & 0.93 & 0.85 & 0.85 &      T-tet    &    1    &    1    &    1   \\
+C1630    & 0.93 & 0.79 & 0.85 &  T-tgaatot    &    1    &    1    &    1   \\
+C170     & 0.93 & 0.85 & 0.85 &      T-tms    &    1    &    1    &    1   \\
+C1895    & 0.93 & 0.85 & 0.85 &    T-tpatp    &    1    &    1    &    1   \\
+C1917    & 0.93 & 0.85 & 0.79 &      T-tsa    &    1    &    1    &    1   \\
+C1975    & 0.93 & 0.79 & 0.79 &      T-tsd    &    1    &    1    &    1   \\
+C28367   & 0.93 & 0.85 & 0.93 &    T-ttopw    &    1    &    1    &    1   \\
+C3606    & 0.93 & 0.79 & 0.79 &             &         &         & 		\\
+C3632    & 0.93 & 0.79 & 0.85 &             &         &         & 		\\
+C3633    & 0.93 & 0.79 & 0.79 &             &         &         & 		\\
+C4605    & 0.93 & 0.85 & 0.85 &             &         &         & 		\\
+C583     & 0.93 & 0.66 & 0.79 &             &         &         & 		\\
+C7891    & 0.85 & 0.85 & 0.79 &             &         &         & 		\\
+C7893    & 0.93 & 0.79 & 0.79 &             &         &         & 		\\
+C7894    & 0.93 & 0.79 & 0.85 &             &         &         & 		\\
 \bottomrule
 \end{tabular}
 \end{table}
+
+
+
+
+
 
 
 
@@ -787,6 +877,71 @@ C7894     & 0.93  & 0.79  & 0.85 \\
 % \end{tabular}
 % }
 %  \end{table}
+% 
+% \begin{table}
+% \small 
+% 
+% \caption{Results of Adjusted Rand Index for feature types of word uni-grams, POS bi-grams and POS tri-grams.}
+% \label{tab:results-clust}
+%  \begin{tabular}{lrrr} \toprule
+% Test Doc       & word unigrams & POS bigrams & POS trigrams\\ \midrule
+% D1023     & 0.93  & 0.79  & 0.85 \\
+% D1400     & 0.93  & 0.66  & 0.93 \\
+% D19337    & 0.93  & 0.79  & 0.85 \\
+% D40723    & 0.93  & 0.79  & 0.85 \\
+% D564      & 0.93  & 0.79  & 0.93 \\
+% D580      & 0.93  & 0.79  & 0.85 \\
+% D588      & 0.93  & 0.79  & 0.85 \\
+% D650      & 0.93  & 0.85  & 0.93 \\
+% D675      & 0.93  & 0.66  & 0.79 \\
+% D699      & 0.93  & 0.85  & 0.85 \\
+% D700      & 0.93  & 0.79  & 0.85 \\
+% D730      & 0.93  & 0.79  & 0.85 \\
+% D766      & 0.93  & 0.79  & 0.85 \\
+% D821      & 0.93  & 0.85  & 0.85 \\
+% D872      & 0.93  & 0.79  & 0.79 \\
+% D882      & 0.93  & 0.85  & 0.85 \\
+% D883      & 0.93  & 0.79  & 0.85 \\
+% D914      & 0.93  & 0.85  & 0.93 \\
+% D916      & 0.93  & 0.79  & 0.79 \\
+% D917      & 0.93  & 0.79  & 0.85 \\
+% D963      & 0.93  & 0.79  & 0.85 \\
+% D967      & 0.93  & 0.79  & 0.85 \\
+% D968      & 0.93  & 0.79  & 0.85 \\
+% D98       & 0.93  & 0.66  & 0.85 \\
+% Dal2324   & 0.93  & 0.79  & 0.85 \\
+% Dal28198  & 0.93  & 0.85  & 0.85 \\
+% DC1423    & 0.93  & 0.79  & 0.79 \\
+% C1438     & 0.85  & 0.85  & 0.85 \\
+% C155      & 0.93  & 0.79  & 0.93 \\
+% C1586     & 0.93  & 0.79  & 0.85 \\
+% C1587     & 0.93  & 0.66  & 0.85 \\
+% C1588     & 0.93  & 0.85  & 0.85 \\
+% C1621     & 0.93  & 0.93  & 0.85 \\
+% C1622     & 0.93  & 0.79  & 0.85 \\
+% C1623     & 0.93  & 0.85  & 0.93 \\
+% C1624     & 0.85  & 0.85  & 0.85 \\
+% C1626     & 0.93  & 0.79  & 0.72 \\
+% C1627     & 0.93  & 0.79  & 0.85 \\
+% C1628     & 0.93  & 0.79  & 0.85 \\
+% C1629     & 0.93  & 0.85  & 0.85 \\
+% C1630     & 0.93  & 0.79  & 0.85 \\
+% C170      & 0.93  & 0.85  & 0.85 \\
+% C1895     & 0.93  & 0.85  & 0.85 \\
+% C1917     & 0.93  & 0.85  & 0.79 \\
+% C1975     & 0.93  & 0.79  & 0.79 \\
+% C28367    & 0.93  & 0.85  & 0.93 \\
+% C3606     & 0.93  & 0.79  & 0.79 \\
+% C3632     & 0.93  & 0.79  & 0.85 \\
+% C3633     & 0.93  & 0.79  & 0.79 \\
+% C4605     & 0.93  & 0.85  & 0.85 \\
+% C583      & 0.93  & 0.66  & 0.79 \\
+% C7891     & 0.85  & 0.85  & 0.79 \\
+% C7893     & 0.93  & 0.79  & 0.79 \\
+% C7894     & 0.93  & 0.79  & 0.85 \\
+% \bottomrule
+% \end{tabular}
+% \end{table}
 % 
 
 
