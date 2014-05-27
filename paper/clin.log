@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.14)  26 MAY 2014 18:26
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.14)  27 MAY 2014 16:56
 entering extended mode
  %&-line parsing enabled.
 **clin.tex
@@ -817,7 +817,7 @@ Here is how much of TeX's memory you used:
  14622 multiletter control sequences out of 15000+50000
  12160 words of font info for 46 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 63i,10n,57p,506b,717s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,10n,57p,506b,709s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
 xlive/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texmf-texlive/fonts/
@@ -833,7 +833,7 @@ sy5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy6.pfb></us
 r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texm
 f-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/f
 onts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on clin.pdf (14 pages, 613223 bytes).
+Output written on clin.pdf (14 pages, 613275 bytes).
 PDF statistics:
  139 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
