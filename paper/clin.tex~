@@ -129,7 +129,7 @@ aiming to extract Dickens-specific key word clusters (sequences of words),
 that can be interpreted as pointers to more general functions, such
 as \emph{Body Part} clusters pertaining to Dickens' particular affinity for using 
 body parts for individualisation of characters, e.g. ``his hands in his pockets''. 
-%Concentrating on Henry James, Hoover 
+%Concentrating on Henry James (Hoover) 
 
 
 Thus, in section~\ref{sec:data}, we describe the two data sets, while we 
@@ -479,7 +479,7 @@ result by pairwise comparison of the groups.
 The returned index is bounded by [-1,1], with 0 being the 
 expected value and 1 the highest positive correlation 
 between two different clustering versions. 
-%%%TODO complete Link
+%%%TODO complete Link explanation
 
 \section{Experiments}\label{sec:experiments}
 As part of the experiments, we are looking at both data sets
@@ -526,26 +526,26 @@ POS bi-grams by $\mu_f \times 1.7$.
 \cmidrule(r){4-5} 
  \cmidrule(r){6-7}
     & Dickens	  &  Collins    & Dickens&  Collins& Dickens	  &  Collins   \\\midrule
-1   &       upon  &       upon  &  RP.CC  &   NN.TO  &  CC.NN.CC   & IN.VBG.PP. \\
+1   &       upon  &       upon  &  RP.CC  &   NN.TO  &  CC.NN.CC   & IN.VBG.PP \\
 2   &   scarcely  & discovered  &  IN.IN  &   RB.TO  &  NN.CC.RB   &   TO.DT.NN  \\
 3   & discovered  &   produced  &  NN.TO  &   RP.CC  &  RB.IN.IN   &  IN.VBG.DT \\
-4   &       many  &  interests  & VBG.RP  &  TO.PP.  & CC.VBG.RP   &  PP..JJ.JJ \\
+4   &       many  &  interests  & VBG.RP  &  TO.PP  & CC.VBG.RP   &  PP..JJ.JJ \\
 5   &        and  &       left  &  CC.RB  & VBP.VBD  & VBN.RP.CC   &   DT.NN.TO \\
 6   &       left  &       many  & CC.VBG  &   NN.NN  &  RB.MD.VB   & VBD.IN.VBG \\
-7   &       very  &    useless  &  JJ.CC  &  NNS.NN  & RB.TO.PP.   & VBN.IN.VBG \\
-8   &        but  &    attempt  &  NN.CC  &   RB.NN  & CC.VBG.IN   &  DT.NN.PP. \\
-9   &       much  &     motive  &  CC.IN  &   NP.NN  & DT.NN.PP.   &   NN.NN.NN \\
-10  &     beside  &       only  &  DT.CC  &   RB.JJ  &  RB.JJ.CC   & NN.WDT.PP. \\
-11  &     though  &       risk  &  RB.CC  & VBZ.VBD  &  JJ.NN.CC   &  TO.PP..NN \\
-12  &       down  & resolution  &  RB.TO  &  CC.WRB  &  IN.IN.DT   &  TO.VB.PP. \\
-13  &   produced  &      words  & VBG.JJ  &  CC.VBG  & CC.VBG.CC   & VBD.TO.PP. \\
-14  &    several  &  hesitated  &  IN.CC  &  VBG.RP  &  RB.RB.CC   &  RB.TO.PP. \\
-15  &       lest  &       very  &  CC.NN  & VBN.PP.  & VBG.RP.CC   & PP..NNS.PP \\
+7   &       very  &    useless  &  JJ.CC  &  NNS.NN  & RB.TO.PP   & VBN.IN.VBG \\
+8   &        but  &    attempt  &  NN.CC  &   RB.NN  & CC.VBG.IN   &  DT.NN.PP \\
+9   &       much  &     motive  &  CC.IN  &   NP.NN  & DT.NN.PP   &   NN.NN.NN \\
+10  &     beside  &       only  &  DT.CC  &   RB.JJ  &  RB.JJ.CC   & NN.WDT.PP \\
+11  &     though  &       risk  &  RB.CC  & VBZ.VBD  &  JJ.NN.CC   &  TO.PP.NN \\
+12  &       down  & resolution  &  RB.TO  &  CC.WRB  &  IN.IN.DT   &  TO.VB.PP \\
+13  &   produced  &      words  & VBG.JJ  &  CC.VBG  & CC.VBG.CC   & VBD.TO.PP \\
+14  &    several  &  hesitated  &  IN.CC  &  VBG.RP  &  RB.RB.CC   &  RB.TO.PP \\
+15  &       lest  &       very  &  CC.NN  & VBN.PP  & VBG.RP.CC   & PP..NNS.PP \\
 16  &     failed  &   scarcely  & CC.WRB  & NNS.VBP  & NNS.CC.RB   & VBD.NP.NNS \\
-17  &    control  &     future  & VBG.CC  &  VBN.TO  &  DT.NN.TO   & PP..NN.POS \\
+17  &    control  &     future  & VBG.CC  &  VBN.TO  &  DT.NN.TO   & PP.NN.POS \\
 18  &      great  &     return  & RP.NNS  &   RB.MD  &  CC.JJ.CC   &   PP.DT.NN \\
 19  &       such  &      first  & PDT.DT  &  NP.NNS  & RB.CC.VBG   &   DT.NN.PP \\
-20  &     indeed  &     failed  &  CC.JJ  &  VB.PP.  &  CC.RB.RB   &  VBD.TO.DT \\
+20  &     indeed  &     failed  &  CC.JJ  &  VB.PP  &  CC.RB.RB   &  VBD.TO.DT \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -795,8 +795,7 @@ cultural differences in terms of 'Britishness' vs 'Americanness'.
  
 \begin{chronology}[10]{1812}{1920}{15cm}{10cm}
 
-% early works
-%\event[1812]{1870}{\color{blue} }
+
 \event{1835}{birth: Mark Twain}
 \event{1910}{d. Twain}
 
@@ -886,17 +885,7 @@ C7894    & 0.93 & 0.79 & 0.85 &             &         &         & 		\\
 
 
 
-
-
-
-
-
-
 \section{Conclusion}\label{sec:conclusion}
-
-
-
-
 
 
 
@@ -905,153 +894,6 @@ C7894    & 0.93 & 0.79 & 0.85 &             &         &         & 		\\
 
 \bibliographystyle{clin} 
 \bibliography{biblio}  
-
-%\appendix
-
-
-
-% 
-% \section*{Dickens vs. Collins}
-% \begin{table}[h!] % Dickens 
-% \caption{Dickens' data set as part of the Dickens vs. Collins comparison.}
-% \label{table:Dickens-data}
-% \scalebox{0.8}{
-% \begin{tabular}{c l l l} \\\hline \hline
-% \textbf{No.} 	& \textbf{Author} 	& \textbf{Texts} 			& \textbf{Abbr.} \\ \hline
-% 1   		& Dickens 		& Bleak House 				& D1023     \\
-% 2   		& Dickens		& Great Expectations			& D1400      \\
-% 3		& Dickens      		& Little Dorrit     			& D963       \\
-% 4		& Dickens      		& David Copperfield     		& D766        \\
-% 5		& Dickens      		& A Christmas Carol     		& D19337       \\
-% 6   		& Dickens		& Life And Adventures Of Martin Chuzzlewit	& D968        \\
-% 7		& Dickens		& The Mystery of Edwin Drood		& D564   \\
-% 8		& Dickens      		& A Tale of Two Cities                  & D98      \\
-% 9		& Dickens		& Master Humphrey's Clock		& D588           \\
-% 10		& Dickens		& The Battle of Life: A Love Story      & D40723              \\
-% 11		& Dickens		&Life And Adventures Of Nicholas Nickleby	& D967          \\  
-% 12		& Dickens		&Barnaby Rudge      			& D917             \\
-% 13		& Dickens		& Sketches of Young Couples		& D916        \\
-% 14		& Dickens		& The Uncommercial Traveller            & D914           \\
-% 15		& Dickens		& Our Mutual Friend			& D883           \\
-% 16		& Dickens		& Pictures From Italy			& D650    \\
-% 17		& Dickens		& Sketches by Boz			& D882      \\
-% 18		& Dickens		& A Child's History of England       	& D699  \\
-% 19		& Dickens		& Reprinted Pieces			& D872   \\
-% 20		& Dickens		& Dombey and Son			& D821     \\
-% 21		& Dickens		& Oliver Twist				& D730        \\
-% 22		& Dickens		&The Old Curiosity Shop			& D700         \\
-% 23		& Dickens		& American Notes			& D675         \\
-% 24		& Dickens		&The Pickwick Papers			& D580           \\
-% 25		& Dickens     (et al.)  & A Budget of Christmas Tales		& Dal28198         \\
-% 26		& Dickens (et al.)	& A House to Let			& Dal2324     \\
-% 27		& Dickens (/Collins)     & No Thoroughfare			& DC1423       \\ \bottomrule
-% \end{tabular}
-% }
-% \end{table}
-% 
-% \begin{table}[h!]% Collins 
-% \caption{Collins' data set as part of the Dickens vs. Collins comparison.}
-% \label{table:Collins-data}
-% \scalebox{0.8}{
-% \begin{tabular}{c l l l } \\\hline \hline
-% \textbf{No.}	& \textbf{Author} 		& \textbf{Texts} 		& \textbf{Abbr.} \\ \hline
-% 1		& Collins       		& After Dark			& C1626    \\
-% 2		& Collins			& Antonina			& C3606        \\
-% 3		& Collins			& Armadale			& C1895  \\
-% 4		& Collins			& Man and Wife			& C1586      \\
-% 5		& Collins			& Little Novels			& C1630    \\
-% 6		& Collins			& Jezebel's Daughter		& C3633    \\
-% 7		& Collins			& I Say No			& C1629       \\
-% 8		& Collins			& Hide and Seek			& C7893  \\
-% 9		& Collins			& Basil				& C4605 \\
-% 10		& Collins			& A Rogue's Life		& C1588     \\
-% 11		& Collins			& The Woman in White		& C583         \\
-% 12		& Collins			& The Two Destinies		& C1624    \\
-% 13		& Collins			& The Queen of Hearts		& C1917        \\
-% 14		& Collins			& The New Magdalen		& C1623     \\
-% 15		& Collins			& The Moonstone			& C155         \\
-% 16		& Collins			& The Legacy of Cain		& C1975       \\
-% 17		& Collins			& The Law and the Lady		& C1622         \\
-% 18		& Collins			& The Haunted Hotel: A Mystery of Modern Venice	&    C170              \\
-% 19		& Collins			& The Fallen Leaves		& C7894           \\
-% 20		& Collins			& The Evil Genius		& C1627           \\
-% 21		& Collins			& No Name			& C1438        \\
-% 22		& Collins			& Poor Miss Finch		& C3632           \\
-% 23		& Collins			& Rambles Beyond Railways	& C28367         \\
-% 24		& Collins			& The Black Robe		& C1587      \\
-% 25		& Collins			& Miss or Mrs.?			& C1621          \\
-% 26		& Collins			& My Lady's Money		& C1628         \\
-% 27		& Collins			& The Dead Alive		& C7891        \\
-% \bottomrule
-% \end{tabular}
-% }
-%  \end{table}
-% 
-% \begin{table}
-% \small 
-% 
-% \caption{Results of Adjusted Rand Index for feature types of word uni-grams, POS bi-grams and POS tri-grams.}
-% \label{tab:results-clust}
-%  \begin{tabular}{lrrr} \toprule
-% Test Doc       & word unigrams & POS bigrams & POS trigrams\\ \midrule
-% D1023     & 0.93  & 0.79  & 0.85 \\
-% D1400     & 0.93  & 0.66  & 0.93 \\
-% D19337    & 0.93  & 0.79  & 0.85 \\
-% D40723    & 0.93  & 0.79  & 0.85 \\
-% D564      & 0.93  & 0.79  & 0.93 \\
-% D580      & 0.93  & 0.79  & 0.85 \\
-% D588      & 0.93  & 0.79  & 0.85 \\
-% D650      & 0.93  & 0.85  & 0.93 \\
-% D675      & 0.93  & 0.66  & 0.79 \\
-% D699      & 0.93  & 0.85  & 0.85 \\
-% D700      & 0.93  & 0.79  & 0.85 \\
-% D730      & 0.93  & 0.79  & 0.85 \\
-% D766      & 0.93  & 0.79  & 0.85 \\
-% D821      & 0.93  & 0.85  & 0.85 \\
-% D872      & 0.93  & 0.79  & 0.79 \\
-% D882      & 0.93  & 0.85  & 0.85 \\
-% D883      & 0.93  & 0.79  & 0.85 \\
-% D914      & 0.93  & 0.85  & 0.93 \\
-% D916      & 0.93  & 0.79  & 0.79 \\
-% D917      & 0.93  & 0.79  & 0.85 \\
-% D963      & 0.93  & 0.79  & 0.85 \\
-% D967      & 0.93  & 0.79  & 0.85 \\
-% D968      & 0.93  & 0.79  & 0.85 \\
-% D98       & 0.93  & 0.66  & 0.85 \\
-% Dal2324   & 0.93  & 0.79  & 0.85 \\
-% Dal28198  & 0.93  & 0.85  & 0.85 \\
-% DC1423    & 0.93  & 0.79  & 0.79 \\
-% C1438     & 0.85  & 0.85  & 0.85 \\
-% C155      & 0.93  & 0.79  & 0.93 \\
-% C1586     & 0.93  & 0.79  & 0.85 \\
-% C1587     & 0.93  & 0.66  & 0.85 \\
-% C1588     & 0.93  & 0.85  & 0.85 \\
-% C1621     & 0.93  & 0.93  & 0.85 \\
-% C1622     & 0.93  & 0.79  & 0.85 \\
-% C1623     & 0.93  & 0.85  & 0.93 \\
-% C1624     & 0.85  & 0.85  & 0.85 \\
-% C1626     & 0.93  & 0.79  & 0.72 \\
-% C1627     & 0.93  & 0.79  & 0.85 \\
-% C1628     & 0.93  & 0.79  & 0.85 \\
-% C1629     & 0.93  & 0.85  & 0.85 \\
-% C1630     & 0.93  & 0.79  & 0.85 \\
-% C170      & 0.93  & 0.85  & 0.85 \\
-% C1895     & 0.93  & 0.85  & 0.85 \\
-% C1917     & 0.93  & 0.85  & 0.79 \\
-% C1975     & 0.93  & 0.79  & 0.79 \\
-% C28367    & 0.93  & 0.85  & 0.93 \\
-% C3606     & 0.93  & 0.79  & 0.79 \\
-% C3632     & 0.93  & 0.79  & 0.85 \\
-% C3633     & 0.93  & 0.79  & 0.79 \\
-% C4605     & 0.93  & 0.85  & 0.85 \\
-% C583      & 0.93  & 0.66  & 0.79 \\
-% C7891     & 0.85  & 0.85  & 0.79 \\
-% C7893     & 0.93  & 0.79  & 0.79 \\
-% C7894     & 0.93  & 0.79  & 0.85 \\
-% \bottomrule
-% \end{tabular}
-% \end{table}
-% 
 
 
 

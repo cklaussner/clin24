@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.14)  27 MAY 2014 16:56
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.14)  28 MAY 2014 18:11
 entering extended mode
  %&-line parsing enabled.
 **clin.tex
@@ -700,15 +700,6 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-Package caption Warning: \label before \caption on input line 171.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `table:Dickens-data' on page 2 undefined on input line
- 153.
-
-
 Overfull \hbox (114.06082pt too wide) in paragraph at lines 266--291
  [][] 
  []
@@ -792,12 +783,12 @@ Missing character: There is no 0 in font nullfont!
 Missing character: There is no c in font nullfont!
 Missing character: There is no m in font nullfont!
 
-Overfull \hbox (51.40517pt too wide) in paragraph at lines 823--884
+Overfull \hbox (51.40517pt too wide) in paragraph at lines 822--883
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 52.06729pt on input line 884.
+LaTeX Warning: Float too large for page by 52.06729pt on input line 883.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -805,35 +796,31 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [11 <./mdsplot/tj-wuni-J-c.pdf> <./dend/tj-wuni-cl-Jc.pdf>] [12] [13]
 (./clin.bbl) [14
 
-] (./clin.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+] (./clin.aux) ) 
 Here is how much of TeX's memory you used:
  11699 strings out of 495061
  214089 string characters out of 1182621
- 276504 words of memory out of 3000000
+ 276464 words of memory out of 3000000
  14622 multiletter control sequences out of 15000+50000
  12160 words of font info for 46 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  63i,10n,57p,506b,709s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
-re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
-xlive/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texmf-texlive/fonts/
-type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-texlive/fonts/type1/publ
-ic/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
-/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.p
-fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sha
-re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texl
-ive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/typ
-e1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
-sy5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy6.pfb></us
-r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texm
-f-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/f
-onts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on clin.pdf (14 pages, 613275 bytes).
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10
+.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/
+share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texmf-
+texlive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-texlive/fo
+nts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/p
+ublic/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
+nts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sh
+are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-tex
+live/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/
+amsfonts/cm/cmsy5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
+cmsy6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb></
+usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/t
+exmf-texlive/fonts/type1/public/amsfonts/cm/cmti9.pfb>
+Output written on clin.pdf (14 pages, 613127 bytes).
 PDF statistics:
  139 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
