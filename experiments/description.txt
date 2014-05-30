@@ -1,0 +1,85 @@
+
+description files:
+experiments/ 
+
+
+
+
+
+
+
+# results files:
+
+all results files are structured the same:
+load(file="file.rda") gives a variables 'diff'
+> names(diff) 
+[1] "cv"         "sim"        "inter.feat" "f1.red"     "f2.red"    
+[6] "f1"         "f2" 
+
+
+:each iteration result is indexed by the test doc that was removed in that iteration
+: objects: are lists of different objects, either lists, vectors, matrices
+
+#variables
+
+#lists of matrices stating terms with respective RD score:
+f1: complete feature list  for all iterations for first author in comparison, in this case Dickens and James are the first 
+f2: complete feature list  for all iterations for second author in comparison, in this case Collins and Twain are the second
+f1.red: reduced list according to threshold for first author (these are the ones actually used )
+f2.red: reduced list according to threshold for second author (these are the ones actually used )
+
+access like so: 
+
+"diff$f1.red[[1]]"
+or "diff$f1.red[["T-tsd"]]"
+
+
+
+####################
+
+#list of vectors 
+inter.feat: shared features of f1.red and f2.red for each iteration
+
+#list of lists
+cv: cross-validation results, here only clustering, based on inter.feat of each iteration
+
+#list of matrices
+sim: similarity matrices corresponding to results for each iteration
+
+access like this:
+
+"diff$sim[[1]]"
+
+
+# Dickens/Collins
+
+DC-wuni-1.9-all-in.rda
+DC-posbi-1100-1.7.rda
+dc-trigrams-5000-1.9.rda  
+
+
+
+# James/Twain
+TJ-wuni-5000-1.7.rda
+TJ-posbi-1.7.rda
+TJ-postri-5000-1.9.rda
+
+
+
+
+
+
+# extra: just some processed results, some processed for use with latex
+DC-features.rda   
+DC-results-clust.rda
+TJDC-combined-results.rda
+tj-results-clust.rda
+
+
+
+
+# unimportant: sim. matrix for Gabmap
+mat-dc-posbi.txt                  
+mat-dc.txt                 
+doc.txt                    
+
