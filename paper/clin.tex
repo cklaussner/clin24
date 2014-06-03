@@ -2,7 +2,7 @@
 
 % Note that if you want to use the \begin{equation} ... \end{equation}
 % environment, you will have to include fleqn in the
-% \documentclass[...]{...} options! 
+% \documentclass[...]{...} options!
 % The top of your LaTeX file should then look like this:
 % \documentclass[a4paper,10pt,twoside,fleqn]{article}
 \usepackage[utf8]{inputenc}
@@ -50,113 +50,125 @@
 %\copyright
 
 \begin{abstract}
-Detection of stylistic elements in authorship studies is hampered
-by the lack of a gold standard that would otherwise enable us to 
-clearly evaluate our findings. In absence thereof, one generally 
-resorts to choosing items for which an author shows a 
-characteristic usage compared with other writers. 
-In this line of work, we present both a measure for determining 
-characteristic elements of an author that he uses consistently
-over different works by examining different types of features, 
-both lexical and syntactic ones.
-For evaluation, we test the separation ability of the selected 
-features by clustering the data set on their basis.
+We focus on characterizing authorial style in a quantitative way rather than
+on non-traditional authorship attribution.  We propose a measure for determining
+characteristic elements of an author, i.e. elements that that he uses consistently
+and differently from others, and we report on its application to
+lexical and syntactic elements.  Because the detection of characteristic
+style elements cannot rely on a gold standard to
+evaluate findings,  we report on results by noting elements characteristic for
+the authors whose prose we examine, and by testing the separation ability
+of the selected elements by clustering the data based on these elements.
 
-We apply both feature selection and evaluation in two different
-studies of authorship. In the first, we compare Charles Dickens 
-and Wilkie Collins, while the second one is contrasting the 
-styles of Henry James and Mark Twain. Testing separation ability 
-in clustering on highly representative and distinctive features 
-returns high results for all feature types in Dickens 
-vs. Collins and perfect clustering results for all feature types
+We report on feature selection and evaluation in two different
+studies of authorial style. In the first, we compare Charles Dickens
+and Wilkie Collins, while the second one contrasts the
+styles of Henry James and Mark Twain. Testing separation ability
+%JN: I tried to clarify "returns high results for all feature types" assuming you
+%JN:  meant using them all together, and not using each of them individ.
+in clustering on highly representative and distinctive elements
+results in good separation for Dickens
+vs. Collins (when using all the characteristic elements), and perfect
+clustering results when using all the characteristic elements
 in the Twain/James comparison.
 \end{abstract}
 
 
-
-
 \section{Introduction}
 
-The concept of \emph{style} in studies of authorship refers to 
-something like the \emph{feel} of a piece of text, which might be less
-tangible than style in other disciplines, such as art or music, 
-where we use \emph{language} to express aspects of a 
-painting or a piece of music, whereas for \emph{style} in writing, 
-we are left with the same tools for explaining something that were
-used in creating it. 
+%JN: focus on authorial style rather than the style of a particular piece
+Authorial \textsc{style} refers to what is distinctive about the way an author
+uses language,
+something like the \emph{feel} of his or her writing, which might be less
+tangible than style in other disciplines, such as art or music.
 
-While traditional studies of authorship involve individual literary
-scholars judging upon what constitutes the style of an author, 
-non-traditional studies employ statistical techniques to discover 
-the style of an author automatically. 
+%JN do next lines add anything?
+?? where we use \emph{language} to
+%JN describe the style of a
+express aspects of a
+painting or a piece of music, whereas for \emph{style} in writing,
+we are left with the same tools for explaining something that were
+used in creating it.
+
+While traditional studies of authorship attribution often involve individual literary
+scholars judging what constitutes the style of an author (as well as
+external evidence such as where a manuscript was found, whether there were
+references to it in correspondence, etc.),
+non-traditional studies employ statistical techniques to discover and characterize
+the style of an author automatically.
 In either scenario, the development and investigation of suitable
-methods of detection is hampered by the lack of a gold standard,
-that would be able to indicate the method's closeness to 
-revealing true stylistic elements of an author. 
-In absence thereof, the weight lies primarily on the method's 
-theoretical appropriateness in the way it selects stylistic 
-markers, which results in the need to understand the methods 
-we employ as well as their implications. 
+methods of detection is hampered by the lack of a \textsc{gold standard}
+that could indicate how well the method
+reveals the "true" stylistic elements of a given author.
+In absence of a gold standard, the judgment of how well a technique
+characterizes style often depends primarily on the method's
+theoretical appropriateness, i.e. how it selects stylistic
+markers.  This means that we need to be clear about the methods
+we employ as well as evaluating how well they work.
 
 % this part needs to include more references
-\emph{Consistency} of stylistic markers has been somewhat of 
-a central theme to studies of authorship, such as in early 
-studies \cite{Mosteller2008}, which also emphasised  the need
-to accumulate a large number of markers to increase reliability 
+The \textsc{reliability} of stylistic markers has been
+central in non-traditional studies of authorship, such as \citeasnoun{Mosteller2008},
+who aggregated a large number of markers in order to increase reliability
 of the result.
-This has been continued in more recent studies, as in 
-the development of the Burrow's Delta \cite{Burrows2002delta} 
-and Zeta \cite{Burrows2007all} measures that build on
-features representative for an author over a given number
-of his texts, while distinguishing him from another/other 
-author(s). 
+This has been continued in more recent studies, as in
+the development of Burrow's Delta \cite{Burrows2002delta}
+and Zeta \cite{Burrows2007all}, measures that incorporate a large number of
+features from a representative selection of
+of his texts, in an attempt to find feature that distinguish the author
+in question from others.  In contrast to the Delta studies, but following the
+Zeta work, we will focus here on the reliability of individual features.  Of course,
+we will also want the benefit of aggregating features, but the novel element
+lies in our attempt to
+find individual features that occur reliably throughout an author's works.  We
+refer to these as \textsc{representative}.
 
 %%% elaborate:
 %% Burrows' methods are primarily for authorship attribution,i.e.
 % determine authorship of particular document rather than
-% stylistic features/authorship fingerprint 
+% stylistic features/authorship fingerprint
 
 In this work, we consider \emph{Representativeness \& Distinctiveness}
 \cite{prokic2012detecting}, a technique originating in dialectometry,
 to select an author’s consistent features within his own texts, that
 are simultaneously also distinctive with respect to another author’s texts.
-Further, we propose a heuristic method for evaluation of 
+Further, we propose a heuristic method for evaluation of
 selected features that is intended to measure how well they are able to
-separate the data set into the correct groupings. 
-As part of the analysis, we include both lexical and syntactic features, 
-such as plain word uni-grams, but also Part-of-Speech (POS) 
+separate the data set into the correct groupings.
+As part of the analysis, we include both lexical and syntactic features,
+such as plain word uni-grams, but also Part-of-Speech (POS)
 bi-grams/tri-grams.
 The data consists of two separate authorship sets, where the first
 contains texts by two British authors, Charles Dickens and
 Wilkie Collins and the second comprises writings by the two
-American authors, Henry James and Mark Twain. 
+American authors, Henry James and Mark Twain.
 Related work in stylometry includes a study of Dickens' style using
 Random Forests classification and
 comparing both Collins and a larger reference set comprising
 texts from the \nth{18}  and \nth{19} century \cite{Tabata2012}.
 Further, there has been a corpus stylistics study \cite{mahlberg2007clusters},
-aiming to extract Dickens-specific key word clusters (sequences of words), 
+aiming to extract Dickens-specific key word clusters (sequences of words),
 that can be interpreted as pointers to more general functions, such
-as \emph{Body Part} clusters pertaining to Dickens' particular affinity for using 
-body parts for individualisation of characters, e.g. ``his hands in his pockets''. 
+as \emph{Body Part} clusters pertaining to Dickens' particular affinity for using
+body parts for individualisation of characters, e.g. ``his hands in his pockets''.
 Recently, Henry James was closely analysed for style change over time by
-applying Burrow's methods to his early and late works separately, which 
-when analysed together formed distinct clusters \cite{Hoover2012}. 
+applying Burrow's methods to his early and late works separately, which
+when analysed together formed distinct clusters \cite{Hoover2012}.
 
 
-Thus, in section~\ref{sec:data}, we describe the two data sets and then continue with 
-introducing \emph{Representativeness \& Distinctiveness} 
+Thus, in section~\ref{sec:data}, we describe the two data sets and then continue by
+introducing \textsc{Representativeness \& Distinctiveness}
 in section~\ref{sec:method}. Further, section~\ref{sec:evaluation}
-introduces and illustrates our proposed method of evaluation. 
+introduces and illustrates our proposed method of evaluation.
 Finally, in section~\ref{sec:experiments}, we describe our experiments
 and results with respect to the two data sets and section~\ref{sec:conclusion}
-closes the discussion. 
+closes the discussion.
 
 
 \section{The Data Sets} \label{sec:data}
 For this study, we built two different authorship data sets, one for comparing Charles Dickens
-and contemporary writer Wilkie Collins and the other one opposing Henry James 
-to fellow American writer Mark Twain. 
+and contemporary writer Wilkie Collins and the other one opposing Henry James
+to fellow American writer Mark Twain.
 All data was obtained from \emph{Project Gutenberg}\footnote{http://www.gutenberg.org/}
 and the \emph{Internet Archive}\footnote{https://archive.org/}.
 
@@ -168,23 +180,23 @@ In addition to texts solely authored by himself, Dickens' data set also contains
 three books, namely \emph{A Budget of Christmas Tales}, \emph{A House to Let} and \emph{No Thoroughfare}
 that were collaborations, but for which Dickens seems to have been main author.
 In particular, the last two also include Wilkie Collins as co-author and notably the work
-\emph{No Thoroughfare} was written only by Dickens and Collins. 
+\emph{No Thoroughfare} was written only by Dickens and Collins.
 The collaborations were included to provide some interesting insight with respect to stylistic properties.
-If both authors persist in terms of style, these works should be somewhat more difficult 
-to classify than those written by only one of them.  
- 
+If both authors persist in terms of style, these works should be somewhat more difficult
+to classify than those written by only one of them.
+
 
 \subsection{James vs. Twain}
 While Dickens and Collins seemed to have been close enough to collaborate on work,
-this might have been a highly unlikely scenario for Henry James and Mark Twain. 
+this might have been a highly unlikely scenario for Henry James and Mark Twain.
 Despite both being American writers very close in age, they did not seemed to have
-particularly approved of each other as artists \cite{canby1951turn}. 
-For this reason it might be interesting to investigate to what extent this mutual dislike and 
+particularly approved of each other as artists \cite{canby1951turn}.
+For this reason it might be interesting to investigate to what extent this mutual dislike and
 disapprobation of each other 's work takes manifestation in their writings
-and what elements can be used best to separate them. 
-Table~\ref{table:Twain-data} and table~\ref{table:Twain-data} show 
+and what elements can be used best to separate them.
+Table~\ref{table:Twain-data} and table~\ref{table:Twain-data} show
 James' and Twain's data sets, where James is represented with 25 and Twain
-with 21 works. 
+with 21 works.
 
 
 
@@ -207,7 +219,7 @@ with 21 works.
 8		& Dickens      		& A Tale of Two Cities                  & D98      \\
 9		& Dickens		& Master Humphrey's Clock		& D588           \\
 10		& Dickens		& The Battle of Life: A Love Story      & D40723              \\
-11		& Dickens		& Life And Adventures Of Nicholas Nickleby	& D967          \\  
+11		& Dickens		& Life And Adventures Of Nicholas Nickleby	& D967          \\
 12		& Dickens		& Barnaby Rudge      			& D917             \\
 13		& Dickens		& Sketches of Young Couples		& D916        \\
 14		& Dickens		& The Uncommercial Traveller            & D914           \\
@@ -261,7 +273,7 @@ with 21 works.
 26		& Collins			& My Lady's Money		& C1628         \\
 27		& Collins			& The Dead Alive		& C7891        \\
 \bottomrule
-\end{tabular}  
+\end{tabular}
 \end{table}
 
 
@@ -274,31 +286,31 @@ with 21 works.
     \begin{minipage}{.62\linewidth}
     \centering
       \caption{Twain's data set.} %necessary???
-      
+
       \label{table:Twain-data}
 \begin{tabular}{c l l l} \\\hline \hline
 \textbf{No.} 	& \textbf{Author} 	& \textbf{Texts} 			& \textbf{Abbr.} \\ \hline
-1		&Twain			&Innocents Abroad			& T-ia\\ 
-2		&Twain			&The Gilded Age: A Tale of Today	& T-tgaatot\\ 
+1		&Twain			&Innocents Abroad			& T-ia\\
+2		&Twain			&The Gilded Age: A Tale of Today	& T-tgaatot\\
 3		&Twain			&Sketches New and Old			& T-snao\\
-4		&Twain			&The Adventures of Tom Sawyer		& T-taots\\ 
-5		&Twain			&A Tramp Abroad				& T-ata\\ 
-6		&Twain			&Roughing It				& T-ri \\ 
-7		&Twain			&The Prince and the Pauper		& T-tpatp\\ 
-8		&Twain			&Life on the Mississippi		& T-lotm\\ 
-9		&Twain			&The Adventures of Huckleberry Finn	& T-taohf\\ 
-10		&Twain			&A Connecticut Yankee in King Arthur's Court& T-acyikac\\  
-11		&Twain			&The American Claimant			& T-tac\\  
-12		&Twain			&The Tragedy of Pudd'nhead Wilson	&T-ttopw\\   
-13		&Twain			&Tom Sawyer Abroad			& T-tsa\\ 
-14		&Twain			&Tom Sawyer Detective			& T-tsd\\ 
-15		&Twain			&Personal Recollections of Joan Arc	& T-proja\\ 
+4		&Twain			&The Adventures of Tom Sawyer		& T-taots\\
+5		&Twain			&A Tramp Abroad				& T-ata\\
+6		&Twain			&Roughing It				& T-ri \\
+7		&Twain			&The Prince and the Pauper		& T-tpatp\\
+8		&Twain			&Life on the Mississippi		& T-lotm\\
+9		&Twain			&The Adventures of Huckleberry Finn	& T-taohf\\
+10		&Twain			&A Connecticut Yankee in King Arthur's Court& T-acyikac\\
+11		&Twain			&The American Claimant			& T-tac\\
+12		&Twain			&The Tragedy of Pudd'nhead Wilson	&T-ttopw\\
+13		&Twain			&Tom Sawyer Abroad			& T-tsa\\
+14		&Twain			&Tom Sawyer Detective			& T-tsd\\
+15		&Twain			&Personal Recollections of Joan Arc	& T-proja\\
 16		&Twain			&Following the Equator: A Journey Around the World	&T-fteajatw\\
-17		&Twain			&Those Extraordinary Twins 		&T-tet\\ 
-18		&Twain			&A Double Barrelled Detective Story	& T-adbds\\ 
+17		&Twain			&Those Extraordinary Twins 		&T-tet\\
+18		&Twain			&A Double Barrelled Detective Story	& T-adbds\\
 19		&Twain			&Christian Science			& T-cs\\
-20		&Twain			&Chapters from My Autobiography		& T-cfma \\ 
-21		&Twain			&The Mysterious Stranger		& T-tms\\ 
+20		&Twain			&Chapters from My Autobiography		& T-cfma \\
+21		&Twain			&The Mysterious Stranger		& T-tms\\
 \bottomrule
 \end{tabular}
 \end{minipage}%
@@ -311,25 +323,25 @@ with 21 works.
 \textbf{No.}	& \textbf{Author} 		& \textbf{Texts} 		& \textbf{Abbr.} \\ \hline
 1		&James				&The American			&J-ta	\\
 2		&James				&Watch and Ward			&J-waw	\\
-3		&James				&The Europeans			&J-te	\\ 
+3		&James				&The Europeans			&J-te	\\
 4		&James				&Confidence 			&J-c	\\
-5		&James				&Washington Square 		&J-ws	\\ 
-6		&James				&Portrait of a Lady 		&J-poal	\\ 
+5		&James				&Washington Square 		&J-ws	\\
+6		&James				&Portrait of a Lady 		&J-poal	\\
 7		&James				&Roderick Hudson		&J-rh	 \\
 8		&James				&The Bostonians 		&J-tb	\\
 9		&James				&Princess Casamassima 		&J-pc	\\
-10		&James				&The Reverberator 		&J-tr	\\ 
+10		&James				&The Reverberator 		&J-tr	\\
 11		&James				&The Aspern Papers		&J-tap	\\ %  novella
 12		&James				&The Tragic Muse 		&J-ttm	\\ %
 13		&James				&The Other House 		&J-toh	\\ %
-14		&James				&What Maisie Knew        	&J-wmk	\\ 
+14		&James				&What Maisie Knew        	&J-wmk	\\
 15		&James				&The Spoils of Poynton  	&J-tsop	\\ %
 16		&James				&Turn of the Screw		&J-tots	\\ %novella
 17		&James				&The Awkward Age 		&J-taa	\\ %
-18		&James				&The Sacred Fount		&J-tsf	\\ 
-19		&James				&The Wings of the Dove		&J-twotd	\\  
+18		&James				&The Sacred Fount		&J-tsf	\\
+19		&James				&The Wings of the Dove		&J-twotd	\\
 20		&James				&The Golden Bowl 		&J-tgb	\\ %
-21		&James				&The Ambassadors		&J-tamb	\\ 
+21		&James				&The Ambassadors		&J-tamb	\\
 22		&James				&The Outcry			&J-to	\\ %
 23		&James				&The Ivory Tower (unfinished)	&J-tit	\\ %
 24		&James				&The Sense of the Past (unfinished)&J-tsotp	\\%
@@ -337,7 +349,7 @@ with 21 works.
 \bottomrule
 \end{tabular}
 
-    \end{minipage} 
+    \end{minipage}
 \end{table}
 
 
@@ -345,64 +357,64 @@ with 21 works.
 \section{Representativeness and Distinctiveness for Stylometry} \label{sec:method}
 The statistical technique of Representativeness and Distinctiveness
 originated in the realm of dialectometry, where it has been
-shown to detect lexical items able to distinguish different dialectical 
+shown to detect lexical items able to distinguish different dialectical
 areas \cite{prokic2012detecting}.
 
-In the context of stylometry, the method can be employed to detect elements for 
-which an author is consistent throughout his own works while also separating him 
-from another author. 
-Considering, for instance, a comparison between Dickens and fellow 
-writer Collins on word features using a couple of novels of each writer, 
+In the context of stylometry, the method can be employed to detect elements for
+which an author is consistent throughout his own works while also separating him
+from another author.
+Considering, for instance, a comparison between Dickens and fellow
+writer Collins on word features using a couple of novels of each writer,
 one first determines Dickens' representative terms, i.e. those words which he
-uses consistently either frequently or infrequently over his works. 
-In order to arrive at a combined measure, one then favours those representative 
+uses consistently either frequently or infrequently over his works.
+In order to arrive at a combined measure, one then favours those representative
 terms of Dickens that Collins uses either inconsistently or consistently but with a
-different frequency over his novels. The remaining group of words are considered 
-to be Dickens' representative and distinctive terms when compared to Collins. 
+different frequency over his novels. The remaining group of words are considered
+to be Dickens' representative and distinctive terms when compared to Collins.
 
-Thus, Representativeness and Distinctiveness bears similarities with both 
+Thus, Representativeness and Distinctiveness bears similarities with both
 Burrow's Delta \cite{Burrows2002delta} and Zeta  \cite{Burrows2007all} in
-favouring consistent terms that are irregular in the opposing author's set. 
-Additionally, it is also similar to Zeta in being dependent on the other set 
-for the selection of distinctive terms out of the representative ones. 
+favouring consistent terms that are irregular in the opposing author's set.
+Additionally, it is also similar to Zeta in being dependent on the other set
+for the selection of distinctive terms out of the representative ones.
 However, the technique can be applied to all frequency strata simultaneously.
 While Burrow's methods are primarily intended for the actual attribution
 of a document, Representativeness and Distinctiveness would be appropriate
-for detecting items distinguishing two authors as well as ones that 
-the authors would either consistently avoid or favour with respect to 
-the other author. 
-Formally the method of Representativeness and Distinctiveness is defined 
+for detecting items distinguishing two authors as well as ones that
+the authors would either consistently avoid or favour with respect to
+the other author.
+Formally the method of Representativeness and Distinctiveness is defined
 as follows: \\
 
-\textsc{Representativeness} of a feature $f$ for document set $D$ is defined 
+\textsc{Representativeness} of a feature $f$ for document set $D$ is defined
 in eq.~\ref{eq.Rep}. \\
 
 
  \begin{equation}\label{eq.Rep}
  \overbar{d_f^{D}} = \frac{2}{|D|^2 -|D|} \sum\limits_{d,d' \in D,d \neq d'} d_f(d,d')
  \end{equation}
- 
-The \textsc{Distinctiveness} measure for comparing to outside documents corresponds 
+
+The \textsc{Distinctiveness} measure for comparing to outside documents corresponds
 to eq.~\ref{eq.Dis}.\\
 
 
 \begin{equation}\label{eq.Dis}
  \overbar{d_f^{D'}} = \frac{1}{|D|(|DS| -|D|)} \sum\limits_{d \in D, d'\notin D} d_f(d,d')
 \end{equation}
-The distance $d_f$ between document $d$ and $d'$ with respect to feature $f$, is set as the 
+The distance $d_f$ between document $d$ and $d'$ with respect to feature $f$, is set as the
 absolute difference between the logarithm of the relative frequency of their respective
 original term frequencies (eq.~\ref{eq.dist}).
-Relative frequency is given preference here to normalise over document size, while 
+Relative frequency is given preference here to normalise over document size, while
 taking the logarithm lessens the effect of rather high frequencies.
 
 \begin{equation} \label{eq.dist}
  d_f(d,d') = |log(relFreq(f) - log(relFreq(f')|
 \end{equation}
-$\overbar{d_f^{D'}}$  and $\overbar{d_f^{D}}$ are standardised by using all 
-distance values calculated for feature $f$ to yield the 
+$\overbar{d_f^{D'}}$  and $\overbar{d_f^{D}}$ are standardised by using all
+distance values calculated for feature $f$ to yield the
 degree of representativeness and distinctiveness for
 feature $f$ in $D$ with respect to $DS$ as defined in eq.~\ref{eq.comb}.
- 
+
  \begin{equation}\label{eq.comb}
 \frac{\overbar{d^{D'}_f} - \overbar{d_f} }{sd(d_f)} - \frac{\overbar{d^{D}_f} - \overbar{d_f}}{sd(d_f)}
 \end{equation}
@@ -410,17 +422,17 @@ feature $f$ in $D$ with respect to $DS$ as defined in eq.~\ref{eq.comb}.
 
 \subsection{Determining Stylistic Author Profiles}
 
-When applying Representativeness \& Distinctiveness for building author profiles, 
-one needs to take into consideration that there is an ambiguity connected to 
-a term being  distinctive from one author to the other. 
-We consider the previous case, where we are trying to find features that 
-separate Dickens and Collins. 
+When applying Representativeness \& Distinctiveness for building author profiles,
+one needs to take into consideration that there is an ambiguity connected to
+a term being  distinctive from one author to the other.
+We consider the previous case, where we are trying to find features that
+separate Dickens and Collins.
 As a first step, we identify Collins' representative terms, which is only based on
-comparing his own documents for different features. Once, this is completed, 
+comparing his own documents for different features. Once, this is completed,
 we identify those terms that separate Collins' set well from Dickens' set
-of documents. 
+of documents.
 Finally, we choose the highest representative ones that are also
-discriminative with respect to Dickens. 
+discriminative with respect to Dickens.
 
 \begin{wrapfigure}{r}{0.4\textwidth}
   \caption{Representativeness}
@@ -428,21 +440,21 @@ discriminative with respect to Dickens.
   \includegraphics[width=0.4\textwidth]{figures/repres1-fin.png}
   \end{center}
  \end{wrapfigure}
- 
+
 However, this analysis is directional in the sense that the degree
-of representativeness of a certain feature could be different 
+of representativeness of a certain feature could be different
 for the opposing set, i.e. there are two different scenarios
-for a feature being \emph{different} in the opposing set. 
+for a feature being \emph{different} in the opposing set.
 
 Case 1. The term $t_i$ is consistent in Collins' set $C$ with a low
 frequency, while the same term $t_i$ is consistent in Dickens' set $D$
-with a high frequency. 
-Thus, the term is representative and distinctive for both sets, 
-even though we did not consider the \emph{Representativeness} for set $D$. 
-Obviously, the converse could also be true: a consistently high frequency 
+with a high frequency.
+Thus, the term is representative and distinctive for both sets,
+even though we did not consider the \emph{Representativeness} for set $D$.
+Obviously, the converse could also be true: a consistently high frequency
 of term $t_i$ for set $C$ and a consistently low frequency for the set $D$.
 This first case does not create any issues for measuring similarity over the
-complete data set, since documents of one author set will be similar on 
+complete data set, since documents of one author set will be similar on
 these features while at the same time being different to the respective other set.
 
 
@@ -457,14 +469,14 @@ these features while at the same time being different to the respective other se
 
 
 Case 2. The second possibility is the one that may cause issues.
-Assuming a representative and distinctive term for set $C$, distributed with a 
-frequency either high or low. 
-However, in this case the same term is not representative for set $D$ and values 
-may fluctuate from high to low. Although this term is not representative 
-for $D$, it is distinctive from $C$ to $D$, because it is constant in $C$ 
-while not being so in $D$. 
-Clustering the data set on the basis of terms such as these may create noise, 
-since it will not show similarities for documents within $D$ and 
+Assuming a representative and distinctive term for set $C$, distributed with a
+frequency either high or low.
+However, in this case the same term is not representative for set $D$ and values
+may fluctuate from high to low. Although this term is not representative
+for $D$, it is distinctive from $C$ to $D$, because it is constant in $C$
+while not being so in $D$.
+Clustering the data set on the basis of terms such as these may create noise,
+since it will not show similarities for documents within $D$ and
 may have occasional rather similar values to the ones in $C$ that would
 then rate it closer to documents in $C$.
 
@@ -476,59 +488,59 @@ by both profiles.
 \subsection{Evaluation of Distinctive Markers} \label{sec:evaluation}
 Evaluation in studies of authorship can only be done heuristically
 by identifying desirable properties of stylistic markers and
-determining means of measuring this property. 
-The stylistic markers' ability to separate the authorship set in 
-question could be considered as one of these desirable characteristics. 
+determining means of measuring this property.
+The stylistic markers' ability to separate the authorship set in
+question could be considered as one of these desirable characteristics.
 For instance, having identified a set of discriminatory markers
-for Dickens and Collins using a particular method, we evaluate 
-that method by testing whether those markers are indeed able to 
+for Dickens and Collins using a particular method, we evaluate
+that method by testing whether those markers are indeed able to
 cluster the document space appropriately into the two groups of
-documents. 
+documents.
 Thus, discrimination ability of a set of distinctive markers
-is determined by the overall similarity grouping of documents 
-according to those markers. 
+is determined by the overall similarity grouping of documents
+according to those markers.
 Poor discriminators will result in poor clustering, where
-authors are not separated well into two groups, while 
-good discriminators should be able to divide documents of 
-different origin clearly into two different groups. 
+authors are not separated well into two groups, while
+good discriminators should be able to divide documents of
+different origin clearly into two different groups.
 This can be quantified by evaluating the clustering result
 using the \emph{Adjusted Rand Index} \cite{hubert1985comparing},
-which compares the current clustering result to the ideal 
-result by pairwise comparison of the groups. 
-The returned index is bounded by [-1,1], with 0 being the 
-expected value and 1 the highest positive correlation 
-between two different clustering versions. 
+which compares the current clustering result to the ideal
+result by pairwise comparison of the groups.
+The returned index is bounded by [-1,1], with 0 being the
+expected value and 1 the highest positive correlation
+between two different clustering versions.
 %%%TODO complete Link explanation
 
 \section{Experiments}\label{sec:experiments}
 As part of the experiments, we are looking at both data sets
 for different feature types, in this case word uni-grams,
-POS bi-grams and tri-grams. 
-The best features for each individual author are selected by 
+POS bi-grams and tri-grams.
+The best features for each individual author are selected by
 computing a threshold based on the representative and distinctive
-scores of all features within. 
-Thus, for an authors' full list of features, one first computes 
-the mean $\mu_f$ over all representative and distinctive values 
+scores of all features within.
+Thus, for an authors' full list of features, one first computes
+the mean $\mu_f$ over all representative and distinctive values
 for all features and multiplies this by a fixed value, e.g. 1.8
 that is dependent on the feature input size and individual
 requirements. In this case, only features with a score higher than
-$\mu_f \times 1.8$ would be kept. 
+$\mu_f \times 1.8$ would be kept.
 
 In section~\ref{sec:dickens-collins}, we look at distinctive
 features of Dickens compared to Collins and section~\ref{sec:twain-james}
-opposes James and Twain in style analysis. 
+opposes James and Twain in style analysis.
 
 \subsection{Dickens vs. Collins} \label{sec:dickens-collins}
 Both Dickens' and Collins' data set individually contained 27 novels,
-where three in Dickens' set were collaborations with other authors and 
-one only with Collins. The uni-gram input matrix was a 
-54-documents x 5000 features matrix, where the features were 
-the 5000 most frequent features. 
+where three in Dickens' set were collaborations with other authors and
+one only with Collins. The uni-gram input matrix was a
+54-documents x 5000 features matrix, where the features were
+the 5000 most frequent features.
 Similarly, for POS tri-grams, there was a 54 x 5000 input matrix and
-for POS bi-grams, it was 54 x 1100. 
+for POS bi-grams, it was 54 x 1100.
 The author profiles for word uni-grams and POS tri-grams were chosen
 by using a threshold of $\mu_f \times 1.9$ and for
-POS bi-grams by using $\mu_f \times 1.7$. 
+POS bi-grams by using $\mu_f \times 1.7$.
 
 
 
@@ -538,11 +550,11 @@ POS bi-grams by using $\mu_f \times 1.7$.
 \caption{Dickens' and Collins' highest rated features }
 \label{tab:results-features-dc}
 \begin{tabular}{lllllll}\toprule[1.2pt]
- \multicolumn{1}{c}{\textbf{No}} & \multicolumn{2}{c}{\textbf{Word uni-grams}}&  
+ \multicolumn{1}{c}{\textbf{No}} & \multicolumn{2}{c}{\textbf{Word uni-grams}}&
  \multicolumn{2}{c}{\textbf{POS bi-grams}} & \multicolumn{2}{c}{\textbf{POS trigrams}}\\
- \cmidrule(r){1-1} 
- \cmidrule(r){2-3} 
-\cmidrule(r){4-5} 
+ \cmidrule(r){1-1}
+ \cmidrule(r){2-3}
+\cmidrule(r){4-5}
  \cmidrule(r){6-7}
     & Dickens	  &  Collins    & Dickens&  Collins& Dickens	  &  Collins   \\\midrule
 1   &       upon  &       upon  &  RP.CC  &   NN.TO  &  CC.NN.CC   & IN.VBG.PP \\
@@ -568,63 +580,63 @@ POS bi-grams by using $\mu_f \times 1.7$.
 \bottomrule
 \end{tabular}
 \end{table}
-Table~\ref{tab:results-features-dc} shows the highest rated features 
-according to Representativeness and Distinctiveness that are best 
-in discriminating between the two authors. The values for Dickens' features 
-were calculated by comparing to Collins and vice versa. 
+Table~\ref{tab:results-features-dc} shows the highest rated features
+according to Representativeness and Distinctiveness that are best
+in discriminating between the two authors. The values for Dickens' features
+were calculated by comparing to Collins and vice versa.
 Column two and three show the top 20 uni-gram features for the two authors
-separately, while column four and five show POS bi-grams. 
+separately, while column four and five show POS bi-grams.
 For the word uni-grams, 8 of the 20 terms appear in both lists, so this corresponds
 to Case 1 of Distinctiveness, where they are consistent for both authors, but
 have very different frequency distributions, here \textsc{upon, many, left, discovered}
-appear among the top 6 in both lists. 
+appear among the top 6 in both lists.
 For the POS bi-grams, one can observe that  6 features, namely
-\textsc{NN.TO, RB.TO, RP.CC, CC.WRB, CC.VBG, VBG.RP} 
-are shared by both authors over the first 20 highest items. 
-Noticeable is the frequent appearance of the CC and VBG tag, 
+\textsc{NN.TO, RB.TO, RP.CC, CC.WRB, CC.VBG, VBG.RP}
+are shared by both authors over the first 20 highest items.
+Noticeable is the frequent appearance of the CC and VBG tag,
 corresponding to `coordinating conjunction' and `Verb in gerund or
-past particle' respectively. 
-For the POS tri-grams, the list of shared items decreases and only three remain 
+past particle' respectively.
+For the POS tri-grams, the list of shared items decreases and only three remain
 common to both authors for the first 20: \textsc{DT.NN.TO,  DT.NN.PP, RB.TO.PP}.
-Notable here are sequences involving possessive pronoun (PP) and TO (to) after 
-a noun phrase. 
+Notable here are sequences involving possessive pronoun (PP) and TO (to) after
+a noun phrase.
 %%% Natural language example!!!
 
-The fact that more items are shared for word uni-grams is reflected in the evaluation using 
+The fact that more items are shared for word uni-grams is reflected in the evaluation using
 clustering, shown in table~\ref{tab:results-clust}.
-For clustering we use the features shared by both authors by intersecting both profiles. 
-The validation method used to create individual subsets of the total data set 
-is \emph{Leave-one-out} cross-validation. 
-The results for the Adjusted Rand Index for word uni-grams are consistently high with 
+For clustering we use the features shared by both authors by intersecting both profiles.
+The validation method used to create individual subsets of the total data set
+is \emph{Leave-one-out} cross-validation.
+The results for the Adjusted Rand Index for word uni-grams are consistently high with
 almost all values being around 93\%. In comparison, POS bi-grams fare less well
 with an average of ...
 %%% TODO : mean /std error
 POS tri-grams are slightly better, with an average of ...
-This might be explained by considering that POS bi-grams are a more general 
+This might be explained by considering that POS bi-grams are a more general
 construction than POS tri-grams (there are also less of them) and they might
-be worse in discriminating between authors of similar backgrounds 
-than tri-grams or even word uni-grams. 
+be worse in discriminating between authors of similar backgrounds
+than tri-grams or even word uni-grams.
 
 
-Figure~\ref{fig:dc-unigram-mdsplot} and figure~\ref{fig:dc-unigram-dendo} 
-show the MDS plot and dendrogram corresponding to the shared features of 
+Figure~\ref{fig:dc-unigram-mdsplot} and figure~\ref{fig:dc-unigram-dendo}
+show the MDS plot and dendrogram corresponding to the shared features of
 iteration 27.
-The dendrogram is computed using the ``complete link'' similarity 
-measure.\footnote{All MDS plots and dendrograms 
+The dendrogram is computed using the ``complete link'' similarity
+measure.\footnote{All MDS plots and dendrograms
 were created using Gabmap \cite{nerbonne2011gabmap}: http://www.gabmap.nl/. }
-The two author groups seem to form roughly to clusters. 
-Interestingly, the combined Dickens-Collins piece, \emph{DC1423} is 
-(mis)classified as one of Collins' set. One of the other collaborations 
+The two author groups seem to form roughly to clusters.
+Interestingly, the combined Dickens-Collins piece, \emph{DC1423} is
+(mis)classified as one of Collins' set. One of the other collaborations
 \emph{Dal2324} is also approaching the border, although from the correct
 side. The other collaboration, \emph{Dal28198} lies at the centre of
-Dickens' cluster. 
-Another Collins' piece, \emph{C28367} corresponding to 
-\emph{Rambles Beyond Railways} that appears dangerously close to 
-unfriendly territory has also been noted as suspicious in the 
+Dickens' cluster.
+Another Collins' piece, \emph{C28367} corresponding to
+\emph{Rambles Beyond Railways} that appears dangerously close to
+unfriendly territory has also been noted as suspicious in the
 previous study of Dickens/Collins \cite{Tabata2012}.
-The dendrogram confirms the overall analysis, showing two distinct 
+The dendrogram confirms the overall analysis, showing two distinct
 clusters, with \emph{Dal28198} and \emph{DC1423} being allocated
-to Collins' cluster. 
+to Collins' cluster.
 
 
 
@@ -632,13 +644,13 @@ to Collins' cluster.
 \centering
 \parbox{8cm}{
 \includegraphics[width=8cm,height=4.5cm]{mdsplot/dc-wuni-DC1423.pdf}
-\caption{MDS plot on Dickens and Collins highest shared word uni-grams 
+\caption{MDS plot on Dickens and Collins highest shared word uni-grams
 corresponding to iteration 27.}
 \label{fig:dc-unigram-mdsplot}}
 \qquad
 \begin{minipage}{6cm}
 \includegraphics[width=6cm]{dend/dc-wuni-cl-DC1423.pdf}
-\caption{Dendogram on Dickens and Collins highest shared word uni-grams 
+\caption{Dendogram on Dickens and Collins highest shared word uni-grams
 corresponding to iteration 27}
 \label{fig:dc-unigram-dendo}
 \end{minipage}
@@ -646,19 +658,19 @@ corresponding to iteration 27}
 
 
 \subsection{James vs. Twain} \label{sec:twain-james}
-The James vs. Twain comparison contained 46 documents, where 
-25 belonged to Henry James and 21 to  Mark Twain. 
-As before, we tested three different feature types, word uni-grams, 
-POS bi-grams and POS tri-grams. 
-For POS bi-grams, there was an 46 x 1100 input matrix and for 
-the two other feature types, POS tri-grams and word uni-grams, 
-there was an 46 x 5000 input matrix. 
+The James vs. Twain comparison contained 46 documents, where
+25 belonged to Henry James and 21 to  Mark Twain.
+As before, we tested three different feature types, word uni-grams,
+POS bi-grams and POS tri-grams.
+For POS bi-grams, there was an 46 x 1100 input matrix and for
+the two other feature types, POS tri-grams and word uni-grams,
+there was an 46 x 5000 input matrix.
 The author profiles for POS tri-grams were chosen
 by using a threshold of $\mu_f \times 1.9$ and for
 POS bi-grams and word uni-grams a threshold of $\mu_f \times 1.7$
-was used. 
+was used.
 %(dtm.wuni,5000 1.7)
-%(posbi 1100 1.7) 
+%(posbi 1100 1.7)
 %(dtm.postri,5000,1.9)
 
 \begin{table}[h!]
@@ -667,11 +679,11 @@ was used.
 \caption{James' and Twain's highest rated features }
 \label{tab:results-features-tj}
 \begin{tabular}{lllllll}\toprule[1.2pt]
- \multicolumn{1}{c}{\textbf{No}} & \multicolumn{2}{c}{\textbf{Word unigrams}}&  
+ \multicolumn{1}{c}{\textbf{No}} & \multicolumn{2}{c}{\textbf{Word unigrams}}&
  \multicolumn{2}{c}{\textbf{POS bigrams}} & \multicolumn{2}{c}{\textbf{POS trigrams}}\\
- \cmidrule(r){1-1} 
- \cmidrule(r){2-3} 
-\cmidrule(r){4-5} 
+ \cmidrule(r){1-1}
+ \cmidrule(r){2-3}
+\cmidrule(r){4-5}
  \cmidrule(r){6-7}
     & James	  &  Twain    &   James&  Twain& James	  &  Twain  \\\midrule
 1   &  companion  &  companion  &   NN.CC  &  NN.CC  &   DT.NN.CC   &  CC.VB.DT\\
@@ -699,51 +711,51 @@ was used.
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:results-features-tj} shows the  20 highest rated 
-(in terms of Representativeness/Distinctiveness) 
-features for all three feature types. Each list of top 
+Table~\ref{tab:results-features-tj} shows the  20 highest rated
+(in terms of Representativeness/Distinctiveness)
+features for all three feature types. Each list of top
 features is distinctive with respect to the
-other author in the comparison. 
+other author in the comparison.
 A closer look at common features of Twain and James shows that
-they share 11 out of 20 uni-grams: 
-\textsc{companion, around, and, along, might, declared,  
- everybody, spite, conscious, least, two}. 
+they share 11 out of 20 uni-grams:
+\textsc{companion, around, and, along, might, declared,
+ everybody, spite, conscious, least, two}.
 Of POS bi-grams, 13 out of 20 are common to both authors:
 NN.CC,  CC.VB,  CC.DT, PP.RB, CC.JJ, IN.WDT, RB.CC, CC.CD,
-  TO.WDT, CC.VBD, DT.NNS, NNS.CC, RBR.RB and 
+  TO.WDT, CC.VBD, DT.NNS, NNS.CC, RBR.RB and
  similarly, they share 13 of of the 20 highest rated POS
  tri-grams:  DT.NN.CC, NN.IN.WDT, CC.VB.DT, IN.WDT.PP, NNS.RB.CC,TO.PP.IN,
  NN.RB.CC, NN.CC.VB, NNS.CC.RB, DT.NNS.CC, RB.DT.NNS, NNS.CC.VB,
- CC.DT.NNS. 
- Moreover, for word uni-grams and POS bi-grams, the first three features 
- occur even in the same order. 
- 
+ CC.DT.NNS.
+ Moreover, for word uni-grams and POS bi-grams, the first three features
+ occur even in the same order.
+
  The high number of shared items for all three feature types means
  that case 1 of Distinctiveness prevails in the comparison, meaning that values for shared
  features occur with a very different frequency for each author.
- 
+
  This is consistent with the clustering results shown in table~\ref{tab:results-clust},
  where for all iterations of cross-validation, the result corresponds to
- the ideal clustering result. 
- 
- 
+ the ideal clustering result.
+
+
 Figure~\ref{fig:tj-unigram-mdsplot} and figure~\ref{fig:tj-unigram-dendo}
-show the MDS plot and dendrogram corresponding to the shared word uni-gram 
-features of the first iteration (\emph{J-c}). 
-In both one can observe the formation of distinct clusters for both authors 
-with no misclassified document. 
- 
+show the MDS plot and dendrogram corresponding to the shared word uni-gram
+features of the first iteration (\emph{J-c}).
+In both one can observe the formation of distinct clusters for both authors
+with no misclassified document.
+
 \begin{figure}[h!]
 \centering
 \parbox{8cm}{
 \includegraphics[width=8cm,height=4cm]{mdsplot/tj-wuni-J-c.pdf}
-\caption{MDS plot on James and Twain highest shared word uni-grams 
+\caption{MDS plot on James and Twain highest shared word uni-grams
 corresponding to iteration 1.}
 \label{fig:tj-unigram-mdsplot}}
 \qquad
 \begin{minipage}{6cm}
 \includegraphics[width=6cm]{dend/tj-wuni-cl-Jc.pdf}
-\caption{Dendrogram on James and Twain highest shared word uni-grams 
+\caption{Dendrogram on James and Twain highest shared word uni-grams
 corresponding to iteration 1}
 \label{fig:tj-unigram-dendo}
 \end{minipage}
@@ -751,53 +763,53 @@ corresponding to iteration 1}
 
 \subsection{Discussion}
 The comparison for  both author sets yielded highly distinctive features
-that were well able to separate the two authors in each study. 
-The second experiment opposing Henry James and Mark Twain was 
+that were well able to separate the two authors in each study.
+The second experiment opposing Henry James and Mark Twain was
 even more successful than the one comparing Charles Dickens and Wilkie Collins.
-There might be various reasons for this difference in accuracy. 
+There might be various reasons for this difference in accuracy.
 In terms of stylistics, James and Twain are likely to vary more
-in style (and topic) than Dickens and Collins. 
+in style (and topic) than Dickens and Collins.
 They also wrote for different audiences, while James' books probably
-appealed mostly to the upper classes, Twain enjoyed general 
+appealed mostly to the upper classes, Twain enjoyed general
 popularity. They also did not approve of each other 's work, which
 is less likely for Dickens and Collins, who collaborated
-on at least one work. 
-Additionally, one might consider this supported by the fact that 
-while Dickens and Collins were best separated on word uni-grams, 
-with syntactic structures being less well in separation, which 
+on at least one work.
+Additionally, one might consider this supported by the fact that
+while Dickens and Collins were best separated on word uni-grams,
+with syntactic structures being less well in separation, which
 might be interpreted as a more intrinsic similarity of building
 text than James and Twain, for which any of the three feature types
-returned ideal separation results. 
+returned ideal separation results.
 
-However, one has to consider possible outside influences 
+However, one has to consider possible outside influences
 onto the two data sets, such as the prosaic factor of data set size
-and the time difference. 
-Representativeness and Distinctiveness normalises for the number of 
+and the time difference.
+Representativeness and Distinctiveness normalises for the number of
 comparisons and differences in set size between the compared authors.
-Yet, there will be a difference between small and bigger sets of an 
-author with respect to a particular feature. If the set is small, 
-it is more probable that values over different documents of 
-an author \emph{agree} for a particular feature, whereas the 
-larger a set becomes, the more different documents have to be 
-\emph{satisfied}. 
+Yet, there will be a difference between small and bigger sets of an
+author with respect to a particular feature. If the set is small,
+it is more probable that values over different documents of
+an author \emph{agree} for a particular feature, whereas the
+larger a set becomes, the more different documents have to be
+\emph{satisfied}.
 Thus, the slight difference in data set size 54 compared to 46
 might have influenced the favourable result for the James/Twain
-comparison. 
+comparison.
 The other less tangible difference between the sets is time and
 cultural differences in terms of 'Britishness' vs 'Americanness'.
 
 Figure~\ref{chron:lifeline} shows the lifespan of all four authors
-with a considerable overlap of all four writers. 
-If there is a difference in the way stylistic change happened 
+with a considerable overlap of all four writers.
+If there is a difference in the way stylistic change happened
 for British and American writers at the time, since
-we select consistent features over their whole life's works, 
+we select consistent features over their whole life's works,
 if somehow the two Americans changed considerably \emph{more}
-over time, this should rather introduce less consistency in 
-their own works and more difficulty in separating them from others. 
+over time, this should rather introduce less consistency in
+their own works and more difficulty in separating them from others.
 
 
 % \begin{itemize}
-%  \item Dickens: 1812 -- 1870 
+%  \item Dickens: 1812 -- 1870
 %  \item Collins: 1824 -- 1889
 %  \item Twain: 1835 -- 1910
 %  \item James: 1843 -- 1916
@@ -821,8 +833,8 @@ their own works and more difficulty in separating them from others.
 
 \end{chronology}
 
- 
- 
+
+
 \begin{chronology}[10]{1812}{1920}{15cm}{10cm}
 
 
@@ -845,14 +857,14 @@ their own works and more difficulty in separating them from others.
 
 
 \begin{table}[h!]
-\small 
+\small
 
 \caption{Results of Adjusted Rand Index for feature types of word uni-grams, POS bi-grams and POS tri-grams.}
 \label{tab:results-clust}
  \begin{tabular}{lrrrlrrr} \toprule[1.2pt]
   \multicolumn{4}{c}{\textbf{Dickens vs. Collins}} & \multicolumn{4}{c}{\textbf{James vs. Twain}} \\
-   \cmidrule(r){1-4} 
-    \cmidrule(r){5-8} 
+   \cmidrule(r){1-4}
+    \cmidrule(r){5-8}
 Test Doc (D./C.) & word unig. & POS bigr. & POS trigr. & Test Doc (J./T.) & word unig. & POS bigr. & POS trigr.\\ \midrule
 D1023    & 0.93 & 0.79 & 0.85 &        J-c    &    1    &    1    &    1   \\
 D1400    & 0.93 & 0.66 & 0.93 &      J-itc    &    1    &    1    &    1   \\
@@ -922,8 +934,8 @@ C7894    & 0.93 & 0.79 & 0.85 &             &         &         & 		\\
 %\nocite{Sag} % items in your bibliography file that are not cited in your text
 
 
-\bibliographystyle{clin} 
-\bibliography{biblio}  
+\bibliographystyle{clin}
+\bibliography{biblio}
 
 
 
