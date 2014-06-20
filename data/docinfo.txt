@@ -1,0 +1,101 @@
+Author	Title	Abbreviation	Notes
+James	The American	J-ta	
+James	Watch and Ward	J-waw	
+James	The Europeans	J-te	
+James	Confidence	J-c	
+James	Washington Square	J-ws	
+James	Portrait of a Lady	J-poal	
+James	Roderick Hudson	J-rh	
+James	The Bostonians	J-tb	
+James	Princess Casamassima	J-pc	
+James	The Reverberator	J-tr	
+James	The Aspern Papers	J-tap	 novella
+James	The Tragic Muse	J-ttm	
+James	The Other House	J-toh	
+James	What Maisie Knew	J-wmk	
+James	The Spoils of Poynton	J-tsop	
+James	Turn of the Screw	J-tots	 novella
+James	The Awkward Age	J-taa	
+James	The Sacred Fount	J-tsf	
+James	The Wings of the Dove	J-twotd	
+James	The Golden Bowl	J-tgb	
+James	The Ambassadors	J-tamb	
+James	The Outcry	J-to	
+James	The Ivory Tower	J-tit	unfinished
+James	The Sense of the Past	J-tsotp	unfinished
+James	In the Cage	J-itc	novella
+Twain	Innocents Abroad	T-ia	
+Twain	The Gilded Age: A Tale of Today	T-tgaatot	
+Twain	Sketches New and Old	T-snao	
+Twain	The Adventures of Tom Sawyer	T-taots	
+Twain	A Tramp Abroad	T-ata	
+Twain	Roughing It	T-ri	
+Twain	The Prince and the Pauper	T-tpatp	
+Twain	Life on the Mississippi	T-lotm	
+Twain	The Adventures of Huckleberry Finn	T-taohf	
+Twain	A Connecticut Yankee in King Arthur's Court	 T-acyikac	
+Twain	The American Claimant	T-tac	
+Twain	The Tragedy of Pudd'nhead Wilson	T-ttopw	
+Twain	Tom Sawyer Abroad	T-tsa	
+Twain	Tom Sawyer Detective	T-tsd	
+Twain	Personal Recollections of Joan Arc	T-proja	
+Twain	Following the Equator: A Journey Around the World	T-fteajatw	
+Twain	Those Extraordinary Twins	T-tet	
+Twain	A Double Barrelled Detective Story	T-adbds	
+Twain	Christian Science	T-cs	
+Twain	Chapters from My Autobiography	T-cfma	
+Twain	The Mysterious Stranger	T-tms	
+Collins	After Dark	C1626	
+Collins	Antonina	C3606	
+Collins	Armadale	C1895	
+Collins	Man and Wife	C1586	
+Collins	Little Novels	C1630	
+Collins	Jezebel's Daughter	C3633	
+Collins	I Say No	C1629	
+Collins	Hide and Seek	C7893	
+Collins	Basil	C4605	
+Collins	A Rogue's Life	C1588	
+Collins	The Woman in White	C583	
+Collins	The Two Destinies	C1624	
+Collins	The Queen of Hearts	C1917	
+Collins	The New Magdalen	C1623	
+Collins	The Moonstone	C155	
+Collins	The Legacy of Cain	C1975	
+Collins	The Law and the Lady	C1622	
+Collins	The Haunted Hotel: A Mystery of Modern Venice	C170	
+Collins	The Fallen Leaves	C7894	
+Collins	The Evil Genius	C1627	
+Collins	No Name	C1438	
+Collins	Poor Miss Finch	C3632	
+Collins	Rambles Beyond Railways	C28367	
+Collins	The Black Robe	C1587	
+Collins	Miss or Mrs.?	C1621	
+Collins	My Lady's Money	C1628	
+Collins	The Dead Alive	C7891	
+Dickens	Bleak House	D1023	
+Dickens	Great Expectations	D1400	
+Dickens	Little Dorrit	D963	
+Dickens	David Copperfield	D766	
+Dickens	A Christmas Carol	D19337	
+Dickens	Life And Adventures Of Martin Chuzzlewit	D968	
+Dickens	The Mystery of Edwin Drood	D564	
+Dickens	A Tale of Two Cities	D98	
+Dickens	Master Humphrey's Clock	D588	
+Dickens	The Battle of Life: A Love Story	D40723	
+Dickens	Life And Adventures Of Nicholas Nickleby	D967	
+Dickens	Barnaby Rudge	D917	
+Dickens	Sketches of Young Couples	D916	
+Dickens	The Uncommercial Traveller	D914	
+Dickens	Our Mutual Friend	D883	
+Dickens	Pictures From Italy	D650	
+Dickens	Sketches by Boz	D882	
+Dickens	A Child's History of England	D699	
+Dickens	Reprinted Pieces	D872	
+Dickens	Dombey and Son	D821	
+Dickens	Oliver Twist	D730	
+Dickens	The Old Curiosity Shop	D700	
+Dickens	American Notes	D675	
+Dickens	The Pickwick Papers	D580	
+Dickens (et al.)	A Budget of Christmas Tales	Dal28198	
+Dickens (et al.)	A House to Let	Dal2324	
+Dickens (/Collins)	No Thoroughfare	DC1423	
