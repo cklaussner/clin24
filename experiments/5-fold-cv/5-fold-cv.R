@@ -10,9 +10,14 @@ source("../../code/eval/n-fold-rd.R")
 
 data <- as.matrix(read.table(infile))
 
+if (grepl('^DC', basename)) {
+    # exclude multi-author work 
+    data <- data[grep('^[DC][0-9]', rownames(data)),]
+}
+
 rd.name <- paste('rd', gsub('-', '.', basename), sep='.')
 assign(rd.name,
-       n.fold.RD(data, 
+       n.fold.RD(data,
                  substr(rownames(data), 1, 1) == set1author,
                  substr(rownames(data), 1, 1) != set1author)
 )

@@ -15,24 +15,6 @@ n.fold.RD <- function(data,
     foldsizeS1 <- nSet1 / folds
     foldsizeS2 <- nSet2 / folds
 
-#     docdif <- list()    # this stores doc-doc differences per term 
-#                         # (or feature for speed
-# 
-#     for (term in colnames(data)) {
-#         docdif[[term]] <- matrix(NA, 
-#                                nrow = length(alldocs), 
-#                                ncol = length(alldocs),
-#                                dimnames = list(alldocs, alldocs))
-#         for (doc1 in c(set1docs, set2docs)) {
-#             dif.sum <- 0
-#             for (doc2 in c(set1docs, set2docs)) {
-#                 dif <- abs(data[doc1, term] - data[doc2, term])
-#                 dif.sum = dif.sum + dif
-#                 docdif[[term]][doc1, doc2] <- dif.sum
-#             }
-#         }
-#     }
-
     rd <- list()        # we will save and return the results here
 
     for (fold in 1:folds) {
@@ -96,28 +78,33 @@ n.fold.RD <- function(data,
 
         norm.d <- 1 / (set1.trn.n * set2.trn.n)
 
-        rd[[fold.name]]$r <- list(set1=c(), set2=c())
-        rd[[fold.name]]$d <- c()
-        rd[[fold.name]]$zr <- list(set1=c(), set2=c())
-        rd[[fold.name]]$zd <- c()
+        rd[[fold.name]]$r.set1 <- c()   # representativeness for set1
+        rd[[fold.name]]$r.set2 <- c()   # and set 2
+        rd[[fold.name]]$d <- c()        # distinctiveness
+        rd[[fold.name]]$zr.set1 <- c()  # z-score for r.set1
+        rd[[fold.name]]$zr.set2 <- c()  # z-score for r.set2
+        rd[[fold.name]]$zd <- c()       # z-score for distinctiveness
+        # the following two are just difference `d - r', we calculate
+        # here for conveninece
+        rd[[fold.name]]$zrd.set1 <- c() # combined r&d for set1 (z-score only)
+        rd[[fold.name]]$zrd.set2 <- c() # combined r&d for set2 (z-score only)
         for (term in colnames(data)) {
-            # tmp <- rd.sum(set1[set1.trn,term],set2[set2.trn,term])
-            # rd[[fold.name]]$r$set1[term] <- norm.r.set1 * tmp[1]
-            # rd[[fold.name]]$r$set2[term] <- norm.r.set2 * tmp[2]
-            # rd[[fold.name]]$d[term] <- norm.d * tmp[3]
             set1.dif <- within.diff(set1[set1.trn,term])
             set2.dif <- within.diff(set2[set2.trn,term])
             set12.dif <- between.diff(set1[set1.trn,term],set2[set2.trn,term])
-            rd[[fold.name]]$r$set1[term] <- norm.r.set1 * sum(set1.dif)
-            rd[[fold.name]]$r$set2[term] <- norm.r.set2 * sum(set2.dif)
+            rd[[fold.name]]$r.set1[term] <- norm.r.set1 * sum(set1.dif)
+            rd[[fold.name]]$r.set2[term] <- norm.r.set2 * sum(set2.dif)
             rd[[fold.name]]$d[term] <- norm.d * sum(set12.dif)
 
             m <- mean(c(set1.dif, set2.dif, set12.dif))
             s <- sd(c(set1.dif, set2.dif, set12.dif))
 
-            rd[[fold.name]]$zr$set1[term] <- (rd[[fold.name]]$r$set1[term] - m) / s
-            rd[[fold.name]]$zr$set2[term] <- (rd[[fold.name]]$r$set2[term] - m) / s
+            rd[[fold.name]]$zr.set1[term] <- (rd[[fold.name]]$r.set1[term] - m) / s
+            rd[[fold.name]]$zr.set2[term] <- (rd[[fold.name]]$r.set2[term] - m) / s
             rd[[fold.name]]$zd[term] <- (rd[[fold.name]]$d[term] - m) / s
+
+            rd[[fold.name]]$zrd.set1[term] <- rd[[fold.name]]$zd[term] - rd[[fold.name]]$zr.set1[term] 
+            rd[[fold.name]]$zrd.set2[term] <- rd[[fold.name]]$zd[term] - rd[[fold.name]]$zr.set2[term] 
         }
     }
 
@@ -127,9 +114,9 @@ n.fold.RD <- function(data,
 
 #
 # This is a re-parametrized version of the represent() function.  The
-# single argument is the a vector of values (frequencies) for a single
-# feature (term). The return value is the sum of the absolute differences
-# within the document set.
+# single argument is a vector of values (frequencies) for a single
+# feature (term). The return value is the absolute differences
+# within the document set (as a vector).
 #
 within.diff <- function(docset) {
     ret <- c()
@@ -145,8 +132,8 @@ within.diff <- function(docset) {
 #
 # This is a re-parametrized version of the distinct() function.  The
 # single arguments are two vectors of values (frequencies) for a
-# single feature (term). The return value is the sum of the absolute
-# differences between the two document sets.
+# single feature (term). The return value is the absolute
+# differences between the two document sets (as a vector).
 #
 between.diff <- function(docs1, docs2) {
     ret <- c()
@@ -191,28 +178,3 @@ rd.sum <- function(docs1, docs2) {
     }
     return(c(rsum.set1, rsum.set2, dsum))
 }
-
-
-#
-# This is version is a dynamic programming implementation
-# it should speed up the calculations substantially, but currently it is broken.
-#
-# repr.sum <- function(part1, part2, docdif) {
-#     rsum <- 0
-#     for (doc in c(part1, part2)) {
-#         dif.part1 <- ifelse(is.null(part1),
-#                             0,
-#                             docdif[doc, part1[length(part1)]]
-#         )
-#         cat("---dif:", " (", doc, ")", dif.part1, docdif[doc, part1[length(part1)]], "-", docdif[doc, part1[1]])
-#         dif.part2 <- ifelse(is.null(part2),
-#                             0, 
-#                             docdif[doc, part2[length(part2)]] - 
-#                             docdif[doc, part2[1]]
-#         )
-#         cat(" +", dif.part2, docdif[doc, part2[length(part2)]], "-", docdif[doc, part2[1]], "\n")
-#         rsum <- rsum + dif.part1 + dif.part2
-#     }
-#     print(docdif)
-#     return(rsum)
-# }

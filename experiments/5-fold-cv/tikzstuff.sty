@@ -1,0 +1,44 @@
+%
+% tikz related settings
+%
+\usepackage{tikz}
+\usetikzlibrary{positioning,automata,external}
+\tikzset{external/optimize=false,external/system call={xelatex \tikzexternalcheckshellescape -halt-on-error -jobname "\image" "\texsource" && convert -density 300 "\image.pdf" "\image.png"}} 
+\tikzset{png export/.style={/pgf/images/external info,/pgf/images/include external/.code={%
+            \includegraphics{##1.png}%
+        }%
+    }%
+}%
+\tikzset{pdf export/.style={/pgf/images/external info,/pgf/images/include external/.code={%
+            \includegraphics{##1.pdf}%
+        }
+    }
+}
+
+\newcommand{\SetTikzExport}[1]{\tikzset{#1 export}}
+\newcommand{\ReSetTikzExport}{\SetTikzExport{pdf}}
+
+\@ifpackageloaded{tex4ht}{%
+    \tikzexternalize[prefix=,mode=only graphics]
+    \SetTikzExport{png}
+    \renewcommand{\ReSetTikzExport}{\SetTikzExport{png}}
+}%
+{%
+    \tikzexternalize[prefix=]%
+    \tikzset{external/mode=list and make}%
+    \SetTikzExport{pdf}
+}
+
+\newcommand{\onlyhtml}[1]{%
+    \ifdef{\HCode}{#1}{}%
+}
+
+% 
+% This makes sure that the correct external filename and dependencies
+% are used, for external tikz images.
+%  
+\newcommand{\tikzinput}[1]{%
+\tikzsetnextfilename{#1}%
+\tikzexternalfiledependsonfile{#1}{#1.tikz.tex}%
+\input{#1.tikz.tex}%
+}

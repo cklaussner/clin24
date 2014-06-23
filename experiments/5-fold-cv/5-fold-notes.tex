@@ -1,0 +1,99 @@
+\documentclass[a4paper]{article}
+\usepackage{ifxetex}
+\ifxetex
+ \usepackage[no-math]{fontspec}
+ \defaultfontfeatures{Ligatures=TeX}
+ \setmainfont{Times New Roman}
+\else
+ \usepackage{times}
+ \usepackage[utf8]{inputenc}
+\fi
+\usepackage[american]{babel}
+
+\usepackage{euler}
+\usepackage{xcolor}
+\usepackage{booktabs}
+
+%\usepackage{tikzstuff}
+\usepackage{graphicx}
+
+\newcommand{\TITLE}{R\&D for author profiles: notes on clustering evaluation}
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+linkcolor=[rgb]{0 0 0.2},
+urlcolor=[rgb]{0 0 0.2},
+filecolor=[rgb]{0 0 0.2},
+citecolor=[rgb]{0 0 0.2},
+pdftitle={\TITLE},
+pdfauthor={Çağrı Çöltekin}
+%pdfauthor={Ça\u{g}r\i{} Çöltekin}
+}
+
+\usepackage[style=authoryear,backend=biber]{biblatex}
+%
+% comment out the above, and uncomment the following for apa-like
+% citations. Note the dependence on babel above.
+%
+%\usepackage[style=apa,backend=biber]{biblatex}
+%\DeclareLanguageMapping{american}{american-apa}
+
+\addbibresource{\jobname.bib}
+
+\title{\TITLE}
+%\author{Çağrı Çöltekin}
+
+\newcommand{\rd}{R\&D{}}
+
+\begin{document}
+\maketitle
+\pdfbookmark[0]{\TITLE}{\TITLE}
+
+The following are informal notes from some of experiments with the authorship data we are working on.
+
+Our aim is to find representative (R) and distinctive (D) items/features for an author.
+Short of a gold standard that defines what is a representative feature for a(ny) author,
+we resort for evaluating these items with clustering.
+The idea is that if a feature is really \rd{} for an author,
+it should be a good feature for identifying the authors.
+
+In the two-author setting we use so far,
+our approach so far has been to find \rd{} features for both authors
+(the author profiles) separately,
+and pick common elements from both profiles for cluster evaluation.
+The sizes of the profiles were chosen based on a threshold
+(about twice the mean \rd{} value).
+And the criteria for choosing the best terms/features were motivated by linearly combined \rd{} values.
+
+In what follows, we will go through a couple of experiments investigating the following:
+
+\begin{itemize}
+    \item profile size
+    \item the separation ability of \rd{}-based profiles
+    \item the effect of combined score
+\end{itemize}
+
+\section*{Profile size}
+
+We expect the \rd{} score to be higher for terms or (hopefully) syntactics constructions used by the author distinctively and consistently.
+It would be interesting to know how many of these items are usable (this is in a way the same question we've been asking with Jelena in dialect discrimination).
+
+The problem is rather complicated.
+As in any setting with dependent items, 
+discriminative power of two highly discriminative items may not just add up.
+Different number of items may be more suitable in different settings.
+In any case, we expect more items to be useful (allowing better discrimination/attribution),
+but too many would be confusing for the clustering algorithms.
+
+\includegraphics[width=\linewidth]{DC-wuni-rfl-psize-ri-1-10}\\
+\includegraphics[width=\linewidth]{DC-posbi-rfl-psize-ri-1-10}\\
+\includegraphics[width=\linewidth]{DC-postri-rfl-psize-ri-1-10}\\
+\includegraphics[width=\linewidth]{TJ-wuni-rfl-5000-psize-ri-1-10}\\
+\includegraphics[width=\linewidth]{TJ-posbi-rfl-psize-ri-1-10}\\
+\includegraphics[width=\linewidth]{TJ-postri-rfl-5000-psize-ri-1-10}\\
+
+
+
+\nocite{prokic2012}
+\printbibliography
+\end{document}
