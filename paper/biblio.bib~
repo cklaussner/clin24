@@ -86,3 +86,18 @@
   year={2007}
 }
 
+@article{nerbonne2011gabmap,
+  title={Gabmap-a web application for dialectology},
+  author={Nerbonne, John and Colen, Rinke and Gooskens, Charlotte and Kleiweg, Peter and Leinonen, Therese},
+  journal={Dialectologia: revista electr{\`o}nica},
+  pages={65--89},
+  year={2011}
+}
+@inproceedings{Hoover2012,
+	author = "Hoover, David L.",
+	booktitle = "{Proceedings of the Digital Humanities 2012}",
+	series = "{DH2012}",
+	title = "{The Rarer They Are, the More There Are, the Less They Matter}",
+	year = "2012"
+}
+

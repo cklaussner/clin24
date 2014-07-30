@@ -4,45 +4,45 @@ The style file: clin.bst
 Database file #1: biblio.bib
 Warning--empty publisher in mahlberg2007clusters
 Warning--empty publisher in nerbonne2011gabmap
-You've used 9 entries,
+You've used 10 entries,
             2946 wiz_defined-function locations,
-            683 strings with 6016 characters,
-and the built_in function-call counts, 4623 in all, are:
-= -- 376
-> -- 251
-< -- 7
-+ -- 51
-- -- 51
-* -- 326
-:= -- 740
-add.period$ -- 10
-call.type$ -- 9
-change.case$ -- 71
-chr.to.int$ -- 9
-cite$ -- 11
-duplicate$ -- 343
-empty$ -- 328
-format.name$ -- 102
-if$ -- 954
+            687 strings with 6114 characters,
+and the built_in function-call counts, 4994 in all, are:
+= -- 407
+> -- 266
+< -- 8
++ -- 54
+- -- 54
+* -- 343
+:= -- 807
+add.period$ -- 11
+call.type$ -- 10
+change.case$ -- 79
+chr.to.int$ -- 10
+cite$ -- 12
+duplicate$ -- 371
+empty$ -- 361
+format.name$ -- 108
+if$ -- 1032
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 62
-newline$ -- 13
-num.names$ -- 54
-pop$ -- 107
+missing$ -- 66
+newline$ -- 14
+num.names$ -- 60
+pop$ -- 116
 preamble$ -- 1
-purify$ -- 72
+purify$ -- 80
 quote$ -- 0
-skip$ -- 107
+skip$ -- 116
 stack$ -- 0
-substring$ -- 216
-swap$ -- 140
+substring$ -- 227
+swap$ -- 147
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 32
+type$ -- 36
 warning$ -- 2
-while$ -- 39
+while$ -- 42
 width$ -- 0
-write$ -- 138
+write$ -- 153
 (There were 2 warnings)
